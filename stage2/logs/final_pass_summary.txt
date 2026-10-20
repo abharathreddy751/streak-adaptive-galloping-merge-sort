@@ -1,0 +1,10 @@
+existing final_audit.py exit=0
+original final_audit.txt restored (sha ok)
+SUMMARY: 0 FAIL
+independent_audit exit=0 SUMMARY: PASS 63  FAIL 0  DISCREPANCY 3  INFO 11
+string audit exit=0 SUMMARY: PASS 19  FAIL 0  DISCREPANCY 0  INFO 9
+test_base exit=0 test_sort: 1502829 checks passed, 0 failed
+test_all exit=0 test_sort: 2100389 checks passed, 0 failed
+test_sag exit=0 test_sag: 265609 checks passed, 0 failed
+test_sagt exit=0 test_sagt: 760686 checks passed, 0 failed
+demo exit=0 all outputs equal the reference stable sort: YES

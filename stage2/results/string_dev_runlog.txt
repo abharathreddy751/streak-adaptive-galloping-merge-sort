@@ -1,0 +1,68 @@
+
+# run started 2026-10-20 10:10:41 manifest=dev sha256=0c13d2b1d00f94a2430d546a46eb1be69a9f89e82ba0a05cf83915c7c2b6c18d free_mb=1421
+# platform: Windows-10-10.0.26200-SP0 python 3.11.9 exe: D:\new dsa project\stage2\string_exp\bench_string.exe
+D:\new dsa project\stage2\string_exp\bench_string.exe --family perm --param 0 --n 65536 --seed 6000000 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_perm0_n16 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=2.4s free_mb_before=1433
+  [bench_string] cell=STRDEV_perm0_n16 family=perm param=0 n=65536 seed=6000000 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_perm0_n16 done rc=0 (H=14.676 H*=14.670 runs=27131)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family perm --param 0 --n 262144 --seed 6000001 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_perm0_n18 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=14.1s free_mb_before=1433
+  [bench_string] cell=STRDEV_perm0_n18 family=perm param=0 n=262144 seed=6000001 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_perm0_n18 done rc=0 (H=16.673 H*=16.671 runs=108338)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family few --param 3 --n 65536 --seed 6000010 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_few3_n16 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=1.2s free_mb_before=1807
+  [bench_string] cell=STRDEV_few3_n16 family=few param=3 n=65536 seed=6000010 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_few3_n16 done rc=0 (H=14.280 H*=1.585 runs=21684)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family few --param 3 --n 262144 --seed 6000011 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_few3_n18 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=5.6s free_mb_before=1815
+  [bench_string] cell=STRDEV_few3_n18 family=few param=3 n=262144 seed=6000011 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_few3_n18 done rc=0 (H=16.285 H*=1.585 runs=86998)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family few --param 32 --n 65536 --seed 6000020 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_few32_n16 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=1.8s free_mb_before=1814
+  [bench_string] cell=STRDEV_few32_n16 family=few param=32 n=65536 seed=6000020 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_few32_n16 done rc=0 (H=14.670 H*=5.000 runs=27037)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family few --param 32 --n 262144 --seed 6000021 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_few32_n18 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=9.4s free_mb_before=1814
+  [bench_string] cell=STRDEV_few32_n18 family=few param=32 n=262144 seed=6000021 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_few32_n18 done rc=0 (H=16.670 H*=5.000 runs=108132)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family few --param 512 --n 65536 --seed 6000030 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_few512_n16 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=2.1s free_mb_before=1962
+  [bench_string] cell=STRDEV_few512_n16 family=few param=512 n=65536 seed=6000030 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_few512_n16 done rc=0 (H=14.668 H*=8.995 runs=27005)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family few --param 512 --n 262144 --seed 6000031 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_few512_n18 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=13.6s free_mb_before=1979
+  [bench_string] cell=STRDEV_few512_n18 family=few param=512 n=262144 seed=6000031 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_few512_n18 done rc=0 (H=16.674 H*=8.998 runs=108397)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family zipf --param 256 --n 65536 --seed 6000040 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_zipf256_n16 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=2.2s free_mb_before=2147
+  [bench_string] cell=STRDEV_zipf256_n16 family=zipf param=256 n=65536 seed=6000040 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_zipf256_n16 done rc=0 (H=14.659 H*=6.210 runs=26881)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family zipf --param 256 --n 262144 --seed 6000041 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_zipf256_n18 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=10.8s free_mb_before=2152
+  [bench_string] cell=STRDEV_zipf256_n18 family=zipf param=256 n=262144 seed=6000041 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_zipf256_n18 done rc=0 (H=16.660 H*=6.226 runs=107604)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family mixture --param 16 --n 65536 --seed 6000050 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_mixture16_n16 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=1.9s free_mb_before=2476
+  [bench_string] cell=STRDEV_mixture16_n16 family=mixture param=16 n=65536 seed=6000050 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_mixture16_n16 done rc=0 (H=14.664 H*=9.837 runs=26947)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family mixture --param 16 --n 262144 --seed 6000051 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_mixture16_n18 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=10.6s free_mb_before=2445
+  [bench_string] cell=STRDEV_mixture16_n18 family=mixture param=16 n=262144 seed=6000051 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_mixture16_n18 done rc=0 (H=16.665 H*=10.836 runs=107885)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family runs --param 16 --n 65536 --seed 6000060 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_runs16_n16 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=0.8s free_mb_before=2741
+  [bench_string] cell=STRDEV_runs16_n16 family=runs param=16 n=65536 seed=6000060 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_runs16_n16 done rc=0 (H=3.215 H*=14.561 runs=16)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family runs --param 16 --n 262144 --seed 6000061 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_runs16_n18 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=3.6s free_mb_before=2735
+  [bench_string] cell=STRDEV_runs16_n18 family=runs param=16 n=262144 seed=6000061 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_runs16_n18 done rc=0 (H=3.560 H*=16.631 runs=16)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family nearly --param 0.05 --n 65536 --seed 6000070 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_nearly0p05_n16 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=1.3s free_mb_before=2823
+  [bench_string] cell=STRDEV_nearly0p05_n16 family=nearly param=0.05 n=65536 seed=6000070 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_nearly0p05_n16 done rc=0 (H=12.054 H*=12.056 runs=5925)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family nearly --param 0.05 --n 262144 --seed 6000071 --reps 7 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRDEV_nearly0p05_n18 --csv D:\new dsa project\stage2\results\string_dev.csv --pin auto --prefix 240
+  exit=0 wall=6.5s free_mb_before=2831
+  [bench_string] cell=STRDEV_nearly0p05_n18 family=nearly param=0.05 n=262144 seed=6000071 prefix=240 reps=7 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRDEV_nearly0p05_n18 done rc=0 (H=14.050 H*=14.050 runs=23750)
+# finished 2026-10-20 10:12:09 failures=0

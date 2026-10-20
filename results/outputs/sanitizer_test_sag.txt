@@ -1,0 +1,22 @@
+# ASan+UBSan: test_sag (g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0)
+== test_sag (extension) ==
+  per-merge (4/3) bound checked on 65459 merges
+    few      p=2      n=65536    base=7.086  SAG=6.042  (comparisons/n)  ratio=0.853
+    few      p=2      n=524288   base=7.101  SAG=6.047  (comparisons/n)  ratio=0.852
+    few      p=3      n=65536    base=8.246  SAG=6.764  (comparisons/n)  ratio=0.820
+    few      p=3      n=524288   base=8.272  SAG=6.773  (comparisons/n)  ratio=0.819
+    few      p=16     n=65536    base=11.983  SAG=9.145  (comparisons/n)  ratio=0.763
+    few      p=16     n=524288   base=12.122  SAG=9.154  (comparisons/n)  ratio=0.755
+    few      p=256    n=65536    base=14.709  SAG=13.036  (comparisons/n)  ratio=0.886
+    few      p=256    n=524288   base=16.740  SAG=13.161  (comparisons/n)  ratio=0.786
+    few      p=4096   n=65536    base=14.721  SAG=14.721  (comparisons/n)  ratio=1.000
+    few      p=4096   n=524288   base=17.719  SAG=16.922  (comparisons/n)  ratio=0.955
+    zipf     p=1024   n=65536    base=13.804  SAG=11.583  (comparisons/n)  ratio=0.839
+    zipf     p=1024   n=524288   base=15.385  SAG=11.887  (comparisons/n)  ratio=0.773
+    mixture  p=64     n=65536    base=13.648  SAG=12.403  (comparisons/n)  ratio=0.909
+    mixture  p=64     n=524288   base=15.647  SAG=13.942  (comparisons/n)  ratio=0.891
+    alternation long=10    n=6600     naive=13190 base=13190 SAG=13190
+    alternation long=50    n=30600    naive=61150 base=61150 SAG=61150
+    alternation long=400   n=240600   naive=480800 base=443660 SAG=252302
+    alternation long=3000  n=1800600  naive=3598200 base=2079733 SAG=1816016
+test_sag: 265609 checks passed, 0 failed

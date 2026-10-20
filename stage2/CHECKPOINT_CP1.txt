@@ -1,0 +1,4 @@
+CP1 final checkpoint (taken after all stage-2 documents; this file is written afterwards and is not inside the zip)
+zip: D:\new dsa project_CHECKPOINTS\CP1_stage2_final_20261020_105535.zip
+zip SHA-256: 84517a4ae6a75c7be406a40c59ea3438c06ac5d04800184b531586312aaad66d
+files: 235, read-back verification mismatches: 0

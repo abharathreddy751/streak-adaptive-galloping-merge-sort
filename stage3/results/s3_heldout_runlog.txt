@@ -1,0 +1,204 @@
+
+# run started 2026-10-20 23:23:27 manifest=heldout sha256=aecefbd7b2482a66b03800505abc23bfaccf7e2d75b0e53c7d1d079b29060b85 free_mb=2684
+# platform: Windows-10-10.0.26200-SP0 python 3.11.9 exe: D:\new dsa project\stage3\string3\bench_string3.exe
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family perm --param 0 --n 131072 --seed 7300000 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_perm0_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=4.9s free_mb_before=2684
+  [bench_string3] cell=S3H_S_perm0_n17 style=S family=perm param=0 n=131072 seed=7300000 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_perm0_n17 done rc=0 (H=15.671 H*=15.671 runs=54104 mean_len=10.0 cost_B=3.7)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family perm --param 0 --n 524288 --seed 7300001 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_perm0_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=17.1s free_mb_before=2533
+  [bench_string3] cell=S3H_S_perm0_n19 style=S family=perm param=0 n=524288 seed=7300001 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_perm0_n19 done rc=0 (H=17.672 H*=17.673 runs=216518 mean_len=10.0 cost_B=4.0)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family few --param 2 --n 131072 --seed 7300010 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_few2_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=1.9s free_mb_before=2068
+  [bench_string3] cell=S3H_S_few2_n17 style=S family=few param=2 n=131072 seed=7300010 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_few2_n17 done rc=0 (H=14.836 H*=1.000 runs=32714 mean_len=12.0 cost_B=12.0)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family few --param 2 --n 524288 --seed 7300011 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_few2_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=5.4s free_mb_before=2036
+  [bench_string3] cell=S3H_S_few2_n19 style=S family=few param=2 n=524288 seed=7300011 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_few2_n19 done rc=0 (H=16.842 H*=1.000 runs=131228 mean_len=9.0 cost_B=9.0)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family few --param 16 --n 131072 --seed 7300020 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_few16_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=3.0s free_mb_before=2168
+  [bench_string3] cell=S3H_S_few16_n17 style=S family=few param=16 n=131072 seed=7300020 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_few16_n17 done rc=0 (H=15.660 H*=4.000 runs=53801 mean_len=9.2 cost_B=9.2)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family few --param 16 --n 524288 --seed 7300021 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_few16_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=9.0s free_mb_before=2024
+  [bench_string3] cell=S3H_S_few16_n19 style=S family=few param=16 n=524288 seed=7300021 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_few16_n19 done rc=0 (H=17.658 H*=4.000 runs=214866 mean_len=10.7 cost_B=10.7)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family few --param 256 --n 131072 --seed 7300030 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_few256_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=3.6s free_mb_before=2282
+  [bench_string3] cell=S3H_S_few256_n17 style=S family=few param=256 n=131072 seed=7300030 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_few256_n17 done rc=0 (H=15.673 H*=7.999 runs=54189 mean_len=10.0 cost_B=10.0)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family few --param 256 --n 524288 --seed 7300031 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_few256_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=11.5s free_mb_before=2178
+  [bench_string3] cell=S3H_S_few256_n19 style=S family=few param=256 n=524288 seed=7300031 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_few256_n19 done rc=0 (H=17.674 H*=8.000 runs=216822 mean_len=10.2 cost_B=10.2)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family zipf --param 1024 --n 131072 --seed 7300040 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_zipf1024_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=3.5s free_mb_before=2336
+  [bench_string3] cell=S3H_S_zipf1024_n17 style=S family=zipf param=1024 n=131072 seed=7300040 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_zipf1024_n17 done rc=0 (H=15.668 H*=7.503 runs=54024 mean_len=9.8 cost_B=9.8)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family zipf --param 1024 --n 524288 --seed 7300041 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_zipf1024_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=11.2s free_mb_before=2365
+  [bench_string3] cell=S3H_S_zipf1024_n19 style=S family=zipf param=1024 n=524288 seed=7300041 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_zipf1024_n19 done rc=0 (H=17.665 H*=7.509 runs=215704 mean_len=10.7 cost_B=10.7)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family mixture --param 64 --n 131072 --seed 7300050 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_mixture64_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=3.7s free_mb_before=2399
+  [bench_string3] cell=S3H_S_mixture64_n17 style=S family=mixture param=64 n=131072 seed=7300050 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_mixture64_n17 done rc=0 (H=15.672 H*=11.337 runs=54127 mean_len=10.0 cost_B=6.8)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family mixture --param 64 --n 524288 --seed 7300051 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_mixture64_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=12.4s free_mb_before=2107
+  [bench_string3] cell=S3H_S_mixture64_n19 style=S family=mixture param=64 n=524288 seed=7300051 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_mixture64_n19 done rc=0 (H=17.673 H*=12.337 runs=216738 mean_len=10.1 cost_B=7.0)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family runs --param 8 --n 131072 --seed 7300060 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_runs8_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=1.3s free_mb_before=2294
+  [bench_string3] cell=S3H_S_runs8_n17 style=S family=runs param=8 n=131072 seed=7300060 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_runs8_n17 done rc=0 (H=2.422 H*=15.456 runs=8 mean_len=10.0 cost_B=3.7)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family runs --param 8 --n 524288 --seed 7300061 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_runs8_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=4.3s free_mb_before=2293
+  [bench_string3] cell=S3H_S_runs8_n19 style=S family=runs param=8 n=524288 seed=7300061 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_runs8_n19 done rc=0 (H=2.342 H*=17.458 runs=8 mean_len=10.0 cost_B=4.0)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family nearly --param 0.01 --n 131072 --seed 7300070 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_nearly0p01_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=1.4s free_mb_before=2564
+  [bench_string3] cell=S3H_S_nearly0p01_n17 style=S family=nearly param=0.01 n=131072 seed=7300070 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_nearly0p01_n17 done rc=0 (H=10.739 H*=10.739 runs=2564 mean_len=10.0 cost_B=3.7)
+D:\new dsa project\stage3\string3\bench_string3.exe --style S --family nearly --param 0.01 --n 524288 --seed 7300071 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_S_nearly0p01_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=4.8s free_mb_before=2568
+  [bench_string3] cell=S3H_S_nearly0p01_n19 style=S family=nearly param=0.01 n=524288 seed=7300071 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_S_nearly0p01_n19 done rc=0 (H=12.744 H*=12.744 runs=10268 mean_len=10.0 cost_B=4.0)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family perm --param 0 --n 131072 --seed 7300100 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_perm0_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=7.6s free_mb_before=2555
+  [bench_string3] cell=S3H_M_perm0_n17 style=M family=perm param=0 n=131072 seed=7300100 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_perm0_n17 done rc=0 (H=15.670 H*=15.671 runs=54057 mean_len=57.3 cost_B=34.5)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family perm --param 0 --n 524288 --seed 7300101 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_perm0_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=32.7s free_mb_before=2566
+  [bench_string3] cell=S3H_M_perm0_n19 style=M family=perm param=0 n=524288 seed=7300101 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_perm0_n19 done rc=0 (H=17.673 H*=17.673 runs=216650 mean_len=60.0 cost_B=39.8)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family few --param 2 --n 131072 --seed 7300110 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_few2_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=3.9s free_mb_before=2595
+  [bench_string3] cell=S3H_M_few2_n17 style=M family=few param=2 n=131072 seed=7300110 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_few2_n17 done rc=0 (H=14.844 H*=1.000 runs=32792 mean_len=54.5 cost_B=54.5)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family few --param 2 --n 524288 --seed 7300111 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_few2_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=10.5s free_mb_before=2604
+  [bench_string3] cell=S3H_M_few2_n19 style=M family=few param=2 n=524288 seed=7300111 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_few2_n19 done rc=0 (H=16.833 H*=1.000 runs=130572 mean_len=49.0 cost_B=49.0)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family few --param 16 --n 131072 --seed 7300120 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_few16_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=4.8s free_mb_before=2580
+  [bench_string3] cell=S3H_M_few16_n17 style=M family=few param=16 n=131072 seed=7300120 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_few16_n17 done rc=0 (H=15.659 H*=4.000 runs=53754 mean_len=52.6 cost_B=52.6)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family few --param 16 --n 524288 --seed 7300121 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_few16_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=18.5s free_mb_before=2589
+  [bench_string3] cell=S3H_M_few16_n19 style=M family=few param=16 n=524288 seed=7300121 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_few16_n19 done rc=0 (H=17.658 H*=4.000 runs=215011 mean_len=56.4 cost_B=56.4)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family few --param 256 --n 131072 --seed 7300130 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_few256_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=7.0s free_mb_before=2385
+  [bench_string3] cell=S3H_M_few256_n17 style=M family=few param=256 n=131072 seed=7300130 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_few256_n17 done rc=0 (H=15.676 H*=7.999 runs=54267 mean_len=54.1 cost_B=54.1)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family few --param 256 --n 524288 --seed 7300131 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_few256_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=24.5s free_mb_before=2068
+  [bench_string3] cell=S3H_M_few256_n19 style=M family=few param=256 n=524288 seed=7300131 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_few256_n19 done rc=0 (H=17.671 H*=8.000 runs=216496 mean_len=58.6 cost_B=58.6)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family zipf --param 1024 --n 131072 --seed 7300140 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_zipf1024_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=7.1s free_mb_before=2279
+  [bench_string3] cell=S3H_M_zipf1024_n17 style=M family=zipf param=1024 n=131072 seed=7300140 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_zipf1024_n17 done rc=0 (H=15.668 H*=7.498 runs=54022 mean_len=61.7 cost_B=61.4)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family zipf --param 1024 --n 524288 --seed 7300141 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_zipf1024_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=25.4s free_mb_before=2323
+  [bench_string3] cell=S3H_M_zipf1024_n19 style=M family=zipf param=1024 n=524288 seed=7300141 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_zipf1024_n19 done rc=0 (H=17.666 H*=7.506 runs=215843 mean_len=61.3 cost_B=61.3)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family mixture --param 64 --n 131072 --seed 7300150 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_mixture64_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=6.4s free_mb_before=2605
+  [bench_string3] cell=S3H_M_mixture64_n17 style=M family=mixture param=64 n=131072 seed=7300150 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_mixture64_n17 done rc=0 (H=15.666 H*=11.336 runs=53944 mean_len=56.2 cost_B=43.8)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family mixture --param 64 --n 524288 --seed 7300151 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_mixture64_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=26.3s free_mb_before=2612
+  [bench_string3] cell=S3H_M_mixture64_n19 style=M family=mixture param=64 n=524288 seed=7300151 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_mixture64_n19 done rc=0 (H=17.672 H*=12.337 runs=216599 mean_len=63.1 cost_B=52.3)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family runs --param 8 --n 131072 --seed 7300160 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_runs8_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=2.7s free_mb_before=2622
+  [bench_string3] cell=S3H_M_runs8_n17 style=M family=runs param=8 n=131072 seed=7300160 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_runs8_n17 done rc=0 (H=2.335 H*=15.468 runs=8 mean_len=57.7 cost_B=35.3)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family runs --param 8 --n 524288 --seed 7300161 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_runs8_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=9.0s free_mb_before=2636
+  [bench_string3] cell=S3H_M_runs8_n19 style=M family=runs param=8 n=524288 seed=7300161 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_runs8_n19 done rc=0 (H=2.686 H*=17.563 runs=8 mean_len=59.5 cost_B=39.0)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family nearly --param 0.01 --n 131072 --seed 7300170 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_nearly0p01_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=2.5s free_mb_before=2546
+  [bench_string3] cell=S3H_M_nearly0p01_n17 style=M family=nearly param=0.01 n=131072 seed=7300170 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_nearly0p01_n17 done rc=0 (H=10.757 H*=10.757 runs=2565 mean_len=58.1 cost_B=35.1)
+D:\new dsa project\stage3\string3\bench_string3.exe --style M --family nearly --param 0.01 --n 524288 --seed 7300171 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_M_nearly0p01_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=9.6s free_mb_before=2568
+  [bench_string3] cell=S3H_M_nearly0p01_n19 style=M family=nearly param=0.01 n=524288 seed=7300171 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_M_nearly0p01_n19 done rc=0 (H=12.738 H*=12.738 runs=10280 mean_len=60.2 cost_B=40.0)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family perm --param 0 --n 131072 --seed 7300200 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_perm0_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=18.5s free_mb_before=2624
+  [bench_string3] cell=S3H_L_perm0_n17 style=L family=perm param=0 n=131072 seed=7300200 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_perm0_n17 done rc=0 (H=15.672 H*=15.674 runs=54150 mean_len=225.2 cost_B=189.9)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family perm --param 0 --n 524288 --seed 7300201 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_perm0_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=83.7s free_mb_before=2636
+  [bench_string3] cell=S3H_L_perm0_n19 style=L family=perm param=0 n=524288 seed=7300201 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_perm0_n19 done rc=0 (H=17.672 H*=17.673 runs=216586 mean_len=242.8 cost_B=210.3)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family few --param 2 --n 131072 --seed 7300210 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_few2_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=10.8s free_mb_before=2579
+  [bench_string3] cell=S3H_L_few2_n17 style=L family=few param=2 n=131072 seed=7300210 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_few2_n17 done rc=0 (H=14.842 H*=1.000 runs=32772 mean_len=250.5 cost_B=250.5)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family few --param 2 --n 524288 --seed 7300211 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_few2_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=10.9s free_mb_before=2566
+  [bench_string3] cell=S3H_L_few2_n19 style=L family=few param=2 n=524288 seed=7300211 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_few2_n19 done rc=0 (H=16.839 H*=1.000 runs=131090 mean_len=219.0 cost_B=219.0)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family few --param 16 --n 131072 --seed 7300220 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_few16_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=14.3s free_mb_before=2550
+  [bench_string3] cell=S3H_L_few16_n17 style=L family=few param=16 n=131072 seed=7300220 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_few16_n17 done rc=0 (H=15.658 H*=4.000 runs=53719 mean_len=229.1 cost_B=229.0)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family few --param 16 --n 524288 --seed 7300221 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_few16_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=48.9s free_mb_before=2384
+  [bench_string3] cell=S3H_L_few16_n19 style=L family=few param=16 n=524288 seed=7300221 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_few16_n19 done rc=0 (H=17.658 H*=4.000 runs=214946 mean_len=236.7 cost_B=236.7)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family few --param 256 --n 131072 --seed 7300230 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_few256_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=18.0s free_mb_before=2449
+  [bench_string3] cell=S3H_L_few256_n17 style=L family=few param=256 n=131072 seed=7300230 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_few256_n17 done rc=0 (H=15.675 H*=7.998 runs=54209 mean_len=238.3 cost_B=238.1)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family few --param 256 --n 524288 --seed 7300231 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_few256_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=63.9s free_mb_before=2519
+  [bench_string3] cell=S3H_L_few256_n19 style=L family=few param=256 n=524288 seed=7300231 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_few256_n19 done rc=0 (H=17.673 H*=8.000 runs=216629 mean_len=220.4 cost_B=220.3)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family zipf --param 1024 --n 131072 --seed 7300240 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_zipf1024_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=18.4s free_mb_before=2632
+  [bench_string3] cell=S3H_L_zipf1024_n17 style=L family=zipf param=1024 n=131072 seed=7300240 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_zipf1024_n17 done rc=0 (H=15.666 H*=7.505 runs=53961 mean_len=233.8 cost_B=233.2)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family zipf --param 1024 --n 524288 --seed 7300241 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_zipf1024_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=64.5s free_mb_before=2552
+  [bench_string3] cell=S3H_L_zipf1024_n19 style=L family=zipf param=1024 n=524288 seed=7300241 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_zipf1024_n19 done rc=0 (H=17.668 H*=7.507 runs=216085 mean_len=207.2 cost_B=207.1)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family mixture --param 64 --n 131072 --seed 7300250 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_mixture64_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=17.6s free_mb_before=2478
+  [bench_string3] cell=S3H_L_mixture64_n17 style=L family=mixture param=64 n=131072 seed=7300250 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_mixture64_n17 done rc=0 (H=15.670 H*=11.332 runs=54065 mean_len=225.9 cost_B=206.6)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family mixture --param 64 --n 524288 --seed 7300251 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_mixture64_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=73.5s free_mb_before=2424
+  [bench_string3] cell=S3H_L_mixture64_n19 style=L family=mixture param=64 n=524288 seed=7300251 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_mixture64_n19 done rc=0 (H=17.673 H*=12.335 runs=216670 mean_len=241.1 cost_B=224.5)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family runs --param 8 --n 131072 --seed 7300260 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_runs8_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=7.1s free_mb_before=2400
+  [bench_string3] cell=S3H_L_runs8_n17 style=L family=runs param=8 n=131072 seed=7300260 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_runs8_n17 done rc=0 (H=2.455 H*=15.448 runs=8 mean_len=218.7 cost_B=182.8)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family runs --param 8 --n 524288 --seed 7300261 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_runs8_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=23.4s free_mb_before=2405
+  [bench_string3] cell=S3H_L_runs8_n19 style=L family=runs param=8 n=524288 seed=7300261 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_runs8_n19 done rc=0 (H=2.185 H*=17.362 runs=8 mean_len=221.4 cost_B=189.9)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family nearly --param 0.01 --n 131072 --seed 7300270 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_nearly0p01_n17 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=8.7s free_mb_before=2397
+  [bench_string3] cell=S3H_L_nearly0p01_n17 style=L family=nearly param=0.01 n=131072 seed=7300270 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_nearly0p01_n17 done rc=0 (H=10.761 H*=10.761 runs=2572 mean_len=229.0 cost_B=193.1)
+D:\new dsa project\stage3\string3\bench_string3.exe --style L --family nearly --param 0.01 --n 524288 --seed 7300271 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_L_nearly0p01_n19 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto
+  exit=0 wall=30.2s free_mb_before=2401
+  [bench_string3] cell=S3H_L_nearly0p01_n19 style=L family=nearly param=0.01 n=524288 seed=7300271 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_L_nearly0p01_n19 done rc=0 (H=12.759 H*=12.759 runs=10287 mean_len=221.5 cost_B=189.1)
+D:\new dsa project\stage3\string3\bench_string3.exe --style FILE --family natural --param 0 --n 19611 --seed 7300900 --reps 31 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_FILE_natural_n15 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto --file D:\new dsa project\stage3\data\msys2_paths.txt
+  exit=0 wall=0.5s free_mb_before=2518
+  [bench_string3] cell=S3H_FILE_natural_n15 style=FILE family=natural param=0 n=19611 seed=7300900 reps=31 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_FILE_natural_n15 done rc=0 (H=4.014 H*=4.859 runs=80 mean_len=37.1 cost_B=30.8)
+D:\new dsa project\stage3\string3\bench_string3.exe --style FILE --family shuffled --param 0 --n 19611 --seed 7300901 --reps 31 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell S3H_FILE_shuffled_n15 --csv D:\new dsa project\stage3\results\s3_heldout.csv --pin auto --file D:\new dsa project\stage3\data\msys2_paths.txt
+  exit=0 wall=1.8s free_mb_before=2523
+  [bench_string3] cell=S3H_FILE_shuffled_n15 style=FILE family=shuffled param=0 n=19611 seed=7300901 reps=31 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string3] cell=S3H_FILE_shuffled_n15 done rc=0 (H=12.933 H*=12.932 runs=8109 mean_len=37.1 cost_B=30.8)
+# finished 2026-10-20 23:36:59 failures=0

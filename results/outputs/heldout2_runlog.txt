@@ -1,0 +1,166 @@
+
+# run started 2026-10-20 00:23:36 manifest=heldout2 sha256=1b3e5ab00d119a2c30cabaf280ee6bfbf8e26ad3cda5da5ea7c3f5bf6ea7154c
+# platform: Windows-10-10.0.26100-SP0  python 3.9.13  exe: D:\new dsa project\build\bench_sort.exe
+D:\new dsa project\build\bench_sort.exe --family perm --param 0 --n 131072 --seed 109001 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_perm0_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=2.2s
+  [bench] cell=HELD2_plain_perm0_n17 done rc=0 (H=15.672 H*=15.673 runs=54167)
+D:\new dsa project\build\bench_sort.exe --family perm --param 0 --n 131072 --seed 109001 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_perm0_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=2.5s
+  [bench] cell=HELD2_indirect_perm0_n17 done rc=0 (H=15.672 H*=15.673 runs=54167)
+D:\new dsa project\build\bench_sort.exe --family perm --param 0 --n 131072 --seed 109001 --reps 15 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_perm0_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=7.5s
+  [bench] cell=HELD2_heavy_perm0_n17 done rc=0 (H=15.672 H*=15.673 runs=54167)
+D:\new dsa project\build\bench_sort.exe --family perm --param 0 --n 1048576 --seed 109002 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_perm0_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=12.0s
+  [bench] cell=HELD2_plain_perm0_n20 done rc=0 (H=18.672 H*=18.673 runs=433219)
+D:\new dsa project\build\bench_sort.exe --family perm --param 0 --n 1048576 --seed 109002 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_perm0_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=12.8s
+  [bench] cell=HELD2_indirect_perm0_n20 done rc=0 (H=18.672 H*=18.673 runs=433219)
+D:\new dsa project\build\bench_sort.exe --family perm --param 0 --n 1048576 --seed 109002 --reps 9 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_perm0_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=26.1s
+  [bench] cell=HELD2_heavy_perm0_n20 done rc=0 (H=18.672 H*=18.673 runs=433219)
+D:\new dsa project\build\bench_sort.exe --family few --param 2 --n 131072 --seed 109011 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_few2_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=0.3s
+  [bench] cell=HELD2_plain_few2_n17 done rc=0 (H=14.843 H*=1.000 runs=32846)
+D:\new dsa project\build\bench_sort.exe --family few --param 2 --n 131072 --seed 109011 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_few2_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=0.3s
+  [bench] cell=HELD2_indirect_few2_n17 done rc=0 (H=14.843 H*=1.000 runs=32846)
+D:\new dsa project\build\bench_sort.exe --family few --param 2 --n 131072 --seed 109011 --reps 15 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_few2_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=2.0s
+  [bench] cell=HELD2_heavy_few2_n17 done rc=0 (H=14.843 H*=1.000 runs=32846)
+D:\new dsa project\build\bench_sort.exe --family few --param 2 --n 1048576 --seed 109012 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_few2_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=2.2s
+  [bench] cell=HELD2_plain_few2_n20 done rc=0 (H=17.840 H*=1.000 runs=262223)
+D:\new dsa project\build\bench_sort.exe --family few --param 2 --n 1048576 --seed 109012 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_few2_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=2.4s
+  [bench] cell=HELD2_indirect_few2_n20 done rc=0 (H=17.840 H*=1.000 runs=262223)
+D:\new dsa project\build\bench_sort.exe --family few --param 2 --n 1048576 --seed 109012 --reps 9 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_few2_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=10.5s
+  [bench] cell=HELD2_heavy_few2_n20 done rc=0 (H=17.840 H*=1.000 runs=262223)
+D:\new dsa project\build\bench_sort.exe --family few --param 16 --n 131072 --seed 109021 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_few16_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=0.6s
+  [bench] cell=HELD2_plain_few16_n17 done rc=0 (H=15.664 H*=4.000 runs=53908)
+D:\new dsa project\build\bench_sort.exe --family few --param 16 --n 131072 --seed 109021 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_few16_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=0.7s
+  [bench] cell=HELD2_indirect_few16_n17 done rc=0 (H=15.664 H*=4.000 runs=53908)
+D:\new dsa project\build\bench_sort.exe --family few --param 16 --n 131072 --seed 109021 --reps 15 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_few16_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=3.1s
+  [bench] cell=HELD2_heavy_few16_n17 done rc=0 (H=15.664 H*=4.000 runs=53908)
+D:\new dsa project\build\bench_sort.exe --family few --param 16 --n 1048576 --seed 109022 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_few16_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=5.2s
+  [bench] cell=HELD2_plain_few16_n20 done rc=0 (H=18.659 H*=4.000 runs=430083)
+D:\new dsa project\build\bench_sort.exe --family few --param 16 --n 1048576 --seed 109022 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_few16_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=5.6s
+  [bench] cell=HELD2_indirect_few16_n20 done rc=0 (H=18.659 H*=4.000 runs=430083)
+D:\new dsa project\build\bench_sort.exe --family few --param 16 --n 1048576 --seed 109022 --reps 9 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_few16_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=16.6s
+  [bench] cell=HELD2_heavy_few16_n20 done rc=0 (H=18.659 H*=4.000 runs=430083)
+D:\new dsa project\build\bench_sort.exe --family few --param 256 --n 131072 --seed 109031 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_few256_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=0.8s
+  [bench] cell=HELD2_plain_few256_n17 done rc=0 (H=15.676 H*=7.999 runs=54266)
+D:\new dsa project\build\bench_sort.exe --family few --param 256 --n 131072 --seed 109031 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_few256_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=1.0s
+  [bench] cell=HELD2_indirect_few256_n17 done rc=0 (H=15.676 H*=7.999 runs=54266)
+D:\new dsa project\build\bench_sort.exe --family few --param 256 --n 131072 --seed 109031 --reps 15 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_few256_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=3.7s
+  [bench] cell=HELD2_heavy_few256_n17 done rc=0 (H=15.676 H*=7.999 runs=54266)
+D:\new dsa project\build\bench_sort.exe --family few --param 256 --n 1048576 --seed 109032 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_few256_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=6.6s
+  [bench] cell=HELD2_plain_few256_n20 done rc=0 (H=18.671 H*=8.000 runs=432892)
+D:\new dsa project\build\bench_sort.exe --family few --param 256 --n 1048576 --seed 109032 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_few256_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=7.6s
+  [bench] cell=HELD2_indirect_few256_n20 done rc=0 (H=18.671 H*=8.000 runs=432892)
+D:\new dsa project\build\bench_sort.exe --family few --param 256 --n 1048576 --seed 109032 --reps 9 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_few256_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=20.6s
+  [bench] cell=HELD2_heavy_few256_n20 done rc=0 (H=18.671 H*=8.000 runs=432892)
+D:\new dsa project\build\bench_sort.exe --family few --param 4096 --n 131072 --seed 109041 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_few4096_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=1.1s
+  [bench] cell=HELD2_plain_few4096_n17 done rc=0 (H=15.673 H*=11.978 runs=54162)
+D:\new dsa project\build\bench_sort.exe --family few --param 4096 --n 131072 --seed 109041 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_few4096_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=1.2s
+  [bench] cell=HELD2_indirect_few4096_n17 done rc=0 (H=15.673 H*=11.978 runs=54162)
+D:\new dsa project\build\bench_sort.exe --family few --param 4096 --n 131072 --seed 109041 --reps 15 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_few4096_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=4.3s
+  [bench] cell=HELD2_heavy_few4096_n17 done rc=0 (H=15.673 H*=11.978 runs=54162)
+D:\new dsa project\build\bench_sort.exe --family few --param 4096 --n 1048576 --seed 109042 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_few4096_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=8.5s
+  [bench] cell=HELD2_plain_few4096_n20 done rc=0 (H=18.672 H*=11.997 runs=433197)
+D:\new dsa project\build\bench_sort.exe --family few --param 4096 --n 1048576 --seed 109042 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_few4096_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=10.3s
+  [bench] cell=HELD2_indirect_few4096_n20 done rc=0 (H=18.672 H*=11.997 runs=433197)
+D:\new dsa project\build\bench_sort.exe --family few --param 4096 --n 1048576 --seed 109042 --reps 9 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_few4096_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=24.0s
+  [bench] cell=HELD2_heavy_few4096_n20 done rc=0 (H=18.672 H*=11.997 runs=433197)
+D:\new dsa project\build\bench_sort.exe --family zipf --param 1024 --n 131072 --seed 109051 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_zipf1024_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=0.8s
+  [bench] cell=HELD2_plain_zipf1024_n17 done rc=0 (H=15.666 H*=7.492 runs=53978)
+D:\new dsa project\build\bench_sort.exe --family zipf --param 1024 --n 131072 --seed 109051 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_zipf1024_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=0.9s
+  [bench] cell=HELD2_indirect_zipf1024_n17 done rc=0 (H=15.666 H*=7.492 runs=53978)
+D:\new dsa project\build\bench_sort.exe --family zipf --param 1024 --n 131072 --seed 109051 --reps 15 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_zipf1024_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=3.6s
+  [bench] cell=HELD2_heavy_zipf1024_n17 done rc=0 (H=15.666 H*=7.492 runs=53978)
+D:\new dsa project\build\bench_sort.exe --family zipf --param 1024 --n 1048576 --seed 109052 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_zipf1024_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=8.4s
+  [bench] cell=HELD2_plain_zipf1024_n20 done rc=0 (H=18.666 H*=7.510 runs=431752)
+D:\new dsa project\build\bench_sort.exe --family zipf --param 1024 --n 1048576 --seed 109052 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_zipf1024_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=10.4s
+  [bench] cell=HELD2_indirect_zipf1024_n20 done rc=0 (H=18.666 H*=7.510 runs=431752)
+D:\new dsa project\build\bench_sort.exe --family zipf --param 1024 --n 1048576 --seed 109052 --reps 9 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_zipf1024_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=20.0s
+  [bench] cell=HELD2_heavy_zipf1024_n20 done rc=0 (H=18.666 H*=7.510 runs=431752)
+D:\new dsa project\build\bench_sort.exe --family mixture --param 64 --n 131072 --seed 109061 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_mixture64_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=0.9s
+  [bench] cell=HELD2_plain_mixture64_n17 done rc=0 (H=15.672 H*=11.336 runs=54130)
+D:\new dsa project\build\bench_sort.exe --family mixture --param 64 --n 131072 --seed 109061 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_mixture64_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=1.0s
+  [bench] cell=HELD2_indirect_mixture64_n17 done rc=0 (H=15.672 H*=11.336 runs=54130)
+D:\new dsa project\build\bench_sort.exe --family mixture --param 64 --n 131072 --seed 109061 --reps 15 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_mixture64_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=3.7s
+  [bench] cell=HELD2_heavy_mixture64_n17 done rc=0 (H=15.672 H*=11.336 runs=54130)
+D:\new dsa project\build\bench_sort.exe --family mixture --param 64 --n 1048576 --seed 109062 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_mixture64_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=8.3s
+  [bench] cell=HELD2_plain_mixture64_n20 done rc=0 (H=18.672 H*=12.837 runs=433208)
+D:\new dsa project\build\bench_sort.exe --family mixture --param 64 --n 1048576 --seed 109062 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_mixture64_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=9.6s
+  [bench] cell=HELD2_indirect_mixture64_n20 done rc=0 (H=18.672 H*=12.837 runs=433208)
+D:\new dsa project\build\bench_sort.exe --family mixture --param 64 --n 1048576 --seed 109062 --reps 9 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_mixture64_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=22.5s
+  [bench] cell=HELD2_heavy_mixture64_n20 done rc=0 (H=18.672 H*=12.837 runs=433208)
+D:\new dsa project\build\bench_sort.exe --family runs --param 64 --n 131072 --seed 109071 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_runs64_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=0.4s
+  [bench] cell=HELD2_plain_runs64_n17 done rc=0 (H=5.357 H*=15.668 runs=64)
+D:\new dsa project\build\bench_sort.exe --family runs --param 64 --n 131072 --seed 109071 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_runs64_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=0.5s
+  [bench] cell=HELD2_indirect_runs64_n17 done rc=0 (H=5.357 H*=15.668 runs=64)
+D:\new dsa project\build\bench_sort.exe --family runs --param 64 --n 131072 --seed 109071 --reps 15 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_runs64_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=1.8s
+  [bench] cell=HELD2_heavy_runs64_n17 done rc=0 (H=5.357 H*=15.668 runs=64)
+D:\new dsa project\build\bench_sort.exe --family runs --param 64 --n 1048576 --seed 109072 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_runs64_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=3.0s
+  [bench] cell=HELD2_plain_runs64_n20 done rc=0 (H=5.329 H*=18.669 runs=64)
+D:\new dsa project\build\bench_sort.exe --family runs --param 64 --n 1048576 --seed 109072 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_runs64_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=3.4s
+  [bench] cell=HELD2_indirect_runs64_n20 done rc=0 (H=5.329 H*=18.669 runs=64)
+D:\new dsa project\build\bench_sort.exe --family runs --param 64 --n 1048576 --seed 109072 --reps 9 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_runs64_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=9.4s
+  [bench] cell=HELD2_heavy_runs64_n20 done rc=0 (H=5.329 H*=18.669 runs=64)
+D:\new dsa project\build\bench_sort.exe --family nearly --param 0.01 --n 131072 --seed 109081 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_nearly0p01_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=0.2s
+  [bench] cell=HELD2_plain_nearly0p01_n17 done rc=0 (H=10.711 H*=10.710 runs=2556)
+D:\new dsa project\build\bench_sort.exe --family nearly --param 0.01 --n 131072 --seed 109081 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_nearly0p01_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=0.2s
+  [bench] cell=HELD2_indirect_nearly0p01_n17 done rc=0 (H=10.711 H*=10.710 runs=2556)
+D:\new dsa project\build\bench_sort.exe --family nearly --param 0.01 --n 131072 --seed 109081 --reps 15 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_nearly0p01_n17 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=1.6s
+  [bench] cell=HELD2_heavy_nearly0p01_n17 done rc=0 (H=10.711 H*=10.710 runs=2556)
+D:\new dsa project\build\bench_sort.exe --family nearly --param 0.01 --n 1048576 --seed 109082 --reps 15 --warmup 1 --elem plain --variants naive,base,base_b,sag,sagt --cell HELD2_plain_nearly0p01_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=1.4s
+  [bench] cell=HELD2_plain_nearly0p01_n20 done rc=0 (H=13.751 H*=13.751 runs=20538)
+D:\new dsa project\build\bench_sort.exe --family nearly --param 0.01 --n 1048576 --seed 109082 --reps 15 --warmup 1 --elem indirect --variants naive,base,base_b,sag,sagt --cell HELD2_indirect_nearly0p01_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=1.4s
+  [bench] cell=HELD2_indirect_nearly0p01_n20 done rc=0 (H=13.751 H*=13.751 runs=20538)
+D:\new dsa project\build\bench_sort.exe --family nearly --param 0.01 --n 1048576 --seed 109082 --reps 9 --warmup 1 --elem heavy --variants naive,base,base_b,sag,sagt --cell HELD2_heavy_nearly0p01_n20 --csv D:\new dsa project\results\raw\heldout2.csv --pin auto
+  exit=0 wall=9.3s
+  [bench] cell=HELD2_heavy_nearly0p01_n20 done rc=0 (H=13.751 H*=13.751 runs=20538)
+# finished 2026-10-20 00:29:01 failures=0

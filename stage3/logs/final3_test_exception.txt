@@ -1,0 +1,2 @@
+  throw-at-every-call: 84623 cases, 84383 aborted by the exception, 0 left a non-permutation
+test_exception: 84624 checks passed, 0 failed

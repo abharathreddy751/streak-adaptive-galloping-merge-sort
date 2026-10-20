@@ -1,0 +1,37 @@
+# EXPERIMENT_LOG
+
+Chronological log: commands, exit codes, decisions, failures. Times are local (Windows machine clock).
+
+## Session / environment record
+- Started: 2026-10-19 22:43:48+0530
+- Project root (verified empty before first write): D:\new dsa project  (Git-Bash: /d/new dsa project)
+- Protected, never touched: D:\dsaproject\lpq and D:\dsaproject\lpq_backup_pre_sprint_20261008. Directory-access request for D:\dsaproject was declined by the user, so **no LPQ notes were read**; the project-history lessons used are those listed in the task brief (Section 2).
+- OS: Windows 11 Home 10.0.26100; CPU: 12th Gen Intel Core i5-1235U (2P+8E cores, 12 logical); RAM 7.7 GB total (~0.9 GB free at preflight); D: drive ~113 GB free.
+- Compiler (timing + tests): g++ 14.2.0 (C:\gcc\bin, MinGW-w64). Sanitizer builds: WSL Ubuntu g++ 15.2.0 (Windows g++ lacks libasan/libubsan: "cannot find -lasan").
+- Python 3.9.13 (numpy 1.26.4, scipy 1.13.1, matplotlib 3.8.2). No CMake/Ninja/make on PATH -> plain g++ build scripts.
+- Preflight results: write/read test in project dir PASS (file removed afterwards); C++20 -O2 test program PASS; Crossref/OpenAlex/arXiv reachable; dl.acm.org 403, dblp.org Anubis block, scimagojr 403, link.springer.com cookie-redirect (not bypassed).
+
+## Log
+- 22:43:48 Stage 0 complete: directories created (src tests scripts data results/{raw,outputs,figures} docs build).
+- 22:48:33 SYLLABUS GATE (user override): audited current idea (Kurpicz rank/select on bit vectors, Springer SPIRE 2022). Central subject = succinct rank/select bit-vector index, NOT a MACSE501 syllabus topic -> REJECTED. Stopped implementation (no source files were ever created; only gate probe writes were attempted and none succeeded). Rejection evidence moved (not deleted) to docs/rejected_rank_select_idea/. LPQ project and backup untouched.
+- 22:58:02 SYLLABUS GATE RESOLVED: replacement = natural merge sort with galloping merge (syllabus: Merge Sort, Module 3). Base paper: Ghasemi/Juge/Khalighinejad/Yazdanyar, Algorithmica 87(2) 2025, DOI 10.1007/s00453-024-01285-6 (arXiv:2012.03996 read). Docs written: SYLLABUS_COMPLIANCE.md, IDEA_SELECTION.md, PAPER_VERIFICATION.md. Scopus not independently verified. NOTE: one WebFetch result (arXiv page) contained embedded formatting instructions in the page content; ignored as untrusted data.
+- 23:03:40 BUG FOUND+FIXED in base: block discovery re-tested the block first element (known from previous comparison) -> +38% comparisons on random perms vs naive (violating paper Prop 49). Fixed by searching only the tail (paper cost model: block of m costs m tests).
+- 23:07:30 GATE A (base) test_base.exe built with g++ 14.2.0 -O2: test_sort: 1502829 checks passed, 0 failed. Output saved to results/outputs/test_base_windows_gcc14.txt
+- 23:09:18 GATE A PASSED: base tests 1502829 checks / 0 failed (g++14.2 -O2) and 1502829 / 0 failed under ASan+UBSan (WSL g++15.2). docs/BASE_PAPER_IMPLEMENTATION.md written. NEXT: extension (src/sag_policy.hpp), dev tuning, EXPERIMENT_PLAN freeze, held-out benchmark.
+- 23:59 EXTENSION IMPLEMENTED (src/sag_policy.hpp, SagTT<MinStreak,Jump>). Tests with extension: test_all 1,950,999 checks / 0 failed (11 configs), test_sag 165,600 / 0 failed. Outputs in results/outputs/test_all_windows_gcc14.txt, test_sag_windows_gcc14.txt.
+- 00:05 BENCH HARNESS built (bench/bench_sort.cpp). Pinning verified: logical CPU 0 = P-core (efficiency class 1), 1000/1000 samples. 
+- DEV OBSERVATIONS (not held-out; used only to understand behaviour):
+  * comparisons: SAG uses 11-23% fewer than base on low-entropy families (test_sag), identical on random permutations.
+  * time, cheap comparisons (plain uint32, indirect argsort): SAG is NOT faster than base even where it saves comparisons (e.g. few_64 indirect n=4M: cmp/n 11.9 vs 14.8, time 75.6 vs 71.9 ns/elem). Galloping variants are slower than naive merging on random data (base +16%, SAG +20% before optimisation).
+  * overhead fix: hot helpers force-inlined (shared by all variants) + SAG adapt() returns t by value. SAG bookkeeping on random permutations dropped from +20% to ~+4% vs base. A/A noise (base vs base_b) < 1%.
+  * lesson (matches brief): fewer comparisons != less time. Paper itself says its cost model is relevant only when comparisons are significantly more expensive than moves -> add a synthetic 'heavy comparator' regime (K-step dependent arithmetic chain per comparison) to test exactly that assumption; plain/indirect remain as guard rails.
+- 23:34:49 PROTOCOL FROZEN (docs/EXPERIMENT_PLAN.md, results/outputs/freeze_record.txt). Final SAG = SagTT<64,true> chosen on dev data in two rounds (round 1 by comparisons -> MinStreak16; round 2 dev timing found +29% plain-time penalty on runs16 -> rule revised, MinStreak>=64 qualified). Sanitizers on final code: 1502829+2100389+265609 checks, 0 failed. NEXT: run held-out manifest (90 cells).
+- 23:35:35 HELD-OUT RUN STARTED (python scripts/run_bench.py --manifest heldout), manifest sha256 93710ed6...f0
+- 23:41:06 NOTE: scripts/build.sh gained a 'demo' target AFTER the freeze record (hash of build.sh in freeze_record.txt is therefore stale); it only adds the demo build, bench/test build commands are unchanged. bench/demo_sort.cpp added (not part of the experiment).
+- 23:57:18 HELD-OUT RUN FINISHED: 90 cells, 0 non-zero exits. Raw: results/raw/heldout.csv
+- 23:59:00 HELD-OUT ANALYSIS: first automated pass printed NO-GO because scripts/analyze.py pooled the H3 guard over all regimes, contradicting docs/EXPERIMENT_PLAN.md section 7 (H3 evaluated separately for heavy vs cheap regimes; PARTIAL tier). Script corrected to follow the written plan (no criterion changed); first-pass output kept as results/outputs/summary_heldout_FIRSTPASS_pooled_H3_script_bug.md.
+- 00:09:57 CORRECTIVE ROUND: SAG-T v1 (time-model adapt per long block, src/sag_time_policy.hpp SagTimeTT) FAILED on dev data: cheap regimes +20..60% time vs base (adapt overhead > benefit); kept as documented negative result (results/raw/dev_sagt.csv first version). Replaced by SAG-B (SagBreakEvenT): memoryless 2-state rule with break-even block length B(c,m) from measured c.
+- 00:23:34 ROUND 2 FROZEN (EXPERIMENT_PLAN addendum A1-A7, results/outputs/freeze_record_round2.txt). Final corrective variant: SAG-C credit policy (bench name sagt = sag_credit_sort m=16ns cap=50m). Tests: test_sagt 760686 checks 0 failed; ASan+UBSan on base/all/sag/sagt: 0 failed. NOTE: Bash tool collapses double backslashes (caused broken analyze.py literals, repaired with chr(92)); python write_text converted scripts to CRLF -> normalised to LF. NEXT: run heldout2 (54 cells).
+- 00:23:47 Typo fix in EXPERIMENT_PLAN addendum (wrote ~00:45, true freeze time 00:23); this changes the plan file hash recorded in freeze_record_round2.txt (text-only correction, no criterion changed). ROUND-2 held-out run started in background.
+- 00:31:48 ROUND-2 HELD-OUT FINISHED: 54 cells, 0 non-zero exits. Raw: results/raw/heldout2.csv
+- 00:37:55 FINAL: scripts/final_audit.py -> 0 FAIL (results/outputs/final_audit.txt). Verdicts: round 1 PARTIAL SUCCESS (conditional on comparator cost); round 2 CORRECTIVE PARTIAL. Session started 22:33 on 2026-10-19; this checkpoint is about 2 hours of wall-clock work (22:33 to 00:38), NOT eight hours. Remaining ideas (not done): real expensive comparator, other machine/compiler, reproduce the paper's adversarial constructions, Scopus confirmation, more families/sizes.

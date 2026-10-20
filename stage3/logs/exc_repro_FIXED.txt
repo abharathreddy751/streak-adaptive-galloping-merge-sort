@@ -1,0 +1,2 @@
+throw-at-every-call test: 84623 cases, 84383 aborted by the exception, 0 left the array NOT a permutation (lost/duplicated elements)
+RESULT: PASS (basic guarantee holds in every case)

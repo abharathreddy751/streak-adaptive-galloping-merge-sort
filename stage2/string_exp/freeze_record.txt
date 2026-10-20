@@ -1,0 +1,26 @@
+# STAGE-2 STRING EXPERIMENT FREEZE RECORD 2026-10-20 10:14:19 +0530 -- written BEFORE the held-out run
+compiler: g++ (GCC) 15.3.0  target: x86_64-pc-cygwin
+build flags: -std=c++17 -O2 -DNDEBUG -Wall -Wextra -Isrc
+held-out manifest=heldout cells=18 sha256=45684964f1de3ce9bdfa0f13be16697121e3278e546edaa990c60efd876ac0f1
+dev manifest=dev cells=16 sha256=0c13d2b1d00f94a2430d546a46eb1be69a9f89e82ba0a05cf83915c7c2b6c18d
+--- sha256
+49545eb5e2e5d415db36080879ce1cebd85d914a055999038261eef9a4b18dba *src/entropy.hpp
+b1c5e7e08ecbcce0e264c53796440db6e0df662149447883580b183d72caef3b *src/generators.hpp
+e44f1d6710ebd72f10dc1286d94fca69985c1668ca4d540626b7996f7a577f8d *src/natural_merge_sort.hpp
+8cdde79b535b301ab0ef3a429c3967b8e20e510a92889b5eae1fab7539ae6500 *src/sag_policy.hpp
+6aed714b3474b6604dedccdfb0f3f78cbc90b4ebcafb291fa884958fc5511b2a *src/sag_time_policy.hpp
+39d948e04388b7050e58da24eb8b879d43e8a2954d7ab30a697226ad0b74f280 *src/textbook_merge_sort.hpp
+83afd2a5ba346cfb14b736b5332f64efec96f5308243d5ba68329391c0ede735 *stage2/string_exp/bench_string.cpp
+479bc47c482aec6fb2d6412168e76674060800dc6dc8700bcddae1d9403f8dfc *stage2/string_exp/bench_string.exe
+6966f20525fa02336600be8c76500b1e0fed4fa46e3d20faea0e96df7a5c045f *stage2/string_exp/run_string_bench.py
+89c74a0808cd9ebe56d9454996bffa72e96fcbbedfedbb7b85de30259df92885 *stage2/string_exp/analyze_string.py
+bac125976af860e8c54c3f4d4c302df9383d0c76c97ae2c5874aa7760f7325d8 *docs/STAGE2_REAL_COMPARATOR_PLAN.md
+--- frozen-source check vs round-2 freeze record (must be identical)
+src/entropy.hpp identical to round-2 freeze
+src/generators.hpp identical to round-2 freeze
+src/natural_merge_sort.hpp identical to round-2 freeze
+src/sag_policy.hpp identical to round-2 freeze
+src/sag_time_policy.hpp identical to round-2 freeze
+src/textbook_merge_sort.hpp identical to round-2 freeze
+--- environment
+free RAM MB: 

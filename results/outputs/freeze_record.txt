@@ -1,0 +1,22 @@
+# FREEZE RECORD 2026-10-19 23:34:49 +0530 -- written BEFORE the held-out run
+compiler: g++.exe (GCC) 14.2.0
+build flags (bench): -std=c++17 -O2 -DNDEBUG -Wall -Wextra -Isrc -Itests
+held-out manifest: manifest=heldout cells=90 sha256=93710ed639dae8963ce0d96319a53b78c1fd512374597395677661e6f7bf72f0
+--- sha256 of code under test and protocol files
+49545eb5e2e5d415db36080879ce1cebd85d914a055999038261eef9a4b18dba *src/entropy.hpp
+b1c5e7e08ecbcce0e264c53796440db6e0df662149447883580b183d72caef3b *src/generators.hpp
+e44f1d6710ebd72f10dc1286d94fca69985c1668ca4d540626b7996f7a577f8d *src/natural_merge_sort.hpp
+8cdde79b535b301ab0ef3a429c3967b8e20e510a92889b5eae1fab7539ae6500 *src/sag_policy.hpp
+39d948e04388b7050e58da24eb8b879d43e8a2954d7ab30a697226ad0b74f280 *src/textbook_merge_sort.hpp
+e5fe012797f63f7f9a93d8c612463d71fd7cf8cf05612e1236f47fafb657a3ae *bench/bench_sort.cpp
+b8d4c011c25efe111cf0da14ec3a39b21223c00bb22936138b0d022a24adaa43 *scripts/run_bench.py
+494207630a6eb16107d54e5937999ef6ce008d92a4d98c0881587b2496957753 *scripts/analyze.py
+981ee86a03da255bbc5e22f9b5aed3a6f043363bf868d684fae9a88fc20d3aa1 *scripts/build.sh
+a682c79b579829e2d757756f9496cb20f953e053d216c3796dbc0226ddc5e715 *tests/test_sag.cpp
+c5654f40f98ee20ff0465f71f6cbf1fcf50f8888ced0d587ca7ee4366b65709b *tests/test_sort.cpp
+c8049a544bcddf13a55cd2d3eb952fcc9bf1abe2b1f4fc9b53223fe9bf697c1a *tests/check.hpp
+2eb55aa8fc57b26d38c5f55950fafde4131cc191f4af1c09169b0667b474d220 *docs/EXPERIMENT_PLAN.md
+--- test results at freeze
+test_sort: 1502829 checks passed, 0 failed
+test_sort: 2100389 checks passed, 0 failed
+test_sag: 265609 checks passed, 0 failed

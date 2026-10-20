@@ -1,0 +1,88 @@
+
+# run started 2026-10-19 23:24:45 manifest=dev_time sha256=050892ac5a684ac9d454a2f46b4de25d335b867b792635ced2b37fb171dd2d1f
+# platform: Windows-10-10.0.26100-SP0  python 3.9.13  exe: D:\new dsa project\build\bench_sort.exe
+D:\new dsa project\build\bench_sort.exe --family perm --param 0 --n 65536 --seed 601 --reps 9 --warmup 1 --elem plain --variants naive,base,base_b,sag --cell DEVT_plain_perm0_n16 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.5s
+  [bench] cell=DEVT_plain_perm0_n16 done rc=0 (H=14.674 H*=14.674 runs=27101)
+D:\new dsa project\build\bench_sort.exe --family perm --param 0 --n 65536 --seed 601 --reps 5 --warmup 1 --elem heavy --variants naive,base,base_b,sag --cell DEVT_heavy_perm0_n16 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=1.3s
+  [bench] cell=DEVT_heavy_perm0_n16 done rc=0 (H=14.674 H*=14.674 runs=27101)
+D:\new dsa project\build\bench_sort.exe --family perm --param 0 --n 524288 --seed 601 --reps 9 --warmup 1 --elem plain --variants naive,base,base_b,sag --cell DEVT_plain_perm0_n19 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=3.7s
+  [bench] cell=DEVT_plain_perm0_n19 done rc=0 (H=17.673 H*=17.673 runs=216637)
+D:\new dsa project\build\bench_sort.exe --family perm --param 0 --n 524288 --seed 601 --reps 5 --warmup 1 --elem heavy --variants naive,base,base_b,sag --cell DEVT_heavy_perm0_n19 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=7.4s
+  [bench] cell=DEVT_heavy_perm0_n19 done rc=0 (H=17.673 H*=17.673 runs=216637)
+D:\new dsa project\build\bench_sort.exe --family few --param 3 --n 65536 --seed 602 --reps 9 --warmup 1 --elem plain --variants naive,base,base_b,sag --cell DEVT_plain_few3_n16 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.1s
+  [bench] cell=DEVT_plain_few3_n16 done rc=0 (H=14.275 H*=1.585 runs=21636)
+D:\new dsa project\build\bench_sort.exe --family few --param 3 --n 65536 --seed 602 --reps 5 --warmup 1 --elem heavy --variants naive,base,base_b,sag --cell DEVT_heavy_few3_n16 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.4s
+  [bench] cell=DEVT_heavy_few3_n16 done rc=0 (H=14.275 H*=1.585 runs=21636)
+D:\new dsa project\build\bench_sort.exe --family few --param 3 --n 524288 --seed 602 --reps 9 --warmup 1 --elem plain --variants naive,base,base_b,sag --cell DEVT_plain_few3_n19 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.8s
+  [bench] cell=DEVT_plain_few3_n19 done rc=0 (H=17.285 H*=1.585 runs=173844)
+D:\new dsa project\build\bench_sort.exe --family few --param 3 --n 524288 --seed 602 --reps 5 --warmup 1 --elem heavy --variants naive,base,base_b,sag --cell DEVT_heavy_few3_n19 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=3.5s
+  [bench] cell=DEVT_heavy_few3_n19 done rc=0 (H=17.285 H*=1.585 runs=173844)
+D:\new dsa project\build\bench_sort.exe --family few --param 32 --n 65536 --seed 603 --reps 9 --warmup 1 --elem plain --variants naive,base,base_b,sag --cell DEVT_plain_few32_n16 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.2s
+  [bench] cell=DEVT_plain_few32_n16 done rc=0 (H=14.672 H*=5.000 runs=27058)
+D:\new dsa project\build\bench_sort.exe --family few --param 32 --n 65536 --seed 603 --reps 5 --warmup 1 --elem heavy --variants naive,base,base_b,sag --cell DEVT_heavy_few32_n16 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.6s
+  [bench] cell=DEVT_heavy_few32_n16 done rc=0 (H=14.672 H*=5.000 runs=27058)
+D:\new dsa project\build\bench_sort.exe --family few --param 32 --n 524288 --seed 603 --reps 9 --warmup 1 --elem plain --variants naive,base,base_b,sag --cell DEVT_plain_few32_n19 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=1.5s
+  [bench] cell=DEVT_plain_few32_n19 done rc=0 (H=17.668 H*=5.000 runs=216055)
+D:\new dsa project\build\bench_sort.exe --family few --param 32 --n 524288 --seed 603 --reps 5 --warmup 1 --elem heavy --variants naive,base,base_b,sag --cell DEVT_heavy_few32_n19 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=4.6s
+  [bench] cell=DEVT_heavy_few32_n19 done rc=0 (H=17.668 H*=5.000 runs=216055)
+D:\new dsa project\build\bench_sort.exe --family few --param 512 --n 65536 --seed 604 --reps 9 --warmup 1 --elem plain --variants naive,base,base_b,sag --cell DEVT_plain_few512_n16 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.3s
+  [bench] cell=DEVT_plain_few512_n16 done rc=0 (H=14.672 H*=8.994 runs=27069)
+D:\new dsa project\build\bench_sort.exe --family few --param 512 --n 65536 --seed 604 --reps 5 --warmup 1 --elem heavy --variants naive,base,base_b,sag --cell DEVT_heavy_few512_n16 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.7s
+  [bench] cell=DEVT_heavy_few512_n16 done rc=0 (H=14.672 H*=8.994 runs=27069)
+D:\new dsa project\build\bench_sort.exe --family few --param 512 --n 524288 --seed 604 --reps 9 --warmup 1 --elem plain --variants naive,base,base_b,sag --cell DEVT_plain_few512_n19 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=1.8s
+  [bench] cell=DEVT_plain_few512_n19 done rc=0 (H=17.674 H*=8.999 runs=216788)
+D:\new dsa project\build\bench_sort.exe --family few --param 512 --n 524288 --seed 604 --reps 5 --warmup 1 --elem heavy --variants naive,base,base_b,sag --cell DEVT_heavy_few512_n19 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=5.7s
+  [bench] cell=DEVT_heavy_few512_n19 done rc=0 (H=17.674 H*=8.999 runs=216788)
+D:\new dsa project\build\bench_sort.exe --family zipf --param 256 --n 65536 --seed 605 --reps 9 --warmup 1 --elem plain --variants naive,base,base_b,sag --cell DEVT_plain_zipf256_n16 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.2s
+  [bench] cell=DEVT_plain_zipf256_n16 done rc=0 (H=14.663 H*=6.226 runs=26947)
+D:\new dsa project\build\bench_sort.exe --family zipf --param 256 --n 65536 --seed 605 --reps 5 --warmup 1 --elem heavy --variants naive,base,base_b,sag --cell DEVT_heavy_zipf256_n16 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.6s
+  [bench] cell=DEVT_heavy_zipf256_n16 done rc=0 (H=14.663 H*=6.226 runs=26947)
+D:\new dsa project\build\bench_sort.exe --family zipf --param 256 --n 524288 --seed 605 --reps 9 --warmup 1 --elem plain --variants naive,base,base_b,sag --cell DEVT_plain_zipf256_n19 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=1.6s
+  [bench] cell=DEVT_plain_zipf256_n19 done rc=0 (H=17.661 H*=6.224 runs=215244)
+D:\new dsa project\build\bench_sort.exe --family zipf --param 256 --n 524288 --seed 605 --reps 5 --warmup 1 --elem heavy --variants naive,base,base_b,sag --cell DEVT_heavy_zipf256_n19 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=5.3s
+  [bench] cell=DEVT_heavy_zipf256_n19 done rc=0 (H=17.661 H*=6.224 runs=215244)
+D:\new dsa project\build\bench_sort.exe --family mixture --param 16 --n 65536 --seed 606 --reps 9 --warmup 1 --elem plain --variants naive,base,base_b,sag --cell DEVT_plain_mixture16_n16 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.2s
+  [bench] cell=DEVT_plain_mixture16_n16 done rc=0 (H=14.664 H*=9.838 runs=26959)
+D:\new dsa project\build\bench_sort.exe --family mixture --param 16 --n 65536 --seed 606 --reps 5 --warmup 1 --elem heavy --variants naive,base,base_b,sag --cell DEVT_heavy_mixture16_n16 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.6s
+  [bench] cell=DEVT_heavy_mixture16_n16 done rc=0 (H=14.664 H*=9.838 runs=26959)
+D:\new dsa project\build\bench_sort.exe --family mixture --param 16 --n 524288 --seed 606 --reps 9 --warmup 1 --elem plain --variants naive,base,base_b,sag --cell DEVT_plain_mixture16_n19 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=1.8s
+  [bench] cell=DEVT_plain_mixture16_n19 done rc=0 (H=17.666 H*=11.337 runs=215888)
+D:\new dsa project\build\bench_sort.exe --family mixture --param 16 --n 524288 --seed 606 --reps 5 --warmup 1 --elem heavy --variants naive,base,base_b,sag --cell DEVT_heavy_mixture16_n19 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=5.3s
+  [bench] cell=DEVT_heavy_mixture16_n19 done rc=0 (H=17.666 H*=11.337 runs=215888)
+D:\new dsa project\build\bench_sort.exe --family runs --param 16 --n 65536 --seed 607 --reps 9 --warmup 1 --elem plain --variants naive,base,base_b,sag --cell DEVT_plain_runs16_n16 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.1s
+  [bench] cell=DEVT_plain_runs16_n16 done rc=0 (H=3.505 H*=14.628 runs=16)
+D:\new dsa project\build\bench_sort.exe --family runs --param 16 --n 65536 --seed 607 --reps 5 --warmup 1 --elem heavy --variants naive,base,base_b,sag --cell DEVT_heavy_runs16_n16 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.3s
+  [bench] cell=DEVT_heavy_runs16_n16 done rc=0 (H=3.505 H*=14.628 runs=16)
+D:\new dsa project\build\bench_sort.exe --family runs --param 16 --n 524288 --seed 607 --reps 9 --warmup 1 --elem plain --variants naive,base,base_b,sag --cell DEVT_plain_runs16_n19 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=0.6s
+  [bench] cell=DEVT_plain_runs16_n19 done rc=0 (H=3.505 H*=17.624 runs=16)
+D:\new dsa project\build\bench_sort.exe --family runs --param 16 --n 524288 --seed 607 --reps 5 --warmup 1 --elem heavy --variants naive,base,base_b,sag --cell DEVT_heavy_runs16_n19 --csv D:\new dsa project\results\raw\dev_time.csv --pin auto
+  exit=0 wall=1.9s
+  [bench] cell=DEVT_heavy_runs16_n19 done rc=0 (H=3.505 H*=17.624 runs=16)
+# finished 2026-10-19 23:25:37 failures=0

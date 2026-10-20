@@ -1,0 +1,5 @@
+  LOST/DUPLICATED: tim/naive mr=1 n=3 throw-at-call 5 of 5
+  LOST/DUPLICATED: power/polylog mr=1 n=17 throw-at-call 21 of 63
+  LOST/DUPLICATED: power/polylog mr=1 n=17 throw-at-call 22 of 63
+throw-at-every-call test: 84623 cases, 84383 aborted by the exception, 32069 left the array NOT a permutation (lost/duplicated elements)
+RESULT: FAIL (basic guarantee violated)

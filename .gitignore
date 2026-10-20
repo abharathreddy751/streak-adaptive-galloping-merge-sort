@@ -1,0 +1,15 @@
+# generated binaries and build output
+build/
+*.exe
+*.o
+*.s
+# accidental duplicate of the whole project folder
+new dsa project/
+# third-party paper copy (not ours to redistribute)
+stage2/paper/arxiv_2012.03996v3.pdf
+stage2/paper/arxiv_2012.03996v3.txt
+stage2/paper/*.png
+# preserved old binaries / hardened builds
+stage2/artifacts/build_original_gcc14/
+stage2/artifacts/hardened/
+stage3/artifacts/hardened/

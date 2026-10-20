@@ -1,0 +1,12 @@
+redteam_fuzz: base seed 31415926
+matrix: 986580 sorts, 2946132 checks so far, 0 failures
+gallop exhaustive domain: 925911 cases (t<=70, tail<=160, every k); worst tests/(k+1) = 1.3333 at t=0 tail=4 k=2 (claimed bound 4/3 = 1.3333)
+SAG-C recovery: after one 10000-block (c=1ns, m=16ns, cap=50m) t returns to t_max=400 after 50 single-element blocks (credit cap/m = 50)
+SAG(round-1) characterisation: after a long streak t=0; after 100000 short linear blocks t=0 (tmax=400): NO recovery on short blocks (known design property, bounded by the 4/3 per-block cost)
+instrumentation: Stats.comparisons() equals the externally counted comparator calls in 756 of 756 sorts
+inconsistent (random-coin) comparator: 540 sorts, out-of-bounds writes: none detected (canaries); output NOT a permutation in 0 of them
+throwing comparator (exception safety is not a documented guarantee): 15 sorts aborted by an exception; array no longer a permutation (element lost/duplicated) after 4 of them
+worst per-merge comparisons/(a+b) observed (SAG-style bound claims <= 4/3 + O(1/(a+b))):
+  SagT 1.0026   PolylogT 1.0051   FixedT<0> 1.3317
+redteam_fuzz: 986580 sorts, 10057802 checks, 0 failed
+exit=0

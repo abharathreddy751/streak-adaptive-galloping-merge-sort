@@ -1,0 +1,20 @@
+# STAGE-3 FREEZE RECORD 2026-10-20 23:23:13 +0530 -- written BEFORE the held-out run
+compiler: g++ (GCC) 15.3.0  target: x86_64-pc-cygwin
+build flags: -std=c++17 -O2 -DNDEBUG -Wall -Wextra -Isrc
+machine: 13th Gen Intel(R) Core(TM) i5-13500HX
+held-out manifest=heldout cells=50 sha256=aecefbd7b2482a66b03800505abc23bfaccf7e2d75b0e53c7d1d079b29060b85
+dev manifest=dev cells=36 sha256=72e1a2116d418cec8bdb02b9e6603516afc3bca750d983bb26eacced13e05c2c
+--- sha256 (library sources at this moment; src/natural_merge_sort.hpp is the Stage-3 patched header)
+49545eb5e2e5d415db36080879ce1cebd85d914a055999038261eef9a4b18dba *src/entropy.hpp
+b1c5e7e08ecbcce0e264c53796440db6e0df662149447883580b183d72caef3b *src/generators.hpp
+a0c4c5218427bb4cc8187f86029fd2719b9eb42b0cc93306e93ac3001f8bd6ce *src/natural_merge_sort.hpp
+8cdde79b535b301ab0ef3a429c3967b8e20e510a92889b5eae1fab7539ae6500 *src/sag_policy.hpp
+6aed714b3474b6604dedccdfb0f3f78cbc90b4ebcafb291fa884958fc5511b2a *src/sag_time_policy.hpp
+39d948e04388b7050e58da24eb8b879d43e8a2954d7ab30a697226ad0b74f280 *src/textbook_merge_sort.hpp
+3bfd1aa6fa0f84e8e26e9eca70c764c44ad0ee5a0a09b5b63a0d0d5d8ae86853 *stage3/string3/bench_string3.cpp
+2d731136e64e8ea4fd4ae45e643c1c4639572165e598b65bf81d7524109717f8 *stage3/string3/bench_string3.exe
+cd8d0eb808d0265784ab577d3f3caf220236f5dd5b1eddfdd064cc66fd14b79e *stage3/string3/run_string3.py
+167a83a4eb3af9f0fc5a6a065a1133cb2ad7363ba30fdc24df03567ecdad3dd3 *stage3/string3/analyze_string3.py
+714c132de0cf76b313fd8bf8a6aae1f8cce42777ad00fbe45fbb051c04b8dfb1 *stage3/data/msys2_paths.txt
+21e59e53552c0f9af51821ede8d97d40213067a634ff8f4ed8f038d08c76e7e1 *stage3/results/s3_structure_heldout.csv
+6b45dce59920104c25cb0f08a18b8786081bc587875f60df12a9f9feda585069 *docs/STAGE3_CONFIRMATION_PLAN.md

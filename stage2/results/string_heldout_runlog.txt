@@ -1,0 +1,76 @@
+
+# run started 2026-10-20 10:14:43 manifest=heldout sha256=45684964f1de3ce9bdfa0f13be16697121e3278e546edaa990c60efd876ac0f1 free_mb=1636
+# platform: Windows-10-10.0.26200-SP0 python 3.11.9 exe: D:\new dsa project\stage2\string_exp\bench_string.exe
+D:\new dsa project\stage2\string_exp\bench_string.exe --family perm --param 0 --n 131072 --seed 7100000 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_perm0_n17 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=13.8s free_mb_before=1634
+  [bench_string] cell=STRHELD_perm0_n17 family=perm param=0 n=131072 seed=7100000 prefix=240 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_perm0_n17 done rc=0 (H=15.673 H*=15.673 runs=54170)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family perm --param 0 --n 524288 --seed 7100001 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_perm0_n19 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=54.5s free_mb_before=1637
+  [bench_string] cell=STRHELD_perm0_n19 family=perm param=0 n=524288 seed=7100001 prefix=240 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_perm0_n19 done rc=0 (H=17.671 H*=17.672 runs=216383)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family few --param 2 --n 131072 --seed 7100010 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_few2_n17 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=4.5s free_mb_before=2869
+  [bench_string] cell=STRHELD_few2_n17 family=few param=2 n=131072 seed=7100010 prefix=240 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_few2_n17 done rc=0 (H=14.849 H*=1.000 runs=32954)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family few --param 2 --n 524288 --seed 7100011 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_few2_n19 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=16.3s free_mb_before=2879
+  [bench_string] cell=STRHELD_few2_n19 family=few param=2 n=524288 seed=7100011 prefix=240 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_few2_n19 done rc=0 (H=16.839 H*=1.000 runs=130989)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family few --param 16 --n 131072 --seed 7100020 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_few16_n17 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=8.6s free_mb_before=2715
+  [bench_string] cell=STRHELD_few16_n17 family=few param=16 n=131072 seed=7100020 prefix=240 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_few16_n17 done rc=0 (H=15.657 H*=4.000 runs=53697)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family few --param 16 --n 524288 --seed 7100021 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_few16_n19 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=29.2s free_mb_before=2763
+  [bench_string] cell=STRHELD_few16_n19 family=few param=16 n=524288 seed=7100021 prefix=240 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_few16_n19 done rc=0 (H=17.659 H*=4.000 runs=215053)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family few --param 256 --n 131072 --seed 7100030 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_few256_n17 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=10.3s free_mb_before=3197
+  [bench_string] cell=STRHELD_few256_n17 family=few param=256 n=131072 seed=7100030 prefix=240 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_few256_n17 done rc=0 (H=15.671 H*=7.999 runs=54137)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family few --param 256 --n 524288 --seed 7100031 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_few256_n19 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=37.3s free_mb_before=3199
+  [bench_string] cell=STRHELD_few256_n19 family=few param=256 n=524288 seed=7100031 prefix=240 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_few256_n19 done rc=0 (H=17.674 H*=8.000 runs=216731)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family few --param 4096 --n 131072 --seed 7100040 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_few4096_n17 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=10.5s free_mb_before=3239
+  [bench_string] cell=STRHELD_few4096_n17 family=few param=4096 n=131072 seed=7100040 prefix=240 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_few4096_n17 done rc=0 (H=15.675 H*=11.977 runs=54242)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family few --param 4096 --n 524288 --seed 7100041 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_few4096_n19 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=42.5s free_mb_before=3231
+  [bench_string] cell=STRHELD_few4096_n19 family=few param=4096 n=524288 seed=7100041 prefix=240 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_few4096_n19 done rc=0 (H=17.671 H*=11.994 runs=216442)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family zipf --param 1024 --n 131072 --seed 7100050 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_zipf1024_n17 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=9.2s free_mb_before=3185
+  [bench_string] cell=STRHELD_zipf1024_n17 family=zipf param=1024 n=131072 seed=7100050 prefix=240 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_zipf1024_n17 done rc=0 (H=15.665 H*=7.504 runs=53935)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family zipf --param 1024 --n 524288 --seed 7100051 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_zipf1024_n19 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=35.1s free_mb_before=3164
+  [bench_string] cell=STRHELD_zipf1024_n19 family=zipf param=1024 n=524288 seed=7100051 prefix=240 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_zipf1024_n19 done rc=0 (H=17.665 H*=7.514 runs=215720)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family mixture --param 64 --n 131072 --seed 7100060 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_mixture64_n17 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=8.5s free_mb_before=3159
+  [bench_string] cell=STRHELD_mixture64_n17 family=mixture param=64 n=131072 seed=7100060 prefix=240 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_mixture64_n17 done rc=0 (H=15.669 H*=11.336 runs=54054)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family mixture --param 64 --n 524288 --seed 7100061 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_mixture64_n19 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=35.9s free_mb_before=3140
+  [bench_string] cell=STRHELD_mixture64_n19 family=mixture param=64 n=524288 seed=7100061 prefix=240 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_mixture64_n19 done rc=0 (H=17.673 H*=12.335 runs=216666)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family runs --param 64 --n 131072 --seed 7100070 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_runs64_n17 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=3.7s free_mb_before=3145
+  [bench_string] cell=STRHELD_runs64_n17 family=runs param=64 n=131072 seed=7100070 prefix=240 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_runs64_n17 done rc=0 (H=5.437 H*=15.667 runs=64)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family runs --param 64 --n 524288 --seed 7100071 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_runs64_n19 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=11.8s free_mb_before=3164
+  [bench_string] cell=STRHELD_runs64_n19 family=runs param=64 n=524288 seed=7100071 prefix=240 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_runs64_n19 done rc=0 (H=5.278 H*=17.667 runs=64)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family nearly --param 0.01 --n 131072 --seed 7100080 --reps 15 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_nearly0p01_n17 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=3.6s free_mb_before=3111
+  [bench_string] cell=STRHELD_nearly0p01_n17 family=nearly param=0.01 n=131072 seed=7100080 prefix=240 reps=15 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_nearly0p01_n17 done rc=0 (H=10.753 H*=10.752 runs=2557)
+D:\new dsa project\stage2\string_exp\bench_string.exe --family nearly --param 0.01 --n 524288 --seed 7100081 --reps 11 --warmup 1 --variants naive,base,base_b,sag,sagc,tim_base,stdstable,topdown --cell STRHELD_nearly0p01_n19 --csv D:\new dsa project\stage2\results\string_heldout.csv --pin auto --prefix 240
+  exit=0 wall=12.9s free_mb_before=3096
+  [bench_string] cell=STRHELD_nearly0p01_n19 family=nearly param=0.01 n=524288 seed=7100081 prefix=240 reps=11 | pinned to logical CPU 2 (highest core efficiency class=1), verified 1000/1000 samples on that CPU
+  [bench_string] cell=STRHELD_nearly0p01_n19 done rc=0 (H=12.750 H*=12.750 runs=10294)
+# finished 2026-10-20 10:20:32 failures=0

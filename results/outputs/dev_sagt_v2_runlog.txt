@@ -1,0 +1,67 @@
+
+# run started 2026-10-20 00:10:07 manifest=dev_sagt sha256=4e32c4fb369e33653492ca80fe4c56fb281990ac88037afb457ff85ec8f6246c
+# platform: Windows-10-10.0.26100-SP0  python 3.9.13  exe: D:\new dsa project\build\bench_sort.exe
+D:\new dsa project\build\bench_sort.exe --family perm --param 0 --n 524288 --seed 801 --reps 9 --warmup 1 --elem plain --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_plain_perm0_n19 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=7.9s
+  [bench] cell=DEVS_plain_perm0_n19 done rc=0 (H=17.672 H*=17.673 runs=216513)
+D:\new dsa project\build\bench_sort.exe --family perm --param 0 --n 524288 --seed 801 --reps 9 --warmup 1 --elem indirect --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_indirect_perm0_n19 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=7.6s
+  [bench] cell=DEVS_indirect_perm0_n19 done rc=0 (H=17.672 H*=17.673 runs=216513)
+D:\new dsa project\build\bench_sort.exe --family perm --param 0 --n 131072 --seed 801 --reps 7 --warmup 1 --elem heavy --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_heavy_perm0_n17 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=4.3s
+  [bench] cell=DEVS_heavy_perm0_n17 done rc=0 (H=15.669 H*=15.671 runs=54051)
+D:\new dsa project\build\bench_sort.exe --family runs --param 16 --n 524288 --seed 802 --reps 9 --warmup 1 --elem plain --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_plain_runs16_n19 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=1.3s
+  [bench] cell=DEVS_plain_runs16_n19 done rc=0 (H=3.538 H*=17.631 runs=16)
+D:\new dsa project\build\bench_sort.exe --family runs --param 16 --n 524288 --seed 802 --reps 9 --warmup 1 --elem indirect --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_indirect_runs16_n19 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=1.6s
+  [bench] cell=DEVS_indirect_runs16_n19 done rc=0 (H=3.538 H*=17.631 runs=16)
+D:\new dsa project\build\bench_sort.exe --family runs --param 16 --n 131072 --seed 802 --reps 7 --warmup 1 --elem heavy --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_heavy_runs16_n17 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=1.4s
+  [bench] cell=DEVS_heavy_runs16_n17 done rc=0 (H=3.538 H*=15.631 runs=16)
+D:\new dsa project\build\bench_sort.exe --family few --param 32 --n 524288 --seed 803 --reps 9 --warmup 1 --elem plain --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_plain_few32_n19 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=3.2s
+  [bench] cell=DEVS_plain_few32_n19 done rc=0 (H=17.667 H*=5.000 runs=215966)
+D:\new dsa project\build\bench_sort.exe --family few --param 32 --n 524288 --seed 803 --reps 9 --warmup 1 --elem indirect --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_indirect_few32_n19 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=3.5s
+  [bench] cell=DEVS_indirect_few32_n19 done rc=0 (H=17.667 H*=5.000 runs=215966)
+D:\new dsa project\build\bench_sort.exe --family few --param 32 --n 131072 --seed 803 --reps 7 --warmup 1 --elem heavy --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_heavy_few32_n17 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=2.8s
+  [bench] cell=DEVS_heavy_few32_n17 done rc=0 (H=15.665 H*=5.000 runs=53923)
+D:\new dsa project\build\bench_sort.exe --family few --param 512 --n 524288 --seed 804 --reps 9 --warmup 1 --elem plain --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_plain_few512_n19 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=4.3s
+  [bench] cell=DEVS_plain_few512_n19 done rc=0 (H=17.673 H*=8.999 runs=216648)
+D:\new dsa project\build\bench_sort.exe --family few --param 512 --n 524288 --seed 804 --reps 9 --warmup 1 --elem indirect --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_indirect_few512_n19 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=5.0s
+  [bench] cell=DEVS_indirect_few512_n19 done rc=0 (H=17.673 H*=8.999 runs=216648)
+D:\new dsa project\build\bench_sort.exe --family few --param 512 --n 131072 --seed 804 --reps 7 --warmup 1 --elem heavy --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_heavy_few512_n17 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=3.6s
+  [bench] cell=DEVS_heavy_few512_n17 done rc=0 (H=15.671 H*=8.997 runs=54104)
+D:\new dsa project\build\bench_sort.exe --family zipf --param 256 --n 524288 --seed 805 --reps 9 --warmup 1 --elem plain --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_plain_zipf256_n19 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=3.5s
+  [bench] cell=DEVS_plain_zipf256_n19 done rc=0 (H=17.659 H*=6.216 runs=215102)
+D:\new dsa project\build\bench_sort.exe --family zipf --param 256 --n 524288 --seed 805 --reps 9 --warmup 1 --elem indirect --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_indirect_zipf256_n19 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=4.2s
+  [bench] cell=DEVS_indirect_zipf256_n19 done rc=0 (H=17.659 H*=6.216 runs=215102)
+D:\new dsa project\build\bench_sort.exe --family zipf --param 256 --n 131072 --seed 805 --reps 7 --warmup 1 --elem heavy --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_heavy_zipf256_n17 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=3.0s
+  [bench] cell=DEVS_heavy_zipf256_n17 done rc=0 (H=15.661 H*=6.211 runs=53832)
+D:\new dsa project\build\bench_sort.exe --family mixture --param 16 --n 524288 --seed 806 --reps 9 --warmup 1 --elem plain --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_plain_mixture16_n19 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=4.2s
+  [bench] cell=DEVS_plain_mixture16_n19 done rc=0 (H=17.664 H*=11.335 runs=215620)
+D:\new dsa project\build\bench_sort.exe --family mixture --param 16 --n 524288 --seed 806 --reps 9 --warmup 1 --elem indirect --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_indirect_mixture16_n19 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=4.8s
+  [bench] cell=DEVS_indirect_mixture16_n19 done rc=0 (H=17.664 H*=11.335 runs=215620)
+D:\new dsa project\build\bench_sort.exe --family mixture --param 16 --n 131072 --seed 806 --reps 7 --warmup 1 --elem heavy --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_heavy_mixture16_n17 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=3.2s
+  [bench] cell=DEVS_heavy_mixture16_n17 done rc=0 (H=15.668 H*=10.336 runs=54029)
+D:\new dsa project\build\bench_sort.exe --family nearly --param 0.05 --n 524288 --seed 807 --reps 9 --warmup 1 --elem plain --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_plain_nearly0p05_n19 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=1.8s
+  [bench] cell=DEVS_plain_nearly0p05_n19 done rc=0 (H=15.051 H*=15.051 runs=47423)
+D:\new dsa project\build\bench_sort.exe --family nearly --param 0.05 --n 524288 --seed 807 --reps 9 --warmup 1 --elem indirect --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_indirect_nearly0p05_n19 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=2.0s
+  [bench] cell=DEVS_indirect_nearly0p05_n19 done rc=0 (H=15.051 H*=15.051 runs=47423)
+D:\new dsa project\build\bench_sort.exe --family nearly --param 0.05 --n 131072 --seed 807 --reps 7 --warmup 1 --elem heavy --variants base,base_b,sag,sagt16_m8,sagbe_m2,sagbe_m4,sagbe_m8,sagbe_m16,sagbe_m32 --cell DEVS_heavy_nearly0p05_n17 --csv D:\new dsa project\results\raw\dev_sagt.csv --pin auto
+  exit=0 wall=2.4s
+  [bench] cell=DEVS_heavy_nearly0p05_n17 done rc=0 (H=13.050 H*=13.051 runs=11870)
+# finished 2026-10-20 00:11:23 failures=0

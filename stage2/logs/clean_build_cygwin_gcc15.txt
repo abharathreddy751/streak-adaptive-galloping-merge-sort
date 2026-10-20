@@ -1,0 +1,10 @@
+[build] test_base (base paper implementation only)
+[build] test_all (base + proposed extension)
+[build] test_sagt (corrective-round extension SAG-T)
+[build] bench_sort (optimised: -O2 -DNDEBUG)
+[build] demo_sort
+[build] done
+
+real	1m6.281s
+user	0m0.000s
+sys	0m0.016s

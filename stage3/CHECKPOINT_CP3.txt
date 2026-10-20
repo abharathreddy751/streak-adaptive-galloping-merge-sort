@@ -1,0 +1,4 @@
+CP3 final checkpoint (taken after all Stage-3 documents; this file is written afterwards and is not inside the zip; one later one-word wording fix in docs/STAGE3_CHANGELOG.md (Five -> Four) was made AFTER the checkpoint, so that file differs from its CP3 copy)
+zip: D:\new dsa project_CHECKPOINTS\CP3_stage3_final_20261021_000933.zip
+zip SHA-256: 15f7c7828a21ea34b3c09368fa0a93330304231d8e3c7228a1e8101fb2a587e4
+files: 339, read-back verification mismatches: 0
