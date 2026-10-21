@@ -1,0 +1,7 @@
+[build] test_base (base paper implementation only)
+[build] test_all (base + proposed extension)
+[build] test_exception (stage 3: comparator-exception contract)
+[build] test_sagt (corrective-round extension SAG-T)
+[build] bench_sort (optimised: -O2 -DNDEBUG)
+[build] demo_sort
+[build] done

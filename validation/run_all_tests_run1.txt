@@ -1,0 +1,17 @@
+compiler: g++ (GCC) 15.3.0
+[build] test_base (base paper implementation only)
+[build] test_all (base + proposed extension)
+[build] test_exception (stage 3: comparator-exception contract)
+[build] test_sagt (corrective-round extension SAG-T)
+[build] bench_sort (optimised: -O2 -DNDEBUG)
+[build] demo_sort
+[build] done
+test_base exit=0 :: test_sort: 1502829 checks passed, 0 failed
+test_all exit=0 :: test_sort: 2100389 checks passed, 0 failed
+test_sag exit=0 :: test_sag: 265609 checks passed, 0 failed
+test_sagt exit=0 :: test_sagt: 760686 checks passed, 0 failed
+test_exception exit=0 :: test_exception: 84624 checks passed, 0 failed
+demo_sort exit=0 :: all outputs equal the reference stable sort: YES
+demo output identical to results/outputs/demo_output.txt
+RESULT: PASS
+script exit=0

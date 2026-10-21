@@ -1,0 +1,5 @@
+date: Wed Oct 21 00:53:38 IST 2026
+root: /d/new dsa project_SUBMISSION_20261021
+compiler: g++ (GCC) 15.3.0  target: x86_64-pc-cygwin
+python: Python 3.11.9
+MINGW64_NT-10.0-26200 LAPTOP-4M0TB1LG 3.6.10-9a6cbe55.x86_64 2026-07-16 20:47 UTC x86_64 Msys

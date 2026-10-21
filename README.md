@@ -1,77 +1,66 @@
 # Streak-Adaptive Galloping for Natural Merge Sort
 
-**MACSE501 topic:** Merge Sort (Module 3) — the project re-implements a 2025 research paper on the *merge step* of natural merge sorts (TimSort family), proposes a change to it, and evaluates both on identical inputs.
-**Platform:** C++17, header-only, no dependencies. Tested with g++ 14.2.0 (Windows/MinGW) and, for sanitizers, g++ 15.2.0 (WSL Ubuntu).
+Data Structures and Algorithm Analysis - postgraduate project (CSE-AIML). Syllabus topic: **Merge Sort** (Module 3).
 
-## Base paper (verified)
-E. Ghasemi, V. Jugé, G. Khalighinejad, H. Yazdanyar, **"Galloping in Fast-Growth Natural Merge Sorts"**, *Algorithmica* 87(2):242–291, Springer, online 2024-12-09 (issue Feb 2025). DOI [10.1007/s00453-024-01285-6](https://doi.org/10.1007/s00453-024-01285-6); preprint arXiv:2012.03996 (read in full-text form). Metadata cross-checked in Crossref and OpenAlex. **Scopus indexing was not independently verified** (see `docs/PAPER_VERIFICATION.md`). An earlier idea (succinct rank/select bit vectors) was *rejected as outside the MACSE501 syllabus* — see `docs/SYLLABUS_COMPLIANCE.md`.
+## Abstract
+Merge Sort is the standard divide-and-conquer sort. Production sorts such as TimSort (Python, Java) are *natural merge sorts*: they find the sorted runs that already exist in the data and merge those. Inside each merge, the sorter finds the end of every "streak" of items coming from the same run by *galloping* (probe a few items one by one, then jump 1, 2, 4, 8 ... places and binary-search back). This project re-implements the relevant method of the paper below in C++17 and evaluates one proposed extension, **SAG (Streak-Adaptive Galloping)**, which adapts the galloping parameter `t` while a merge is running instead of fixing it per merge.
+The evidence is conditional: SAG reduces comparisons on low-entropy inputs, and it reduces elapsed time only when a key comparison is expensive (long strings in this study). It is **not** presented as a faster sort in general.
 
-## What was built
-| part | where |
-|---|---|
-| **Base paper algorithm**: natural merge sorts (PowerSort and TimSort stack rules), run detection + binary-insertion `minrun`, McIlroy's mixed t-galloping merge, polylogarithmic `t = ⌈log₂(a+b)⌉²` | [src/natural_merge_sort.hpp](src/natural_merge_sort.hpp) |
-| **Proposed extension**: Streak-Adaptive Galloping (SAG) — adapts `t` inside each merge from observed block lengths using the paper's own cost model; no extra memory or key comparisons | [src/sag_policy.hpp](src/sag_policy.hpp) |
-| **Corrective-round extensions** SAG-T v1 (failed), SAG-B (failed on nearly-sorted), **SAG-C** (credit rule with self-measured comparison cost) | [src/sag_time_policy.hpp](src/sag_time_policy.hpp) |
-| Textbook top-down Merge Sort (syllabus baseline / oracle), entropy tools (H, H*), deterministic generators | `src/textbook_merge_sort.hpp`, `src/entropy.hpp`, `src/generators.hpp` |
-| Tests (exhaustive small cases, randomised families, paper-derived invariants) | `tests/` |
-| Benchmark harness, manifests, analysis, figures | `bench/`, `scripts/` |
+## Base paper
+E. Ghasemi, V. Jugé, G. Khalighinejad, H. Yazdanyar, "Galloping in Fast-Growth Natural Merge Sorts", *Algorithmica* 87(2), 242-291, Springer; published online 9 December 2024 (issue year 2025). DOI: [10.1007/s00453-024-01285-6](https://doi.org/10.1007/s00453-024-01285-6). A correction notice (DOI 10.1007/s00453-025-01297-w) concerns one author's affiliation only.
+This code is an **independent re-implementation of the relevant method, not the authors' code**. It does not reproduce the paper's proofs or all of its constructions. Individual-article Scopus indexing is **not verified**.
 
-## Result in one paragraph
-All outputs on all held-out cells (90 + 54) matched the reference sort. **Round 1 (primary):** SAG uses **15–27 % fewer comparisons** than the paper's policy on low-entropy inputs (up to 51 % on nearly-sorted data) and never more than the base. When a comparison is expensive (synthetic ≈ 22 ns comparator) this becomes **11–21 % less time on all 8 low-entropy cells** (44 % on nearly-sorted data), with no severe regression (worst +2.2 %). **With cheap comparisons (plain integers, cache-missing indices) SAG is slower than the base in all 54 cells (median +7–8 %, up to +24 %; 12 cells severe)** — the paper's cost model counts comparisons only, and the experiment confirms that it matters only when comparisons dominate. Verdict under the frozen protocol: **PARTIAL SUCCESS, conditional on comparator cost.** **Round 2 (one corrective experiment, fresh seeds):** a time-aware variant that measures the comparison cost itself (SAG-C) keeps and increases the gain when comparisons dominate (14–28 % on low-entropy cells, 47 % nearly-sorted) and is nearly neutral otherwise (median +1.5 % / +2.9 %), but 2 of 36 cheap-comparison cells still regress ≥ 10 %: **CORRECTIVE PARTIAL.** Details: `docs/FINAL_REPORT.md`.
+## Base algorithm versus SAG
+| | Base (paper's policy) | SAG (primary extension) |
+| --- | --- | --- |
+| Runs and merge order | detect runs (minrun 32, binary insertion), PowerSort or TimSort stack rule | identical |
+| Merge | copy the smaller run to a buffer, forward or backward stable merge, galloping | identical |
+| Galloping parameter `t` | fixed per merge: `t = ceil(log2(a+b))^2` | starts at the same value, then adapted after each long streak using the paper's own cost formula |
+| Extra memory / extra key comparisons | none | none |
 
-## Stage 2 (2026-10-20): independent audit + real string comparator - additional evidence, verdicts above unchanged
-* **Audit** (`docs/STAGE2_AUDIT_REPORT.md`, checker `stage2/audit/independent_audit.py`): the raw CSVs, manifests, run logs, freeze hashes and every number in the summaries/report were re-derived with separate code; results agree (one 0.001 rounding slip in the report and one documented plan-file edit are listed). A fresh-seed red-team fuzz (986,580 sorts, 108 configurations, stability tags, canary guard zones, bad comparators) found **no defect in the sorting code**. Known limitation found: no exception safety if a comparator throws.
-* **New experiment** (`docs/STAGE2_REAL_COMPARATOR_PLAN.md` frozen first, results in `docs/STAGE2_REAL_COMPARATOR_RESULTS.md`): real lexicographic string comparison (240-character shared prefixes), 18 held-out cells. **SAG-C (primary): GAIN WITHOUT SAFETY** (6 of 8 low-entropy cells >= 10 % faster, but one control cell +11.4 %); round-1 SAG under the same rule: SUCCESS (6 of 8, no severe regression). Synthetic strings, one machine; not a general performance win.
-* **Paper** (`stage2/paper/STAGE2_PAPER_VERIFICATION.md`): publisher page, Crossref and OpenAlex agree; a publisher *correction* (affiliation only, DOI 10.1007/s00453-025-01297-w) exists; TimSort rule and `t = ceil(log2(a+b))^2` verified against the printed paper; journal-level Scopus listing seen on the publisher's page, article-level Scopus indexing still **not** verified.
-* **Environment note:** the stage-1 numbers were measured on an i5-1235U with g++ 14.2 (MinGW); stage 2 ran on an i5-13500HX with the Cygwin-target g++ 15.3.0 (sanitizer libraries unavailable; checked/UBSan-trap builds used instead). See `docs/STAGE2_CHANGELOG.md`, `docs/EVALUATION_PREP.md`.
+SAG-C (`src/sag_time_policy.hpp`) is a corrective, time-aware variant. It failed its safety criteria in Stage 2 and had a severe regression in a Stage 3 diagnostic. It is kept as a documented alternative, not as the final candidate.
 
-## Stage 3 (2026-10-21): exception contract fixed + one fresh confirmation of SAG - earlier verdicts unchanged
-* **Exception safety:** a comparator that throws could lose or duplicate elements (reproduced). Now: basic guarantee (array stays a permutation; order unspecified), zero code for `noexcept` comparators; test `build/test_exception`.
-* **Confirmation (`docs/STAGE3_CONFIRMATION_PLAN.md` frozen first; results `docs/STAGE3_CONFIRMATION_RESULTS.md`):** 50 string-key cells (variable lengths/prefixes, 3 comparison-cost classes, 2 real file-name cells). **SAG: CONFIRMATION SUCCESS** (12 of 16 expensive-key low-entropy cells >= 10 % faster, no severe regression anywhere, independently re-derived) - a *conditional* improvement for expensive keys; cheap short keys gain little or lose. SAG-C (diagnostic) is not recommended. Synthetic strings, one machine.
-* Audit: `docs/STAGE3_AUDIT_REPORT.md`, checker `stage3/audit/audit_stage3.py`; changelog `docs/STAGE3_CHANGELOG.md`; viva material `docs/EVALUATION_PREP.md`.
+## Workflow in short
+1. Find the natural runs. 2. A stack rule decides which two neighbouring runs to merge. 3. Merge them using a temporary buffer. 4. Inside the merge, locate each streak end by galloping with parameter `t`. 5. Base: `t` stays fixed. SAG: after a long streak, `t` moves to whichever of `t/2`, `t`, `2t+2` or `0` the cost formula says is cheapest; it resets at the next merge.
+Details: `docs/BASE_PAPER_IMPLEMENTATION.md`, `docs/PROPOSED_METHOD.md`, `docs/FINAL_PROJECT_REPORT.md`.
 
-## Prerequisites
-`g++` with C++17 (no CMake/Ninja needed), Python 3 (standard library only; `matplotlib` only for figures). WSL with g++ only for the optional sanitizer run.
+## Directory map
+| Path | Content |
+| --- | --- |
+| `src/` | header-only C++17 code: `natural_merge_sort.hpp` (base paper method + exception guard), `sag_policy.hpp` (SAG), `sag_time_policy.hpp` (SAG-C), `textbook_merge_sort.hpp`, `generators.hpp`, `entropy.hpp` |
+| `tests/` | `test_sort.cpp` (built as `test_base` and `test_all`), `test_sag.cpp`, `test_sagt.cpp`, `test_exception.cpp` |
+| `bench/` | `demo_sort.cpp` (demonstration), `bench_sort.cpp` (Stage 1-2 benchmark driver) |
+| `scripts/` | `build.sh`, `run_all_tests.sh` (clean build + all tests), Stage 1-2 runners and analysis |
+| `results/` | Stage 1-2 raw CSV data, frozen manifests and freeze records, summaries, figures |
+| `stage2/`, `stage3/` | Stage 2 and Stage 3 evidence: benchmark sources, raw data, logs, independent checkers, freeze records |
+| `docs/` | report, plans, audit reports, limitations, viva preparation, demo checklist, handover |
+| `validation/` | logs of the clean-build and test runs performed on this submission package |
 
-## Build, test, demo (copy-paste; Git-Bash or Linux shell, from the project root)
+## Requirements
+`g++` with C++17 (tested: GCC 15.3.0, MSYS2, target x86_64-pc-cygwin, Windows 11), Bash (Git-Bash or MSYS2), Python 3 standard library (tested 3.11.9). No other dependency, no network, no database. The project folder may contain spaces. Other compilers and Linux are expected to work but were **not tested** for this package.
+
+## Build, test, demo (commands that were run on this package)
 ```bash
-bash scripts/build.sh                 # builds build/test_base, test_all, test_sag, bench_sort, demo_sort
-./build/test_base.exe                 # base paper implementation only          -> expect "1502829 checks passed, 0 failed"
-./build/test_all.exe                  # base + extension                        -> expect "2100389 checks passed, 0 failed"
-./build/test_sag.exe                  # extension-specific tests                -> expect "265609 checks passed, 0 failed"
-./build/test_sagt.exe                 # corrective-round extensions (SAG-C etc.) -> expect "760686 checks passed, 0 failed"
-python scripts/final_audit.py         # full audit (clean rebuild + tests + re-derivation of results) -> "SUMMARY: 0 FAIL"
-./build/demo_sort.exe                 # readable demonstration (see below)
+cd "<project folder>"
+bash scripts/run_all_tests.sh        # clean build, five test programs, demo; exits non-zero on any failure
 ```
-(On Linux drop `.exe`.) Sanitizers: `MSYS_NO_PATHCONV=1 wsl.exe -e bash "/mnt/d/new dsa project/scripts/sanitize_wsl.sh"` (adapt the path).
+Verified output of the five test programs (see `validation/`): `test_base` 1502829 checks passed, 0 failed; `test_all` 2100389 checks passed, 0 failed; `test_sag` 265609 checks passed, 0 failed; `test_sagt` 760686 checks passed, 0 failed; `test_exception` 84624 checks passed, 0 failed. These suites overlap in coverage; do not add the numbers. The demo (`./build/demo_sort.exe`) ends with `all outputs equal the reference stable sort: YES` and its output equals `results/outputs/demo_output.txt`.
 
-Sample `demo_sort` output (actual, abridged):
-```
-few(3) values         16.28   1.58 |   14.454    8.272    6.776 |     15.583     14.406
-few(64) values        16.67   6.00 |   16.639   14.577   11.166 |     17.744     16.658
-   columns: H  H*  | naive  base(paper)  SAG(proposed) | std::stable_sort  textbook top-down   (comparisons per element)
-all outputs equal the reference stable sort: YES
-```
-
-## Reproduce the experiments
+Stage 3 final gate (about 8 minutes; builds the project three times and re-runs the audits):
 ```bash
-python scripts/run_bench.py --manifest dev_counts   # development: deterministic comparison counts (seconds)
-python scripts/run_bench.py --manifest dev_time     # development timing (~1 min)
-python scripts/run_bench.py --manifest heldout      # FROZEN held-out run, 90 cells, ~25 min, needs an otherwise idle machine
-python scripts/analyze.py results/raw/heldout.csv   # tables + pre-registered criteria -> results/outputs/summary_heldout.md
-python scripts/run_bench.py --manifest heldout2     # corrective round, fresh seeds, 54 cells (~10 min)
-python scripts/analyze.py results/raw/heldout2.csv --var sagt --round2   # -> results/outputs/summary_heldout2.md
-python scripts/make_figures.py results/raw/heldout.csv results/raw/heldout2.csv   # results/figures/*.png
+bash stage3/tools/final_pass3.sh     # prints GATE: PASS or GATE: FAIL and sets the exit status
 ```
-Protocol, seeds, success criteria and the SHA-256 of every file under test were frozen **before** each held-out run: `docs/EXPERIMENT_PLAN.md` (round 1 + addendum for round 2), `results/outputs/freeze_record.txt`, `results/outputs/freeze_record_round2.txt`.
+`scripts/final_audit.py` (the older audit) is expected to report one FAIL (check G) on this tree, because `src/natural_merge_sort.hpp` was deliberately changed in Stage 3 (exception guard). The gate script runs it on the live tree, expects exactly that FAIL, and also runs it on a pristine-header copy, where it reports 0 FAIL.
 
-## Where to look first
-1. `docs/FINAL_REPORT.md` — question, evidence, verdict, limitations.
-2. `docs/SYLLABUS_COMPLIANCE.md`, `docs/IDEA_SELECTION.md`, `docs/PAPER_VERIFICATION.md`.
-3. `docs/BASE_PAPER_IMPLEMENTATION.md` (what was implemented, deviations) and `docs/PROPOSED_METHOD.md` (the extension).
-4. `results/outputs/summary_heldout.md`, `results/figures/`, raw data `results/raw/heldout.csv`.
-5. `docs/EXPERIMENT_LOG.md` — chronological log, including mistakes found and fixed.
-6. `docs/DEMO_COMMANDS.md` — exact commands with expected output.
+## Results in brief (details and caveats: `docs/FINAL_PROJECT_REPORT.md`)
+* **Stage 1 (integer keys, synthetic comparator cost):** partial success. 15-27 percent fewer comparisons on low-entropy inputs; time gain only when comparisons are expensive; SAG slower in all 54 cheap-comparison cells.
+* **Stage 1 corrective round (SAG-C):** corrective partial; 2 of 36 cheap cells still regressed by 10 percent or more.
+* **Stage 2 (string comparator, one 240-character shared prefix):** SAG-C failed its severe-regression guard; SAG met the same rule as a secondary candidate.
+* **Stage 3 (frozen confirmation of SAG, 50 cells):** SAG reached a time ratio of 0.90 or better (confidence-interval upper bound below 1.0) in **12 of the 16** expensive-key, low-entropy gain cells (11 were required), no severe regression in any of the 50 cells, comparison ratio at most 1.000, all 5,888 rows correct, independent internal checker 25 PASS / 0 FAIL / 0 DISCREPANCY. **Conditional confirmation success**: 48 of the 50 cells are synthetic variable-length strings, the other two are small file-name lists, one machine and one toolchain. Worst Stage 3 ratio 1.076 (short synthetic keys, `zipf(1024)`, n = 2^17).
+* **Exception safety (Stage 3):** a comparator that throws could lose or duplicate items (32,069 of 84,623 reproduced cases). The fix gives the **basic guarantee** (the array stays a permutation; order and stability are not guaranteed after the exception); 0 of 84,623 after the fix.
 
-## Honest limitations (short)
-Synthetic data only; the "heavy comparator" regime is a model; one hybrid-core laptop with uncontrolled turbo; the base is a re-implementation of a theoretical paper (no reference code), the TimSort stack-rule inequalities were reconstructed from the Java rule because the PDF text lost the symbols; the paper's proofs and adversarial constructions were not reproduced; Scopus status unverified. No claim of novelty beyond "proposed extension".
+## Limitations
+See `docs/KNOWN_LIMITATIONS.md`. Main points: conditional result, narrow margin (12 against 11), mostly synthetic data, one machine and compiler for Stage 3, comparison counts are not time, the audits are internal, sanitizer runtimes were not available, article-level Scopus indexing is unverified.
+
+## Reading order
+`docs/FINAL_PROJECT_REPORT.md`, `docs/KNOWN_LIMITATIONS.md`, `docs/VIVA_PREP.md`, `docs/FINAL_DEMO_CHECKLIST.md`, `docs/SUBMISSION_HANDOVER.md`. The historical stage reports are kept unchanged: `docs/FINAL_REPORT.md`, `docs/STAGE2_*.md`, `docs/STAGE3_*.md`; the original Stage 1-2 README is `docs/README_STAGE1_2_HISTORICAL.md`.

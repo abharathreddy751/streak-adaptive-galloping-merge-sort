@@ -1,0 +1,30 @@
+# Files and folders of the original project that are NOT in the submission package (path | size | reason)
+.git/ | 316 files | git metadata of a separate GitHub repository
+.gitattributes | 1 file | git housekeeping file
+.gitignore | 1 file | git housekeeping file
+build/ | 7 files | generated build output (machine specific, stale executables)
+new dsa project/ | 74 files | nested byte-identical duplicate of the whole project
+stage2/artifacts/build_original_gcc14/ | 6 files | old executables from the previous machine (hashes kept in stage2/artifacts/build_original_gcc14.sha256)
+stage2/artifacts/hardened/ | 4 files | generated hardened test executables
+stage2/audit/__pycache__/independent_audit.cpython-311.pyc | 1 file | python cache
+stage2/paper/arxiv_2012.03996v3.pdf | 1 file | third-party paper copy (not ours to redistribute; SHA-256 and verification notes kept)
+stage2/paper/arxiv_2012.03996v3.txt | 1 file | third-party paper copy (not ours to redistribute; SHA-256 and verification notes kept)
+stage2/paper/page15.png | 1 file | rendered pages of the third-party paper
+stage2/paper/page29.png | 1 file | rendered pages of the third-party paper
+stage2/redteam/redteam_fuzz.exe | 1 file | generated executable (rebuild from source)
+stage2/redteam/redteam_fuzz_O3.exe | 1 file | generated executable (rebuild from source)
+stage2/redteam/redteam_fuzz_hardened.exe | 1 file | generated executable (rebuild from source)
+stage2/string_exp/__pycache__/run_string_bench.cpython-311.pyc | 1 file | python cache
+stage3/artifacts/hardened/ | 6 files | generated hardened test executables
+stage3/artifacts/redteam_O2.exe | 1 file | generated executable (rebuild from source)
+stage3/audit/__pycache__/audit_stage3.cpython-311.pyc | 1 file | python cache
+stage3/exc/diff_new.exe | 1 file | generated executable (rebuild from source)
+stage3/exc/diff_orig.exe | 1 file | generated executable (rebuild from source)
+stage3/exc/exc_repro.exe | 1 file | generated executable (rebuild from source)
+stage3/exc/exc_repro_ORIGINAL.exe | 1 file | generated executable (rebuild from source)
+stage3/exc/micro_new.exe | 1 file | generated executable (rebuild from source)
+stage3/exc/micro_orig.exe | 1 file | generated executable (rebuild from source)
+
+# Executables that ARE kept, as frozen evidence only (never used by the build)
+stage2/string_exp/bench_string.exe | frozen Stage-2 benchmark binary: hashed in its freeze record, kept as evidence only
+stage3/string3/bench_string3.exe | frozen Stage-3 benchmark binary: hashed in its freeze record, kept as evidence only

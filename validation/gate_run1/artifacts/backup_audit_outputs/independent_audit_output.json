@@ -1,0 +1,129 @@
+{
+ "tally": {
+  "INFO": 11,
+  "PASS": 63,
+  "DISCREPANCY": 3
+ },
+ "claims": [
+  {
+   "ok": true,
+   "claim": "round 1: cells (plain+indirect) with SAG/base median > 1.0",
+   "recomputed": "54",
+   "reported": "54"
+  },
+  {
+   "ok": true,
+   "claim": "round 1 plain: median / min / max of SAG/base",
+   "recomputed": "(1.066, 1.007, 1.133)",
+   "reported": "(1.066, 1.007, 1.133)"
+  },
+  {
+   "ok": true,
+   "claim": "round 1 indirect: median / min / max of SAG/base",
+   "recomputed": "(1.079, 1.005, 1.24)",
+   "reported": "(1.079, 1.005, 1.24)"
+  },
+  {
+   "ok": true,
+   "claim": "round 1: severe cells in plain+indirect",
+   "recomputed": "12",
+   "reported": "12"
+  },
+  {
+   "ok": true,
+   "claim": "round 1: worst heavy-regime SAG/base (reported 'worst +2.2%')",
+   "recomputed": "1.022",
+   "reported": "1.022"
+  },
+  {
+   "ok": true,
+   "claim": "round 1: low-H* comparison ratios min..max (reported 0.73-0.85)",
+   "recomputed": "(0.73, 0.85, 12)",
+   "reported": "(0.73, 0.85, 12)"
+  },
+  {
+   "ok": false,
+   "claim": "round 2 plain: median SAG-C/base",
+   "recomputed": "1.016",
+   "reported": "1.015"
+  },
+  {
+   "ok": true,
+   "claim": "round 2 indirect: median SAG-C/base",
+   "recomputed": "1.029",
+   "reported": "1.029"
+  },
+  {
+   "ok": true,
+   "claim": "round 2 plain: share of cells with ratio above 1.05 (rounded)",
+   "recomputed": "0.11",
+   "reported": "0.11"
+  },
+  {
+   "ok": true,
+   "claim": "round 2 indirect: share of cells with ratio above 1.05 (rounded)",
+   "recomputed": "0.17",
+   "reported": "0.17"
+  },
+  {
+   "ok": true,
+   "claim": "round 2 plain: round-1 SAG median ratio on the fresh seeds",
+   "recomputed": "1.042",
+   "reported": "1.042"
+  },
+  {
+   "ok": true,
+   "claim": "round 2 indirect: round-1 SAG median ratio on the fresh seeds",
+   "recomputed": "1.047",
+   "reported": "1.047"
+  },
+  {
+   "ok": true,
+   "claim": "round 2: max round-1 SAG ratio on cheap cells",
+   "recomputed": "1.163",
+   "reported": "1.163"
+  },
+  {
+   "ok": true,
+   "claim": "round 2: severe cells",
+   "recomputed": "['HELD2_indirect_few2_n17', 'HELD2_indirect_nearly0p01_n17']",
+   "reported": "['HELD2_indirect_few2_n17', 'HELD2_indirect_nearly0p01_n17']"
+  },
+  {
+   "ok": true,
+   "claim": "round 2: severe cell few(2)/2^17 ratio+CI",
+   "recomputed": "1.103 [1.032, 1.166]",
+   "reported": "1.103 [1.032, 1.166]"
+  },
+  {
+   "ok": true,
+   "claim": "round 2: severe cell nearly(0.01)/2^17 ratio+CI",
+   "recomputed": "1.120 [1.063, 1.190]",
+   "reported": "1.120 [1.063, 1.190]"
+  },
+  {
+   "ok": true,
+   "claim": "round 2: heavy low-H* SAG-C/base min..max (reported 0.725-0.863, 8 cells)",
+   "recomputed": "(0.725, 0.863, 8)",
+   "reported": "(0.725, 0.863, 8)"
+  },
+  {
+   "ok": true,
+   "claim": "round 2: max comparison ratio SAG-C/base (reported never above 1.001)",
+   "recomputed": "1.001",
+   "reported": "1.001"
+  },
+  {
+   "ok": true,
+   "claim": "generic criterion round 2: cells >= 10% faster with CI<1 (reported 12 of 54)",
+   "recomputed": "(12, 54)",
+   "reported": "(12, 54)"
+  },
+  {
+   "ok": true,
+   "claim": "round 2: A/A control for indirect nearly(0.01) 2^17 as quoted in the report",
+   "recomputed": "0.986 [0.850, 1.042]",
+   "reported": "0.986 [0.850, 1.042]"
+  }
+ ]
+}

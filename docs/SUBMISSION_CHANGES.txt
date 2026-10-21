@@ -1,0 +1,25 @@
+# Differences between the submission package and the original project folder (the original folder was not changed)
+# byte-identical copies of original files: 224
+
+# MODIFIED in the package (the original versions stay in the original folder and in checkpoints):
+README.md                      rewritten for submission; the original Stage 1-2 README is kept as docs/README_STAGE1_2_HISTORICAL.md
+stage3/tools/final_pass3.sh    gate script: no absolute machine paths, redirectable log directories, fixed-string grep (MSYS2 grep 3.0 mis-handles ^\[FAIL\]),
+                               pristine-header audit uses the ORIGINAL header from stage3/artifacts/orig_src, restores stage3 audit output, explicit GATE line and exit status,
+                               log/artifact directories may be relative or absolute (fixed after the first ZIP-extraction test)
+
+# NEW in the package (not in the original folder):
+docs/FINAL_PROJECT_REPORT.md
+docs/KNOWN_LIMITATIONS.md
+docs/VIVA_PREP.md
+docs/FINAL_DEMO_CHECKLIST.md
+docs/SUBMISSION_HANDOVER.md
+docs/SUBMISSION_EXCLUDED.txt        what was left out of the package and why
+docs/SUBMISSION_CHANGES.txt         this file
+docs/README_STAGE1_2_HISTORICAL.md  copy of the original README
+scripts/run_all_tests.sh            clean build + all tests + demo; non-zero exit on any failure
+scripts/package_submission.py       manifest + ZIP creation
+validation/                         logs of the package validation runs (clean builds, gate runs, negative test)
+SUBMISSION_MANIFEST.sha256          SHA-256 of every other file in the package
+
+# Not changed in the package: every source file in src/, tests/, bench/, every raw CSV, frozen plan, freeze record, manifest, summary, figure,
+# historical report and audit output (byte-identical to the original; verified by hash).

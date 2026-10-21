@@ -1,0 +1,38 @@
+== environment
+date: Wed Oct 21 00:38:59 IST 2026
+root: /d/new dsa project_SUBMISSION_20261021
+compiler: g++ (GCC) 15.3.0  target: x86_64-pc-cygwin
+python: Python 3.11.9
+MINGW64_NT-10.0-26200 LAPTOP-4M0TB1LG 3.6.10-9a6cbe55.x86_64 2026-07-16 20:47 UTC x86_64 Msys
+== clean build + all tests + demo (live tree, patched header)
+build exit=0 warnings: 0
+test_base exit=0 test_sort: 1502829 checks passed, 0 failed
+test_all exit=0 test_sort: 2100389 checks passed, 0 failed
+test_sag exit=0 test_sag: 265609 checks passed, 0 failed
+test_sagt exit=0 test_sagt: 760686 checks passed, 0 failed
+test_exception exit=0 test_exception: 84624 checks passed, 0 failed
+demo exit=0 all outputs equal the reference stable sort: YES
+demo output identical to results/outputs/demo_output.txt
+== original audit script on the LIVE tree (expected: exactly one FAIL, check G for natural_merge_sort.hpp)
+final_audit.py live exit=1
+SUMMARY: 1 FAIL
+GATE-CHECK FAILED: live-tree final_audit.py did not show exactly the expected single FAIL
+== original audit script on a pristine-header tree (state before the Stage-3 header change)
+(using a temporary copy of this project with the ORIGINAL header from stage3/artifacts/orig_src)
+stage3/tools/final_pass3.sh: line 66: cd: /tmp/tmp.xvofo1GByQ/pristine tree: No such file or directory
+stage3/tools/final_pass3.sh: line 66: /tmp/tmp.xvofo1GByQ/pristine_rc.txt: No such file or directory
+/usr/bin/cat: /tmp/tmp.xvofo1GByQ/pristine_rc.txt: No such file or directory
+SUMMARY: 0 FAIL
+/usr/bin/grep: /tmp/tmp.xvofo1GByQ/pristine_rc.txt: No such file or directory
+GATE-CHECK FAILED: pristine-header tree final_audit.py
+== Stage-2 audits on the LIVE tree (expected: failures only on natural_merge_sort.hpp hash checks)
+stage2 independent_audit exit=1 SUMMARY: PASS 61  FAIL 2  DISCREPANCY 3  INFO 11
+stage2 string audit exit=1 SUMMARY: PASS 17  FAIL 2  DISCREPANCY 0  INFO 9
+GATE-CHECK FAILED: stage2 audits: expected exactly 2 + 2 header-hash FAILs, got 0 + 0
+== Stage-3 independent audit
+audit_stage3 exit=0 SUMMARY: PASS 25  FAIL 0  DISCREPANCY 0  INFO 5
+SUMMARY: PASS 25  FAIL 0  DISCREPANCY 0  INFO 5
+== restored historical audit outputs
+results/outputs/final_audit.txt restored
+GATE: FAIL
+gate exit=1

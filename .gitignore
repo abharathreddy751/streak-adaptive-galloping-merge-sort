@@ -13,3 +13,6 @@ stage2/paper/*.png
 stage2/artifacts/build_original_gcc14/
 stage2/artifacts/hardened/
 stage3/artifacts/hardened/
+# frozen benchmark binaries are evidence (hashed in the freeze records): keep these two
+!stage2/string_exp/bench_string.exe
+!stage3/string3/bench_string3.exe

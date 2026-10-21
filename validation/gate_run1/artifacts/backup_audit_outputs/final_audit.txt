@@ -1,0 +1,25 @@
+[PASS] A  docs/PAPER_VERIFICATION.md names DOI, publisher, venue and states that Scopus was not verified
+[PASS] B1 clean build with the documented command, exit 0, warnings: none
+[PASS] B2 test_base: 1502829 checks passed, 0 failed (exit 0)
+[PASS] B2 test_all: 2100389 checks passed, 0 failed (exit 0)
+[PASS] B2 test_sag: 265609 checks passed, 0 failed (exit 0)
+[PASS] B2 test_sagt: 760686 checks passed, 0 failed (exit 0)
+[PASS] C  demo_sort exits 0, prints 'all outputs equal the reference stable sort: YES' and matches results/outputs/demo_output.txt
+[PASS] D  results/raw/heldout.csv re-derives results/outputs/summary_heldout.md identically (deterministic bootstrap)
+[PASS] D  results/raw/heldout2.csv re-derives results/outputs/summary_heldout2.md identically (deterministic bootstrap)
+[PASS] E  manifest 'heldout' digest equals the digest frozen in freeze_record.txt
+[PASS] E  manifest 'heldout2' digest equals the digest frozen in freeze_record_round2.txt
+[PASS] F  sections 1-9 of docs/EXPERIMENT_PLAN.md (success criteria included) are byte-identical to the text frozen before the held-out run; only the addendum was appended
+[PASS] G  src/natural_merge_sort.hpp unchanged since the round-1 freeze
+[PASS] G  src/sag_policy.hpp unchanged since the round-1 freeze
+[PASS] G  src/generators.hpp unchanged since the round-1 freeze
+[PASS] G  src/entropy.hpp unchanged since the round-1 freeze
+[PASS] G  src/textbook_merge_sort.hpp unchanged since the round-1 freeze
+[INFO] G  files that differ from the round-1 freeze record (additions after round 1: corrective-round variants/manifests/analysis modes; see EXPERIMENT_LOG): bench/bench_sort.cpp, scripts/run_bench.py, scripts/analyze.py, scripts/build.sh
+[PASS] H  heldout.csv: 7416 rows, 90/90 cells, rows with ok != 1: 0
+[PASS] H  heldout2.csv: 4050 rows, 54/54 cells, rows with ok != 1: 0
+[PASS] I  required deliverables present; missing: none
+[INFO] J  D:\dsaproject\lpq: directory modified 2026-10-08 21:03:42 (project started 2026-10-19 22:33; a modification time before that is consistent with 'untouched'; contents were never opened)
+[INFO] J  D:\dsaproject\lpq_backup_pre_sprint_20261008: directory modified 2026-10-08 20:13:33 (project started 2026-10-19 22:33; a modification time before that is consistent with 'untouched'; contents were never opened)
+
+SUMMARY: 0 FAIL
