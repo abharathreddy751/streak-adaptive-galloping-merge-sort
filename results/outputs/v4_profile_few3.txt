@@ -1,0 +1,18 @@
+# ./nms_tool profile --family few --param 3 --n 262144
+environment: compiler 15.3.0 | flags -std=c++17 -O2 -DNDEBUG | pointer 64 bit | timing clock steady_clock
+== input profile ==
+generator metadata (what was ASKED for): generator family=few param=3 seed=2024 n=262144, key type int (uint32)
+measured by the profiler (what is IN the data):
+  elements n                 : 262144
+  distinct keys              : 3 (0.00% of n)
+  adjacent descents          : 87244 (pairs with a[i+1] < a[i]; 33.281% of the n-1 pairs)
+  natural runs               : 86681 (72783 non-decreasing, 13898 strictly decreasing)
+  run length min/mean/max    : 2 / 3.0 / 13
+  run entropy H              : 16.281 bits   dual-run entropy H* : 1.585 bits   (log2 n = 18.000)
+labels (fixed definitions, see docs/TERMINAL_DEMO.md):
+  already sorted             : no  (no adjacent descent)
+  reverse sorted             : no  (no adjacent ascent, i.e. non-increasing)
+  nearly sorted              : no  (not sorted and descents <= 1% of pairs)
+  duplicate-heavy            : yes  (distinct keys <= 10% of n)
+  low-entropy (project def.) : yes  (H* <= 0.5 * log2 n)
+# exit=0

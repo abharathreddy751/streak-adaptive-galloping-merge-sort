@@ -27,3 +27,11 @@ SUBMISSION_MANIFEST.sha256          SHA-256 of every other file in the package
 
 # Not changed in the package: every source file in src/, tests/, bench/, every raw CSV, frozen plan, freeze record, manifest, summary, figure,
 # historical report and audit output (byte-identical to the original; verified by hash).
+
+# ===== v4 (relative to the v3 package) =====
+# MODIFIED: src/natural_merge_sort.hpp (optional trace hook only; no sorting logic), scripts/build.sh, scripts/run_all_tests.sh, stage3/tools/final_pass3.sh (v4 tests, Stage-3 audit expectations),
+#           README.md, docs/BASE_PAPER_IMPLEMENTATION.md, docs/FINAL_PROJECT_REPORT.md, docs/KNOWN_LIMITATIONS.md, docs/SYLLABUS_COMPLIANCE.md, docs/VIVA_PREP.md, docs/FINAL_DEMO_CHECKLIST.md,
+#           docs/SUBMISSION_HANDOVER.md, docs/SUBMISSION_CHANGES.txt, validation/README.md
+# NEW:      src/diag.hpp, bench/nms_tool.cpp, tests/test_diag.cpp, tests/test_cli.sh, scripts/v4_demo_outputs.sh, docs/TERMINAL_DEMO.md, docs/RELEASE_V4.md,
+#           results/outputs/v4_*.txt, validation/v4/ (final-source run logs, asm_check/)
+# UNCHANGED (byte-identical to v3): every other source, test, raw CSV, frozen plan, freeze record, manifest, summary, figure and historical report.

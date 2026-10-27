@@ -1,0 +1,27 @@
+# ./nms_tool trace --keys 3,1,2,9,8,7,4,5,6 --policy base --minrun 2
+== execution trace: base policy (PolylogT merge order = PowerSort), minrun = 2 ==
+[1] input received (9 elements):
+    3 1 2 9 8 7 4 5 6 
+Every line below is one event emitted by the sorter while it ran.
+[run 1] elements 0..1: run detection found 2
+[run 2] elements 2..3: run detection found 2
+[run 3] elements 4..6: run detection found 3
+[merge] at 0: left run 2 + right run 2 | left run copied to the buffer | t = 4
+    block of 1 element(s) from the left run | found with t = 4 | 1 comparison(s) | 2 left in that run
+    block of 1 element(s) from the right run | found with t = 4 | 1 comparison(s) | 2 left in that run
+    block of 1 element(s) from the left run | found with t = 4 | 0 comparison(s) | 1 left in that run
+[merge done] at 0: 4 comparisons, 3 block(s)
+[run 4] elements 7..8: run detection found 2
+[merge] at 4: left run 3 + right run 2 | right run copied to the buffer | t = 9
+    block of 2 element(s) from the left run | found with t = 9 | 2 comparison(s) | 3 left in that run
+    block of 2 element(s) from the right run | found with t = 9 | 1 comparison(s) | 2 left in that run
+[merge done] at 4: 5 comparisons, 2 block(s)
+[merge] at 0: left run 4 + right run 5 | left run copied to the buffer | t = 16
+    block of 3 element(s) from the left run | found with t = 16 | 3 comparison(s) | 4 left in that run
+    block of 5 element(s) from the right run | found with t = 16 | 4 comparison(s) | 5 left in that run
+[merge done] at 0: 9 comparisons, 2 block(s)
+[result] sorted: 1 2 3 4 5 6 7 8 9 
+[verify] output identical to the reference stable order (keys and ids): YES | independent sorted+stable test: YES | counters agree with external counter: YES
+[totals] run-detection comparisons 8 + merge comparisons 18 = 26 | merges 3 (skipped 0) | blocks 7 | element moves 29
+RESULT: OK (all outputs equal the reference stable sort; all counters consistent)
+# exit=0

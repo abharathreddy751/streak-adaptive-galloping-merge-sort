@@ -1,0 +1,29 @@
+# ./nms_tool trace
+== execution trace: SAG policy (SagT<64,true> merge order = PowerSort), minrun = 4 ==
+[1] input received (24 elements):
+    5 6 7 8 9 1 1 1 2 2 2 2 3 3 3 9 9 9 1 2 3 4 5 6 
+Every line below is one event emitted by the sorter while it ran.
+[run 1] elements 0..4: run detection found 5
+[run 2] elements 5..17: run detection found 13
+[run 3] elements 18..23: run detection found 6
+[merge] at 0: left run 5 + right run 13 | left run copied to the buffer | t = 25
+    block of 10 element(s) from the right run | found with t = 25 | 10 comparison(s) | 13 left in that run
+    block of 5 element(s) from the left run | found with t = 25 | 4 comparison(s) | 5 left in that run
+[merge done] at 0: 16 comparisons, 2 block(s)
+[merge] at 0: left run 18 + right run 6 | right run copied to the buffer | t = 25
+    block of 6 element(s) from the left run | found with t = 25 | 6 comparison(s) | 18 left in that run
+    block of 1 element(s) from the right run | found with t = 25 | 1 comparison(s) | 6 left in that run
+    block of 1 element(s) from the left run | found with t = 25 | 1 comparison(s) | 12 left in that run
+    block of 1 element(s) from the right run | found with t = 25 | 1 comparison(s) | 5 left in that run
+    block of 1 element(s) from the left run | found with t = 25 | 1 comparison(s) | 11 left in that run
+    block of 2 element(s) from the right run | found with t = 25 | 2 comparison(s) | 4 left in that run
+    block of 3 element(s) from the left run | found with t = 25 | 3 comparison(s) | 10 left in that run
+    block of 1 element(s) from the right run | found with t = 25 | 1 comparison(s) | 2 left in that run
+    block of 4 element(s) from the left run | found with t = 25 | 4 comparison(s) | 7 left in that run
+    block of 1 element(s) from the right run | found with t = 25 | 0 comparison(s) | 1 left in that run
+[merge done] at 0: 22 comparisons, 10 block(s)
+[result] sorted: 1 1 1 1 2 2 2 2 2 3 3 3 3 4 5 5 6 6 7 8 9 9 9 9 
+[verify] output identical to the reference stable order (keys and ids): YES | independent sorted+stable test: YES | counters agree with external counter: YES
+[totals] run-detection comparisons 23 + merge comparisons 38 = 61 | merges 2 (skipped 0) | blocks 12 | element moves 47
+RESULT: OK (all outputs equal the reference stable sort; all counters consistent)
+# exit=0

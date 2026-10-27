@@ -50,3 +50,18 @@ Metadata verified through Crossref + OpenAlex + arXiv (details in `docs/PAPER_VE
 ## 5. Gate result
 - Original idea: **FAIL / REJECTED**.
 - Replacement (natural merge sort with galloping merge, syllabus: Merge Sort): **PASS**, proceeding to implementation with the base algorithm first.
+
+## 6. v4 re-audit (2026-10-27): terminal diagnostics
+Question: do the v4 additions keep the central subject Merge Sort (Module 3) and avoid an out-of-syllabus algorithm or data structure as a hidden contribution?
+
+| v4 item | Nature | Verdict |
+| --- | --- | --- |
+| Execution trace hook in the sorter | instrumentation (reports events of the existing merge sort; adds no step to it) | PASS |
+| Input profiler (counts, run structure, entropies) | measurement of data; it calls `std::sort` and the project's own entropy code offline, only to measure | PASS (measurement helper, not a contribution) |
+| Variant comparison and timing harness | runs the existing textbook, naive, base, SAG and `std::stable_sort` (reference only) | PASS |
+| String-record demo | fixed-size array records sorted by the existing merge sort | PASS |
+| Terminal tool, tests | command-line parsing, checks | PASS |
+
+Rejected as non-compliant or unjustified: parallel merge sort, k-way merge by heap or tournament tree (priority queue), segment-tree or other index structures for statistics, any graph algorithm, a new sorting algorithm as a "reference".
+
+**Unchanged residual risk (honest).** Natural run detection, the PowerSort merge order, galloping and the SAG parameter rule are variants and refinements of the Merge Sort merge step but are not individually named in the syllabus text supplied earlier, and the binary insertion sort that extends short runs is a small sorting subroutine. v4 neither removes nor increases this risk; the textbook Merge Sort baseline (`src/textbook_merge_sort.hpp`) stays in the project and in `compare` so the connection is demonstrable. The syllabus text itself is not stored in the repository; this audit relies on the topic list recorded in section 1 and 2. Faculty approval is **not** guaranteed by this document.

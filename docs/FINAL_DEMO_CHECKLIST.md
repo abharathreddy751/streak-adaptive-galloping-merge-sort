@@ -23,3 +23,10 @@ Order of the live demonstration (about 10 minutes). Run all commands from the pr
 7. **End with the conclusion.** "SAG is a conditional improvement for expensive-key, low-entropy string workloads, confirmed under a frozen rule on one machine. It is not a faster sort in general. SAG-C is not recommended."
 
 Not run in the demo environment: builds on Linux or with MinGW or other compilers; AddressSanitizer/UBSan runtimes; any re-run of the Stage 1-3 timing experiments (their raw data are included).
+
+## v4 terminal demonstration (about 5 minutes; commands and output legend: `docs/TERMINAL_DEMO.md`)
+1. `bash scripts/build.sh` (or `bash scripts/run_all_tests.sh`). On Windows with the MSYS2 compiler: `export PATH="/c/msys64/usr/bin:$PATH"`.
+2. `./build/nms_tool.exe trace` : walk through runs, the two merges, the blocks and the final `[verify]` line.
+3. `./build/nms_tool.exe compare --family few --param 3 --n 262144` : read the profile (generator metadata versus measured values), then the table; point out that all variants are `correct` and `stable` and that SAG uses fewer comparisons.
+4. `./build/nms_tool.exe strings` : 64-byte string keys, stability check, timing; say clearly that the timing is a demonstration on one machine, not the experiment.
+5. Say what the tool does not prove: the evidence is the frozen Stage 3 experiment.

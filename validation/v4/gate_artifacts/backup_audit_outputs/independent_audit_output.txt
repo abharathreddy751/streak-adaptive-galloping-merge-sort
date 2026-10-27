@@ -1,0 +1,79 @@
+[INFO] audit checker runs with: python 3.11.9
+[INFO] round 1 freeze record: 8 files byte-identical to the frozen hash; changed since freeze: ['bench/bench_sort.cpp', 'scripts/run_bench.py', 'scripts/analyze.py', 'scripts/build.sh', 'docs/EXPERIMENT_PLAN.md']; missing: none
+[PASS] round 1: the library code under test (base, SAG, generators, entropy, textbook) is byte-identical to the round-1 freeze
+[INFO] round 2 freeze record: 10 files byte-identical to the frozen hash; changed since freeze: ['docs/EXPERIMENT_PLAN.md']; missing: none
+[PASS] round 2: SAG-C code (sag_time_policy.hpp) and the base are byte-identical to the round-2 freeze
+[DISCREPANCY] round 2: all hashed files unchanged since freeze (changed: ['docs/EXPERIMENT_PLAN.md'])
+[PASS] round-1 protocol text (everything before the ADDENDUM) is byte-identical to the text frozen before the round-1 run
+[DISCREPANCY] complete EXPERIMENT_PLAN.md (with addendum) is NOT byte-identical to the text hashed in freeze_record_round2.txt; the EXPERIMENT_LOG (00:23:47) documents a text-only typo fix made 11 s AFTER the round-2 run started (run start 00:23:36); the pre-edit text was not retained, so 'no criterion changed' cannot be proven by hash. Mitigation: the round-2 criteria R2-A..R2-D are also encoded in scripts/analyze.py whose hash IS frozen and unchanged, and this audit re-derives the same verdict from the current plan text.
+[PASS] design transcribed from the plan (round 1: 90 cells) has digest 93710ed639dae896... == frozen digest 93710ed639dae896...
+[PASS] design transcribed from the plan addendum (round 2: 54 cells) has digest 1b3e5ab00d119a2c... == frozen digest 1b3e5ab00d119a2c...
+[PASS] heldout: header has the 25 documented columns
+[PASS] heldout: physical lines minus header (7416) == parsed data records (7416); blank/partial lines: none
+[PASS] heldout: every record has 25 fields (bad: 0)
+[PASS] heldout: cells present 90 / expected 90; missing []; unexpected []
+[PASS] heldout: duplicate (kind,cell,variant,rep) keys: 0
+[PASS] heldout: count rows 531 (expected 531), time rows 6885 (expected 6885), total 7416 (header excluded)
+[PASS] heldout: per-cell design check (family/param/n/seed/elem, variants, reps 0..R-1 exactly once, order_pos permutations, constant meta): 0 problems
+[PASS] heldout: rows with ok != 1: 0 of 7416
+[PASS] heldout: time rows have ns_total>0 and ns_per_elem == ns_total/n; count rows comparisons == run_cmp + merge_cmp (violations: 0)
+[PASS] heldout: base and base_b (identical code) have identical comparison counts in every cell (violations: 0)
+[PASS] heldout2: header has the 25 documented columns
+[PASS] heldout2: physical lines minus header (4050) == parsed data records (4050); blank/partial lines: none
+[PASS] heldout2: every record has 25 fields (bad: 0)
+[PASS] heldout2: cells present 54 / expected 54; missing []; unexpected []
+[PASS] heldout2: duplicate (kind,cell,variant,rep) keys: 0
+[PASS] heldout2: count rows 270 (expected 270), time rows 3780 (expected 3780), total 4050 (header excluded)
+[PASS] heldout2: per-cell design check (family/param/n/seed/elem, variants, reps 0..R-1 exactly once, order_pos permutations, constant meta): 0 problems
+[PASS] heldout2: rows with ok != 1: 0 of 4050
+[PASS] heldout2: time rows have ns_total>0 and ns_per_elem == ns_total/n; count rows comparisons == run_cmp + merge_cmp (violations: 0)
+[PASS] heldout2: base and base_b (identical code) have identical comparison counts in every cell (violations: 0)
+[PASS] heldout: first run start (2026-10-19 23:35:37) is after the freeze record time (2026-10-19 23:34:49)
+[PASS] heldout: every run segment (1) logged the frozen manifest digest
+[INFO] heldout: run segments 1, finished markers [('2026-10-19 23:51:32', '0')]
+[PASS] heldout: run log lists 90 bench invocations covering 90/90 cells; every logged command equals the design and every exit status is 0; repeated cells: none; problems: none
+[PASS] heldout2: first run start (2026-10-20 00:23:36) is after the freeze record time (2026-10-20 00:23:33)
+[PASS] heldout2: every run segment (1) logged the frozen manifest digest
+[INFO] heldout2: run segments 1, finished markers [('2026-10-20 00:29:01', '0')]
+[PASS] heldout2: run log lists 54 bench invocations covering 54/54 cells; every logged command equals the design and every exit status is 0; repeated cells: none; problems: none
+[PASS] round 1: 432 printed numbers in summary_heldout.md (cmp ratio, time ratio+95% CI, round-1 SAG, A/A+CI, naive, base ns/elem) re-derived from raw CSV; mismatches 0; stored-only cells []
+[PASS] round 2: 324 printed numbers in summary_heldout2.md (cmp ratio, time ratio+95% CI, round-1 SAG, A/A+CI, naive, base ns/elem) re-derived from raw CSV; mismatches 0; stored-only cells []
+[PASS] round 1 break-even sweep table: 18 of 18 rows re-derived from raw CSV; mismatches 0 []
+[INFO] round 1 (independent): H1 (12, 12) -> True; H2 (8, 8) -> True; H3a heavy severe [] cmp excess [] -> True; H3b cheap severe 12: ['HELD_indirect_nearly0p01_n17', 'HELD_indirect_nearly0p01_n20', 'HELD_indirect_runs64_n17', 'HELD_indirect_zipf1024_n17', 'HELD_indirect_zipf1024_n20', 'HELD_indirect_zipf1024_n22', 'HELD_plain_nearly0p01_n17', 'HELD_plain_nearly0p01_n20', 'HELD_plain_nearly0p01_n22', 'HELD_plain_zipf1024_n17', 'HELD_plain_zipf1024_n20', 'HELD_plain_zipf1024_n22'] -> False; H4 True; default criterion (10, 72) -> False
+[PASS] round 1: comparison counts for a (family,size) are identical across plain/indirect/heavy regimes (assumption behind H1 de-duplication); violations []
+[PASS] round 1 verdict re-derived independently: PARTIAL SUCCESS (conditional on comparator cost)  (stored verdict: PARTIAL SUCCESS, conditional on comparator cost)
+[INFO] round 2 (independent): R2-A (8, 8) -> True; R2-B severe ['HELD2_indirect_few2_n17', 'HELD2_indirect_nearly0p01_n17'] -> False; R2-C True; R2-D excess [] -> True
+[PASS] round 2 verdict re-derived independently: CORRECTIVE PARTIAL  (stored verdict: CORRECTIVE PARTIAL)
+[INFO] round 1: classification (win / severe regression) under the exact sign-interval CI instead of the bootstrap changes in 0 of 72 cells: 
+[INFO] round 2: classification (win / severe regression) under the exact sign-interval CI instead of the bootstrap changes in 0 of 54 cells: 
+[PASS] FINAL_REPORT section 6 heavy-regime table: 18 of 18 entries (ratio and CI) reproduced exactly
+[PASS] claim: round 1: cells (plain+indirect) with SAG/base median > 1.0: recomputed 54 | reported 54
+[PASS] claim: round 1 plain: median / min / max of SAG/base: recomputed (1.066, 1.007, 1.133) | reported (1.066, 1.007, 1.133)
+[PASS] claim: round 1 indirect: median / min / max of SAG/base: recomputed (1.079, 1.005, 1.24) | reported (1.079, 1.005, 1.24)
+[PASS] claim: round 1: severe cells in plain+indirect: recomputed 12 | reported 12
+[PASS] claim: round 1: worst heavy-regime SAG/base (reported 'worst +2.2%'): recomputed 1.022 | reported 1.022
+[PASS] claim: round 1: low-H* comparison ratios min..max (reported 0.73-0.85): recomputed (0.73, 0.85, 12) | reported (0.73, 0.85, 12)
+[DISCREPANCY] claim: round 2 plain: median SAG-C/base: recomputed 1.016 | reported 1.015
+[PASS] claim: round 2 indirect: median SAG-C/base: recomputed 1.029 | reported 1.029
+[PASS] claim: round 2 plain: share of cells with ratio above 1.05 (rounded): recomputed 0.11 | reported 0.11
+[PASS] claim: round 2 indirect: share of cells with ratio above 1.05 (rounded): recomputed 0.17 | reported 0.17
+[PASS] claim: round 2 plain: round-1 SAG median ratio on the fresh seeds: recomputed 1.042 | reported 1.042
+[PASS] claim: round 2 indirect: round-1 SAG median ratio on the fresh seeds: recomputed 1.047 | reported 1.047
+[PASS] claim: round 2: max round-1 SAG ratio on cheap cells: recomputed 1.163 | reported 1.163
+[PASS] claim: round 2: severe cells: recomputed ['HELD2_indirect_few2_n17', 'HELD2_indirect_nearly0p01_n17'] | reported ['HELD2_indirect_few2_n17', 'HELD2_indirect_nearly0p01_n17']
+[PASS] claim: round 2: severe cell few(2)/2^17 ratio+CI: recomputed 1.103 [1.032, 1.166] | reported 1.103 [1.032, 1.166]
+[PASS] claim: round 2: severe cell nearly(0.01)/2^17 ratio+CI: recomputed 1.120 [1.063, 1.190] | reported 1.120 [1.063, 1.190]
+[PASS] claim: round 2: heavy low-H* SAG-C/base min..max (reported 0.725-0.863, 8 cells): recomputed (0.725, 0.863, 8) | reported (0.725, 0.863, 8)
+[PASS] claim: round 2: max comparison ratio SAG-C/base (reported never above 1.001): recomputed 1.001 | reported 1.001
+[PASS] claim: generic criterion round 2: cells >= 10% faster with CI<1 (reported 12 of 54): recomputed (12, 54) | reported (12, 54)
+[PASS] claim: round 2: A/A control for indirect nearly(0.01) 2^17 as quoted in the report: recomputed 0.986 [0.850, 1.042] | reported 0.986 [0.850, 1.042]
+[INFO] round 1: A/A control (base_b/base): largest |median-1| = 0.085 in HELD_indirect_few2_n17; cells where the SAME code would be classed 'severe' or 'win' by the frozen rule: none
+[INFO] round 2: A/A control (base_b/base): largest |median-1| = 0.065 in HELD2_plain_runs64_n17; cells where the SAME code would be classed 'severe' or 'win' by the frozen rule: none
+[PASS] dev_counts.csv: 390 records == 390 lines, all 25 fields, all ok == 1
+[PASS] dev_time.csv: 896 records == 896 lines, all 25 fields, all ok == 1
+[PASS] dev_sagt.csv: 1764 records == 1764 lines, all 25 fields, all ok == 1
+[PASS] dev_selection.csv: 714 records == 714 lines, all 25 fields, all ok == 1
+[PASS] dev_sagt_v1_timemodel_NEGATIVE.csv: 1764 records == 1764 lines, all 25 fields, all ok == 1
+[PASS] dev_sagt_v2_breakeven.csv: 1764 records == 1764 lines, all 25 fields, all ok == 1
+
+SUMMARY: PASS 63  FAIL 0  DISCREPANCY 3  INFO 11

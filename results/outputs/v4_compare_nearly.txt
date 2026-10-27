@@ -1,0 +1,32 @@
+# ./nms_tool compare --family nearly --param 0.01 --n 100000
+environment: compiler 15.3.0 | flags -std=c++17 -O2 -DNDEBUG | pointer 64 bit | timing clock steady_clock
+input: generator family=nearly param=0.01 seed=2024 n=100000, key type int (uint32)
+== input profile ==
+generator metadata (what was ASKED for): generator family=nearly param=0.01 seed=2024 n=100000, key type int (uint32)
+measured by the profiler (what is IN the data):
+  elements n                 : 100000
+  distinct keys              : 100000 (100.00% of n)
+  adjacent descents          : 1965 (pairs with a[i+1] < a[i]; 1.965% of the n-1 pairs)
+  natural runs               : 1966 (1944 non-decreasing, 22 strictly decreasing)
+  run length min/mean/max    : 2 / 50.9 / 361
+  run entropy H              : 10.353 bits   dual-run entropy H* : 10.353 bits   (log2 n = 16.610)
+labels (fixed definitions, see docs/TERMINAL_DEMO.md):
+  already sorted             : no  (no adjacent descent)
+  reverse sorted             : no  (no adjacent ascent, i.e. non-increasing)
+  nearly sorted              : no  (not sorted and descents <= 1% of pairs)
+  duplicate-heavy            : no  (distinct keys <= 10% of n)
+  low-entropy (project def.) : no  (H* <= 0.5 * log2 n)
+== comparison: identical input copy for every variant, minrun = 32 ==
+variant            comparisons  cmp/elem        moves   merges  skipped     blocks correct  stable
+textbook               1301956    13.020          n/a      n/a      n/a        n/a     yes     yes
+naive                  1128517    11.285      1505893     1707      108          0     yes     yes
+base                    609114     6.091      1505893     1707      108      14594     yes     yes
+SAG                     335055     3.351      1505893     1707      108      14594     yes     yes
+std::stable_sort       1353315    13.533          n/a      n/a      n/a        n/a     yes     yes
+base  detail: runs 1708 (807 extended to minrun) | run-detection cmp 143703, merge cmp 465411 | blocks 14594 (length min/mean/max 1 / 67.36 / 5082)
+      block length histogram: 1:6617  2-3:2644  4-15:816  16-63:1630  >=64:2887 | t changes 0 in 0 of 1599 non-skipped merges
+SAG   detail: runs 1708 (807 extended to minrun) | run-detection cmp 143703, merge cmp 191352 | blocks 14594 (length min/mean/max 1 / 67.36 / 5082)
+      block length histogram: 1:6617  2-3:2644  4-15:816  16-63:1630  >=64:2887 | t changes 946 in 703 of 1599 non-skipped merges
+SAG / base comparisons: 0.5501   (exact counts; fewer comparisons do not by themselves mean less time)
+RESULT: OK (all outputs equal the reference stable sort; all counters consistent)
+# exit=0

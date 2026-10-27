@@ -27,9 +27,9 @@ Details: `docs/BASE_PAPER_IMPLEMENTATION.md`, `docs/PROPOSED_METHOD.md`, `docs/F
 ## Directory map
 | Path | Content |
 | --- | --- |
-| `src/` | header-only C++17 code: `natural_merge_sort.hpp` (base paper method + exception guard), `sag_policy.hpp` (SAG), `sag_time_policy.hpp` (SAG-C), `textbook_merge_sort.hpp`, `generators.hpp`, `entropy.hpp` |
-| `tests/` | `test_sort.cpp` (built as `test_base` and `test_all`), `test_sag.cpp`, `test_sagt.cpp`, `test_exception.cpp` |
-| `bench/` | `demo_sort.cpp` (demonstration), `bench_sort.cpp` (Stage 1-2 benchmark driver) |
+| `src/` | header-only C++17 code: `natural_merge_sort.hpp` (base paper method + exception guard + optional trace hook), `sag_policy.hpp` (SAG), `sag_time_policy.hpp` (SAG-C), `textbook_merge_sort.hpp`, `generators.hpp`, `entropy.hpp`, `diag.hpp` (v4 diagnostics) |
+| `tests/` | `test_sort.cpp` (built as `test_base` and `test_all`), `test_sag.cpp`, `test_sagt.cpp`, `test_exception.cpp`, `test_diag.cpp` and `test_cli.sh` (v4) |
+| `bench/` | `demo_sort.cpp` (demonstration), `nms_tool.cpp` (v4 terminal tool), `bench_sort.cpp` (Stage 1-2 benchmark driver) |
 | `scripts/` | `build.sh`, `run_all_tests.sh` (clean build + all tests), Stage 1-2 runners and analysis |
 | `results/` | Stage 1-2 raw CSV data, frozen manifests and freeze records, summaries, figures |
 | `stage2/`, `stage3/` | Stage 2 and Stage 3 evidence: benchmark sources, raw data, logs, independent checkers, freeze records |
@@ -42,15 +42,24 @@ Details: `docs/BASE_PAPER_IMPLEMENTATION.md`, `docs/PROPOSED_METHOD.md`, `docs/F
 ## Build, test, demo (commands that were run on this package)
 ```bash
 cd "<project folder>"
-bash scripts/run_all_tests.sh        # clean build, five test programs, demo; exits non-zero on any failure
+bash scripts/run_all_tests.sh        # clean build, six test programs, demo, CLI tests; exits non-zero on any failure
 ```
-Verified output of the five test programs (see `validation/`): `test_base` 1502829 checks passed, 0 failed; `test_all` 2100389 checks passed, 0 failed; `test_sag` 265609 checks passed, 0 failed; `test_sagt` 760686 checks passed, 0 failed; `test_exception` 84624 checks passed, 0 failed. These suites overlap in coverage; do not add the numbers. The demo (`./build/demo_sort.exe`) ends with `all outputs equal the reference stable sort: YES` and its output equals `results/outputs/demo_output.txt`.
+Verified output of the five test programs (see `validation/`): `test_base` 1502829 checks passed, 0 failed; `test_all` 2100389 checks passed, 0 failed; `test_sag` 265609 checks passed, 0 failed; `test_sagt` 760686 checks passed, 0 failed; `test_exception` 84624 checks passed, 0 failed. `test_diag` (v4) 1686861 checks passed, 0 failed; `tests/test_cli.sh` 45 checks passed, 0 failed. These suites overlap in coverage; do not add the numbers. The demo (`./build/demo_sort.exe`) ends with `all outputs equal the reference stable sort: YES` and its output equals `results/outputs/demo_output.txt`.
 
 Stage 3 final gate (about 8 minutes; builds the project three times and re-runs the audits):
 ```bash
 bash stage3/tools/final_pass3.sh     # prints GATE: PASS or GATE: FAIL and sets the exit status
 ```
-`scripts/final_audit.py` (the older audit) is expected to report one FAIL (check G) on this tree, because `src/natural_merge_sort.hpp` was deliberately changed in Stage 3 (exception guard). The gate script runs it on the live tree, expects exactly that FAIL, and also runs it on a pristine-header copy, where it reports 0 FAIL.
+`scripts/final_audit.py` (the older audit) is expected to report one FAIL (check G) on this tree, because `src/natural_merge_sort.hpp` was deliberately changed in Stage 3 (exception guard) and in v4 (trace hook); the Stage 3 audit likewise shows one header-hash FAIL on the live tree and passes completely on a copy with the v3 header. The gate script runs it on the live tree, expects exactly that FAIL, and also runs it on a pristine-header copy, where it reports 0 FAIL.
+
+## Terminal demonstration (v4)
+```bash
+./build/nms_tool.exe trace                                    # step-by-step events of a 24-element sort (SAG)
+./build/nms_tool.exe profile --family few --param 3 --n 262144 # measured description of an input
+./build/nms_tool.exe compare --family few --param 3 --n 262144 # textbook / naive / base / SAG / std::stable_sort, identical input
+./build/nms_tool.exe strings                                  # 64-byte string keys, stability check, timing
+```
+On Windows with the MSYS2 compiler put `/c/msys64/usr/bin` on `PATH` first. Commands, options, output legend and limits: `docs/TERMINAL_DEMO.md`; change record: `docs/RELEASE_V4.md`. The tool adds no algorithm and changes no result.
 
 ## Results in brief (details and caveats: `docs/FINAL_PROJECT_REPORT.md`)
 * **Stage 1 (integer keys, synthetic comparator cost):** partial success. 15-27 percent fewer comparisons on low-entropy inputs; time gain only when comparisons are expensive; SAG slower in all 54 cheap-comparison cells.
@@ -63,4 +72,4 @@ bash stage3/tools/final_pass3.sh     # prints GATE: PASS or GATE: FAIL and sets 
 See `docs/KNOWN_LIMITATIONS.md`. Main points: conditional result, narrow margin (12 against 11), mostly synthetic data, one machine and compiler for Stage 3, comparison counts are not time, the audits are internal, sanitizer runtimes were not available, article-level Scopus indexing is unverified.
 
 ## Reading order
-`docs/FINAL_PROJECT_REPORT.md`, `docs/KNOWN_LIMITATIONS.md`, `docs/VIVA_PREP.md`, `docs/FINAL_DEMO_CHECKLIST.md`, `docs/SUBMISSION_HANDOVER.md`. The historical stage reports are kept unchanged: `docs/FINAL_REPORT.md`, `docs/STAGE2_*.md`, `docs/STAGE3_*.md`; the original Stage 1-2 README is `docs/README_STAGE1_2_HISTORICAL.md`.
+`docs/FINAL_PROJECT_REPORT.md`, `docs/KNOWN_LIMITATIONS.md`, `docs/TERMINAL_DEMO.md`, `docs/VIVA_PREP.md`, `docs/FINAL_DEMO_CHECKLIST.md`, `docs/SUBMISSION_HANDOVER.md`. The historical stage reports are kept unchanged: `docs/FINAL_REPORT.md`, `docs/STAGE2_*.md`, `docs/STAGE3_*.md`; the original Stage 1-2 README is `docs/README_STAGE1_2_HISTORICAL.md`.

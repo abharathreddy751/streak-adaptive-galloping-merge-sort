@@ -61,6 +61,28 @@ struct MergeRecord {  // one entry per non-trivial merge (tests only)
   u64 blocks;
 };
 
+// v4: optional execution trace.  Events are emitted ONLY by Count=true sorters on which set_trace() was called (use
+// natural_merge_sort_traced below), so every Count=false (timed) instantiation, and Stats itself, are unchanged.  Field use per kind:
+//   Run          a = start, b = length found by run detection, c = length after the minrun extension
+//   MergeBegin   a = start, b = left run length, c = right run length, d = t at the start of the merge (0: plain merge),
+//                e = 1 if the LEFT run is the one copied to the buffer (a <= b), else 0
+//   MergeTrivial a = start, b = left length, c = right length  (merge skipped: the runs were already in order)
+//   Block        a = block length, b = 1 if the block came from the LEFT run, c = t used for the discovery,
+//                d = comparisons spent discovering it, e = elements of that run still unmerged when it started
+//   TChange      a = old t, b = new t, c = length of the block after which the policy changed t
+//   MergeEnd     a = start, d = comparisons spent in this merge (incl. the 'already ordered?' check), e = blocks found
+enum class Ev : unsigned char { Run, MergeBegin, MergeTrivial, Block, TChange, MergeEnd };
+struct TraceEvent {
+  Ev kind;
+  size_t a, b, c;
+  u64 d, e;
+};
+
+struct TraceSink {  // receives every TraceEvent as it happens (nothing is stored; the caller decides what to keep)
+  void (*fn)(void*, const TraceEvent&);
+  void* ctx;
+};
+
 struct Stats {
   u64 run_comparisons = 0;    // comparisons spent on run detection + insertion sort
   u64 merge_comparisons = 0;  // comparisons spent inside merges (incl. the 1 'already ordered?' check)
@@ -215,8 +237,17 @@ inline unsigned node_power(size_t s1, size_t n1, size_t n2, size_t n) {
 // ----------------------------------------------------------------------------------------
 // The sorter
 // ----------------------------------------------------------------------------------------
+// v4: the trace pointer lives in a base class that is EMPTY for Count=false (empty-base optimisation), so the layout and the generated
+// code of every timed sorter are exactly those of v3 (validation/v4/asm_check).
+template <bool Count>
+struct TraceHolder {};
+template <>
+struct TraceHolder<true> {
+  const TraceSink* trace_ = nullptr;
+};
+
 template <class T, class Less, class TPol, Order Ord, bool Count>
-class Sorter {
+class Sorter : private TraceHolder<Count> {
   static_assert(std::is_trivially_copyable_v<T>, "block moves use memmove");
   using Cmp = CountingLess<Less, Count>;
   // STAGE 3: exception contract.  If the comparator can throw, a merge that is interrupted would leave part of the smaller run
@@ -229,6 +260,11 @@ class Sorter {
   Sorter(T* data, size_t n, Less less, Stats* stats, size_t minrun)
       : a_(data), n_(n), cmp_{less, nullptr}, st_(stats), minrun_(minrun < 1 ? 1 : minrun) {
     if (!st_) st_ = &local_;
+  }
+
+  void set_trace(const TraceSink* sink) {
+    static_assert(Count, "tracing needs a counting sorter (Count = true)");
+    if constexpr (Count) this->trace_ = sink;
   }
 
   void run() {
@@ -273,11 +309,13 @@ class Sorter {
   Rn next_run(size_t pos) {
     if constexpr (Count) cmp_.counter = &st_->run_comparisons;
     size_t len = count_run(pos);
+    const size_t found = len;
     if (len < minrun_) {
       const size_t force = (n_ - pos) < minrun_ ? (n_ - pos) : minrun_;
       binary_insertion(pos, force, len);
       len = force;
     }
+    if constexpr (Count) { if (this->trace_) emit(Ev::Run, pos, found, len, 0, 0); }
     return {pos, len};
   }
 
@@ -370,6 +408,21 @@ class Sorter {
     void disarm() {}
   };
 
+  void emit(Ev k, size_t a, size_t b, size_t c, u64 d, u64 e) { this->trace_->fn(this->trace_->ctx, TraceEvent{k, a, b, c, d, e}); }
+
+  // TPol::observe(), plus (Count builds with a trace attached only) a TChange event when the policy changed t.
+  NMS_INLINE void observe_traced(typename TPol::State& ts, size_t n, u64 tests, size_t len) {
+    if constexpr (Count) {
+      if (this->trace_) {
+        const size_t before = TPol::t(ts);
+        TPol::observe(ts, n, tests, len);
+        if (TPol::t(ts) != before) emit(Ev::TChange, before, TPol::t(ts), n, 0, 0);
+        return;
+      }
+    }
+    TPol::observe(ts, n, tests, len);
+  }
+
   // Stable merge.  Logical sequences: L[i]=Lp[D*i] (buffered, la elements), R[j]=Rp[D*j] (in place, lr
   // elements), output out[k]=Op[D*k].  `c(x,y)` means "x must be output strictly before y"; ties go to L.
   // Precondition: both sequences are sorted w.r.t. c and R[0] precedes-or-equals ordering was not checked.
@@ -388,12 +441,15 @@ class Sorter {
         // L[i] is already known to precede R[j] (previous comparison), so only the tail is searched.
         const size_t n = 1 + gallop_count<D>(Lp + D * static_cast<std::ptrdiff_t>(i + 1), len - 1, TPol::t(ts),
                                              [&](const T& e) { return c(rj, e); }, tests);
-        if constexpr (Count) ++st_->blocks;
+        if constexpr (Count) {
+          ++st_->blocks;
+          if (this->trace_) emit(Ev::Block, n, D > 0 ? 1u : 0u, TPol::t(ts), tests - t0, len);
+        }
         blit<D>(Op + D * static_cast<std::ptrdiff_t>(k), Lp + D * static_cast<std::ptrdiff_t>(i), n);
         if constexpr (Count) st_->element_moves += n;
         i += n; k += n;
         if (i == la) break;                       // remaining R elements are already in place
-        TPol::observe(ts, n, tests - t0, len);
+        observe_traced(ts, n, tests - t0, len);
         cur_L = false;
       } else {
         const T li = Lp[D * static_cast<std::ptrdiff_t>(i)];
@@ -402,7 +458,10 @@ class Sorter {
         // R[j] is already known to precede L[i] (previous comparison), so only the tail is searched.
         const size_t n = 1 + gallop_count<D>(Rp + D * static_cast<std::ptrdiff_t>(j + 1), len - 1, TPol::t(ts),
                                              [&](const T& e) { return !c(e, li); }, tests);
-        if constexpr (Count) ++st_->blocks;
+        if constexpr (Count) {
+          ++st_->blocks;
+          if (this->trace_) emit(Ev::Block, n, D > 0 ? 0u : 1u, TPol::t(ts), tests - t0, len);
+        }
         blit<D>(Op + D * static_cast<std::ptrdiff_t>(k), Rp + D * static_cast<std::ptrdiff_t>(j), n);
         if constexpr (Count) st_->element_moves += n;
         j += n; k += n;
@@ -411,7 +470,7 @@ class Sorter {
           if constexpr (Count) st_->element_moves += la - i;
           break;
         }
-        TPol::observe(ts, n, tests - t0, len);
+        observe_traced(ts, n, tests - t0, len);
         cur_L = true;
       }
     }
@@ -441,8 +500,17 @@ class Sorter {
     if constexpr (Count) { cmp_.counter = &st_->merge_comparisons; ++st_->merges; }
     const u64 c0 = st_->merge_comparisons;
     // Already in order?  (1 comparison)  -- deviation: not part of the paper's cost model.
-    if (!cmp_(*B, *(B - 1))) { if constexpr (Count) ++st_->trivial_merges; return; }
+    if (!cmp_(*B, *(B - 1))) {
+      if constexpr (Count) {
+        ++st_->trivial_merges;
+        if (this->trace_) emit(Ev::MergeTrivial, start, a, b, 0, 0);
+      }
+      return;
+    }
     const size_t total = a + b;
+    if constexpr (Count) {
+      if (this->trace_) emit(Ev::MergeBegin, start, a, b, TPol::kNaive ? 0u : TPol::t(TPol::start(total)), a <= b ? 1u : 0u);
+    }
     const u64 blocks0 = st_->blocks;
     size_t t_start = 0;
     if (a <= b) {
@@ -461,6 +529,7 @@ class Sorter {
     }
     if constexpr (Count) {
       if (st_->log) st_->log->push_back({a, b, t_start, st_->merge_comparisons - c0, st_->blocks - blocks0});
+      if (this->trace_) emit(Ev::MergeEnd, start, 0, 0, st_->merge_comparisons - c0, st_->blocks - blocks0);
     }
   }
 
@@ -480,6 +549,14 @@ class Sorter {
 template <Order Ord, class TPol, bool Count = false, class T, class Less>
 void natural_merge_sort(T* data, size_t n, Less less, Stats* stats = nullptr, size_t minrun = 32) {
   Sorter<T, Less, TPol, Ord, Count> s(data, n, less, stats, minrun);
+  s.run();
+}
+
+// v4: like natural_merge_sort<Ord, TPol, true> but every execution event is passed to `sink` (see TraceEvent).  Sorting is identical.
+template <Order Ord, class TPol, class T, class Less>
+void natural_merge_sort_traced(T* data, size_t n, Less less, Stats* stats, size_t minrun, const TraceSink& sink) {
+  Sorter<T, Less, TPol, Ord, true> s(data, n, less, stats, minrun);
+  s.set_trace(&sink);
   s.run();
 }
 

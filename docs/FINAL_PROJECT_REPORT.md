@@ -118,3 +118,6 @@ Build and tests: `bash scripts/run_all_tests.sh`. Stage 3 final gate: `bash stag
 3. E. Ghasemi, V. Jugé, G. Khalighinejad, "Galloping in Fast-Growth Natural Merge Sorts", ICALP 2022, LIPIcs vol. 229, 68:1-68:19, DOI 10.4230/lipics.icalp.2022.68 (conference version listed by OpenAlex).
 4. arXiv:2012.03996 (preprint of reference 1; v3 was read for this project).
 Other sources named in the paper (McIlroy's mixed strategy, PowerSort, TimSort) were used only through reference 1 and the project's own implementation notes; they were not independently re-verified.
+
+## Addendum v4 (2026-10-27): terminal diagnostics
+v4 adds a terminal tool (`build/nms_tool`: `profile`, `trace`, `compare`, `strings`) with an optional execution trace of the sorter, a measured input profile and an exactly cross-checked comparison of the textbook, naive, base and SAG sorts (`docs/TERMINAL_DEMO.md`, `docs/RELEASE_V4.md`). No algorithm, frozen experiment or result changed; the conclusion of sections 9 and 10 stands (conditional confirmation success of SAG, 12 of 16 gain cells against 11 required, no general speed-up). The tool's timings are demonstrations, not evidence.
