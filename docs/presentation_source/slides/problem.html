@@ -1,0 +1,22 @@
+<section id="problem" data-transition="fade" style="background:#F7F8FA;color:#1E2A3A;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<h2 style="font-size:72px;font-weight:700;line-height:1.1;color:#14213D">Problem Statement</h2>
+<div style="display:flex;gap:64px;align-items:flex-start">
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;gap:28px;align-items:flex-start"><div style="width:56px;height:56px;border-radius:50%;background:#1B998B;display:flex;align-items:center;justify-content:center"><p style="font-size:30px;font-weight:700;color:#FFFFFF">1</p></div><p style="flex:1;font-size:34px;line-height:1.35">Sorting is everywhere. Python and Java use TimSort, a natural Merge Sort.</p></div>
+<div style="display:flex;gap:28px;align-items:flex-start"><div style="width:56px;height:56px;border-radius:50%;background:#1B998B;display:flex;align-items:center;justify-content:center"><p style="font-size:30px;font-weight:700;color:#FFFFFF">2</p></div><p style="flex:1;font-size:34px;line-height:1.35">Merging needs comparisons, and each one can be slow for long text keys.</p></div>
+<div style="display:flex;gap:28px;align-items:flex-start"><div style="width:56px;height:56px;border-radius:50%;background:#1B998B;display:flex;align-items:center;justify-content:center"><p style="font-size:30px;font-weight:700;color:#FFFFFF">3</p></div><p style="flex:1;font-size:34px;line-height:1.35">The paper's merge rule is safe, but it never adapts to the data.</p></div>
+<div style="display:flex;gap:28px;align-items:flex-start"><div style="width:56px;height:56px;border-radius:50%;background:#F4A259;display:flex;align-items:center;justify-content:center"><p style="font-size:30px;font-weight:700;color:#14213D">?</p></div><p style="flex:1;font-size:34px;line-height:1.35;font-weight:700">Our question: can the merge adapt itself, and does that really save time?</p></div>
+</div>
+<div style="width:560px;background:#14213D;border-radius:24px;padding:48px;display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;color:#AAB6C8">Cost of one comparison</p>
+<p style="font-size:88px;font-weight:700;line-height:1.05;color:#4FD1C0">≈ 1 ns</p>
+<p style="font-size:30px;color:#E8EDF5">small integers</p>
+<p style="font-size:88px;font-weight:700;line-height:1.05;color:#F4A259">17–70 ns</p>
+<p style="font-size:30px;color:#E8EDF5">long strings (measured)</p>
+<p style="font-size:30px;line-height:1.35;color:#C3CDDC">For long keys, comparisons are most of the running time.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1100px;font-size:24px;color:#5B6778">Streak-Adaptive Galloping for Natural Merge Sort</p>
+<p style="position:absolute;right:128px;bottom:64px;width:160px;text-align:right;font-size:24px;color:#5B6778">2 / 13</p>
+<aside>Sorting is used everywhere. The merge step spends comparisons. When keys are long strings, one comparison costs 17 to 70 nanoseconds in our measurements, against about 1 ns for integers, so comparisons dominate the time. The base paper gives a safe rule for the merge step but it does not adapt to the data. Our question: can it adapt, and does saving comparisons really save time?</aside>
+</section>

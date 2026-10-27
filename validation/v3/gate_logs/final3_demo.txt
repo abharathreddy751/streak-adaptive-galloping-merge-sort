@@ -1,0 +1,22 @@
+== Part 1: 24 elements, minrun = 4, PowerSort merge order ==
+input : 5 6 7 8 9 1 1 1 2 2 2 2 3 3 3 9 9 9 1 2 3 4 5 6 
+sorted: 1 1 1 1 2 2 2 2 2 3 3 3 3 4 5 5 6 6 7 8 9 9 9 9 
+
+policy merge (a+b)    t at start blocks   comparisons in merge
+base      5 + 13      25        2        16
+base     18 + 6       25        10       22
+SAG       5 + 13      25        2        16
+SAG      18 + 6       25        10       22
+totals: base 61 comparisons (run detection 23 + merges 38), SAG 61 (identical here: blocks are short)
+
+== Part 2: comparisons per element, n = 262144 (deterministic counts, minrun = 32) ==
+input                     H     H* |    naive     base      SAG | stable_sort    topdown
+random permutation    16.67  16.67 |   16.719   16.719   16.719 |     17.809     16.734
+few(3) values         16.28   1.58 |   14.454    8.272    6.776 |     15.583     14.406
+few(64) values        16.67   6.00 |   16.639   14.577   11.166 |     17.744     16.658
+zipf(1024) values     16.67   7.50 |   16.705   14.929   11.823 |     17.902     16.732
+16 sorted runs         3.49  16.63 |    4.866    4.866    4.769 |     12.021     11.339
+
+(Comparisons are not time: see results/ for wall-clock measurements, where SAG helps only if a comparison is expensive.)
+
+all outputs equal the reference stable sort: YES

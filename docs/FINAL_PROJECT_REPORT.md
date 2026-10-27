@@ -1,7 +1,7 @@
 # Streak-Adaptive Galloping for Natural Merge Sort - Final Project Report
 
 Data Structures and Algorithm Analysis (postgraduate CSE-AIML). Central syllabus topic: Merge Sort.
-This is the consolidated submission report. It summarises, and does not replace, the historical stage reports kept unchanged in `docs/` (`FINAL_REPORT.md` for Stages 1-2, `STAGE2_*.md`, `STAGE3_*.md`). Every number below is traceable to a file named next to it; where a number comes from a historical report that was independently re-derived in a later audit, this is stated.
+This is the consolidated submission report. It summarises, and does not replace, the historical stage reports kept unchanged in `docs/` (`FINAL_REPORT.md` for Stages 1-2 with short Stage 2 and Stage 3 addenda, `STAGE2_*.md`, `STAGE3_*.md`). Every number below is traceable to a file named next to it; where a number comes from a historical report that was independently re-derived in a later audit, this is stated.
 
 ## 1. Abstract
 Natural merge sorts such as TimSort and PowerSort detect existing sorted runs and merge them; inside each merge, a *galloping* routine finds the end of each streak of items that come from one run. The base paper fixes the galloping parameter `t` once per merge. This project re-implements that method in C++17 (independently, not from the authors' code) and evaluates a proposed extension, SAG (Streak-Adaptive Galloping), that adapts `t` after each long streak using the paper's own cost model, with no extra memory and no extra key comparisons.

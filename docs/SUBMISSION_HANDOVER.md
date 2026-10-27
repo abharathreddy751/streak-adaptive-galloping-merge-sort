@@ -1,8 +1,8 @@
 # Submission handover
 
 ## Package
-* Folder: `new dsa project_SUBMISSION_20261021` (one project root). **Final ZIP: `new dsa project_SUBMISSION_20261021_v2.zip`**, containing exactly one root folder, `new dsa project_SUBMISSION_20261021`. Its SHA-256 is in the separate file `new dsa project_SUBMISSION_20261021_v2.zip.sha256` beside the ZIP (a checksum cannot be stored inside the archive it describes).
-* A first ZIP `new dsa project_SUBMISSION_20261021.zip` (and its verification folder) is **superseded**: its extraction test found a defect in the gate script (absolute log paths), which was fixed and re-tested in `_v2`. It was not overwritten; do not submit it.
+* Folder: `new dsa project_SUBMISSION_20261021` (one project root). **Final ZIP: `new dsa project_SUBMISSION_20261021_v3.zip`**, containing exactly one root folder, `new dsa project_SUBMISSION_20261021`. Its SHA-256 is in the separate file `new dsa project_SUBMISSION_20261021_v3.zip.sha256` beside the ZIP (a checksum cannot be stored inside the archive it describes); the GitHub repository's `RELEASE.md` repeats it.
+* **Obsolete ZIPs, kept only as historical evidence, not for submission:** `new dsa project_SUBMISSION_20261021.zip` (first package; its extraction test found a gate-script defect with absolute log paths) and `new dsa project_SUBMISSION_20261021_v2.zip` (corrected, but built before the final release audit recorded in `docs/RELEASE_AUDIT_V3.md`).
 * The original project folder `D:\new dsa project` was not modified. Checkpoints taken before packaging: CP2 (before Stage 3), CP3 (Stage 3 final), CP4 (just before packaging), in `D:\new dsa project_CHECKPOINTS` (outside the package).
 
 ## Required tools
@@ -15,7 +15,8 @@
 | `CXX=false bash scripts/run_all_tests.sh` | `RESULT: FAIL (build)`, exit 1: a failed build is not reported as success (`validation/negative_test_failing_compiler.txt`) |
 | `bash stage3/tools/final_pass3.sh` run 1 | GATE: FAIL because of two defects in the gate script's own checks (found and fixed, see `validation/README.md`) |
 | `bash stage3/tools/final_pass3.sh` runs 2 and 3 (corrected script; run 3 after the absolute-path fix) | **GATE: PASS**, exit 0 (`validation/gate_run2/gate_console.txt`, `gate_run3/gate_console.txt`): clean build exit 0 with no warnings; the five tests exit 0; demo identical; `scripts/final_audit.py` on the final source shows exactly one FAIL (check G, the frozen-header hash of `src/natural_merge_sort.hpp`, expected because of the Stage 3 exception guard) and 0 FAIL on a pristine-header copy; the two Stage 2 audits fail only on `natural_merge_sort.hpp` hash checks (2 + 2, as expected); Stage 3 independent audit 25 PASS, 0 FAIL, 0 DISCREPANCY; historical audit outputs restored |
-| Extraction test of the final ZIP (`_v2`) | clean build, `run_all_tests.sh` and the gate run from a fresh extraction in a path with spaces, independent of the original folder; logs in `new dsa project_SUBMISSION_20261021_v2_ZIP_VERIFICATION` beside the ZIP |
+| Release-audit run on the final source (v3 candidate) | `bash scripts/run_all_tests.sh`: `RESULT: PASS`, exit 0; `bash stage3/tools/final_pass3.sh`: `GATE: PASS`, exit 0; five tests exit 0 with 1502829 / 2100389 / 265609 / 760686 / 84624 checks, 0 failed (`validation/v3/run_all_tests.txt`, `validation/v3/gate_console.txt`, `validation/v3/gate_logs/`) |
+| Extraction test of the final ZIP (`_v3`) | clean build, `run_all_tests.sh` and the gate run from a fresh extraction in a path with spaces, independent of the original folder; logs in `new dsa project_SUBMISSION_20261021_v3_ZIP_VERIFICATION` beside the ZIP |
 The gate does not re-run the timing experiments (they were run once, by design; raw data are included).
 
 ## Important files
@@ -34,4 +35,4 @@ See `docs/KNOWN_LIMITATIONS.md`. The conclusion is a conditional confirmation su
 ## Validation steps that passed or remain blocked
 * Passed: clean builds and the five test programs (twice); demo output; failing-build detection; Stage 3 gate (run 2); Stage 3 independent audit 25 PASS.
 * Not run, with reasons: AddressSanitizer/UBSan runtimes (not installed, nothing was installed; hardened-build substitutes were run in Stage 3 and are described in the audit report); Linux and MinGW builds (not available here); re-runs of the Stage 1-3 timing experiments (not required; they were run once under frozen plans); article-level Scopus verification (Scopus needs a login).
-* Blockers for submission: none known.
+* Blockers for the code package: none known. External items outside the package, recorded in `docs/RELEASE_AUDIT_V3.md`: the review deck (`https://claude.ai/artifact/6GjZ4xAX55LWVnJmNL68gj`, artifact id `2ab012f2-065e-499e-b671-af9633845c94`, source kept in `docs/presentation_source/`) is private and needs the owner to share it from its Share menu; it could not be opened by the audit because the page requires a Claude sign-in, so its rendering was checked only with an approximate local HTML render.

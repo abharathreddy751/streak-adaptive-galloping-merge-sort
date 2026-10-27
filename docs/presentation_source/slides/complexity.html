@@ -1,0 +1,16 @@
+<section id="complexity" data-transition="fade" style="background:#F7F8FA;color:#1E2A3A;font-family:'DM Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-size:72px;font-weight:700;line-height:1.1;color:#14213D">Time and Space Complexity</h2>
+<table style="font-size:30px;color:#1E2A3A">
+<tr><th style="width:44%;font-weight:700;text-align:left;color:#14213D">What</th><th style="width:56%;font-weight:700;text-align:left;color:#14213D">Cost</th></tr>
+<tr><td style="width:44%">Textbook Merge Sort</td><td style="width:56%">O(n log n) time, O(n) extra space</td></tr>
+<tr><td style="width:44%">Natural merge sort, list already sorted</td><td style="width:56%">n − 1 comparisons</td></tr>
+<tr><td style="width:44%">Paper's rule (theory)</td><td style="width:56%">O(n + n·H*) comparisons; H* = how mixed the data is</td></tr>
+<tr><td style="width:44%">Galloping over a streak of m items</td><td style="width:56%">m if m ≤ t+2, else t + 2·ceil(log2(m−t))</td></tr>
+<tr><td style="width:44%">SAG, each streak</td><td style="width:56%">at most 4/3 × streak length; O(log m) to adapt</td></tr>
+<tr><td style="width:44%">Extra space, natural versions</td><td style="width:56%">min(a, b) ≤ n/2 items</td></tr>
+</table>
+<p style="font-size:26px;line-height:1.35;color:#5B6778">Cost = number of comparisons. The paper's bounds are proved in the paper; our tests check them on finite ranges.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1100px;font-size:24px;color:#5B6778">Streak-Adaptive Galloping for Natural Merge Sort</p>
+<p style="position:absolute;right:128px;bottom:64px;width:160px;text-align:right;font-size:24px;color:#5B6778">5 / 13</p>
+<aside>Textbook Merge Sort is n log n. A natural merge sort needs only n minus 1 comparisons on sorted input. The paper proves n plus n times H-star comparisons for its rule, where H-star measures how mixed the data is. Galloping a streak of m items costs m when m is at most t plus 2, otherwise t plus 2 times the log of m minus t. Our SAG pays at most four thirds of the streak length per streak, checked on a finite range, not proven.</aside>
+</section>

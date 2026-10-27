@@ -16,3 +16,5 @@ stage3/artifacts/hardened/
 # frozen benchmark binaries are evidence (hashed in the freeze records): keep these two
 !stage2/string_exp/bench_string.exe
 !stage3/string3/bench_string3.exe
+# text logs of the assembly comparison are evidence: keep them
+!stage3/logs/asm_*.s

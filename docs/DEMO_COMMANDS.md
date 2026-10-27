@@ -1,5 +1,7 @@
 # DEMO_COMMANDS — copy-paste to reproduce the demonstration
 
+> **Historical Stage 1 record.** For the final release use `README.md` and `docs/FINAL_DEMO_CHECKLIST.md`; the supported entry points are `bash scripts/run_all_tests.sh` and `bash stage3/tools/final_pass3.sh`. Two statements below are superseded: (1) section 0 describes the Stage 1 machine (i5-1235U, g++ 14.2.0 MinGW); the final release was built and tested with GCC 15.3.0 (MSYS2, Cygwin target) on an i5-13500HX; (2) section 6 (`scripts/final_audit.py`, "SUMMARY: 0 FAIL") was true for the Stage 1/2 source. On the final source it reports exactly **one** expected FAIL (check G: `src/natural_merge_sort.hpp` was deliberately changed in Stage 3 to add the exception guard); `stage3/tools/final_pass3.sh` checks that expectation and also runs the audit on a pristine-header copy (0 FAIL). The final release also builds a fifth test, `build/test_exception` (84,624 checks).
+
 Run everything from the project root in **Git-Bash** (Windows) or any Linux shell. On Linux drop the `.exe` suffix. Timings differ between machines; comparison counts are exact and identical everywhere.
 
 ## 0. Environment used for the recorded outputs

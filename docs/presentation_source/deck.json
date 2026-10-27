@@ -1,0 +1,17 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-10-21T02:00:00Z" },
+  "lists": "css",
+  "title": "Streak-Adaptive Galloping for Natural Merge Sort",
+  "order": ["cover", "problem", "ds", "algo", "complexity", "lit", "limits", "method", "testing", "glance", "chart", "table", "conclusion"],
+  "sections": {
+    "s1": { "description": "The problem and the data structures and algorithm we used", "start": "cover" },
+    "s2": { "description": "Literature study and the limitations we found", "start": "lit" },
+    "s3": { "description": "Our proposed method and how we tested it", "start": "method" },
+    "s4": { "description": "Results and conclusion", "start": "glance" }
+  },
+  "faces": {
+    "dm-sans": { "family": "DM Sans", "href": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" }
+  },
+  "designSystems": []
+}

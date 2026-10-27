@@ -1,0 +1,36 @@
+== environment
+date: Tue Oct 27 14:57:06 IST 2026
+root: /d/new dsa project_SUBMISSION_20261021
+compiler: g++ (GCC) 15.3.0  target: x86_64-pc-cygwin
+python: Python 3.11.9
+MINGW64_NT-10.0-26200 LAPTOP-4M0TB1LG 3.6.10-9a6cbe55.x86_64 2026-07-16 20:47 UTC x86_64 Msys
+== clean build + all tests + demo (live tree, patched header)
+build exit=0 warnings: 0
+test_base exit=0 test_sort: 1502829 checks passed, 0 failed
+test_all exit=0 test_sort: 2100389 checks passed, 0 failed
+test_sag exit=0 test_sag: 265609 checks passed, 0 failed
+test_sagt exit=0 test_sagt: 760686 checks passed, 0 failed
+test_exception exit=0 test_exception: 84624 checks passed, 0 failed
+demo exit=0 all outputs equal the reference stable sort: YES
+demo output identical to results/outputs/demo_output.txt
+== original audit script on the LIVE tree (expected: exactly one FAIL, check G for natural_merge_sort.hpp)
+final_audit.py live exit=1
+[FAIL] G  src/natural_merge_sort.hpp unchanged since the round-1 freeze
+SUMMARY: 1 FAIL
+== original audit script on a pristine-header tree (state before the Stage-3 header change)
+(using a temporary copy of this project with the ORIGINAL header from stage3/artifacts/orig_src)
+final_audit.py on pristine-header tree exit=0
+SUMMARY: 0 FAIL
+== Stage-2 audits on the LIVE tree (expected: failures only on natural_merge_sort.hpp hash checks)
+stage2 independent_audit exit=1 SUMMARY: PASS 61  FAIL 2  DISCREPANCY 3  INFO 11
+[FAIL] round 1: the library code under test (base, SAG, generators, entropy, textbook) is byte-identical to the round-1 freeze
+[FAIL] round 2: SAG-C code (sag_time_policy.hpp) and the base are byte-identical to the round-2 freeze
+stage2 string audit exit=1 SUMMARY: PASS 17  FAIL 2  DISCREPANCY 0  INFO 9
+[FAIL] freeze record: every hashed file (frozen src/*.hpp, bench_string.cpp/.exe, runner, analyzer, plan) is byte-identical now (changed: ['src/natural_merge_sort.hpp'])
+[FAIL] the library code used by the string experiment equals the round-2 frozen code byte for byte (no source change was needed)
+== Stage-3 independent audit
+audit_stage3 exit=0 SUMMARY: PASS 25  FAIL 0  DISCREPANCY 0  INFO 5
+== restored historical audit outputs
+results/outputs/final_audit.txt restored
+GATE: PASS
+gate exit=0

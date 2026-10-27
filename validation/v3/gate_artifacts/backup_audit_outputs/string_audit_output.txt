@@ -1,0 +1,30 @@
+[PASS] freeze record: every hashed file (frozen src/*.hpp, bench_string.cpp/.exe, runner, analyzer, plan) is byte-identical now (changed: none)
+[PASS] the library code used by the string experiment equals the round-2 frozen code byte for byte (no source change was needed)
+[PASS] design transcribed from the plan (18 cells) digest 45684964f1de3ce9.. == frozen 45684964f1de3ce9..
+[PASS] header = 27 documented columns
+[PASS] lines minus header (2016) == records (2016); all records have 27 fields
+[PASS] 18/18 expected cells present; unexpected/missing: none
+[PASS] no duplicate (kind, cell, variant, rep) keys
+[PASS] count rows 144 (expected 144), time rows 1872 (expected 1872)
+[PASS] per-cell design (8 variants x reps exactly once, order_pos permutations, constant meta): 0 problems []
+[PASS] rows with ok != 1: 0 of 2016 (ok = idx sequence equals std::stable_sort reference AND independent order+stability scan)
+[PASS] time rows ns_total>0 and == ns_per_elem*n; count rows comparisons == run+merge (violations 0)
+[PASS] base and base_b (identical code) have identical comparison counts in all 18 cells
+[PASS] SAG-C count rows record the 16,384 calibration comparisons and a positive measured c in all cells
+[PASS] one run segment, started 2026-10-20 10:14:43 after the freeze record (2026-10-20 10:14:19), logged the frozen digest
+[PASS] run log: 18 invocations, all equal to the design, all exit 0, 'failures=0'; problems none
+[INFO] pinning records (cpu, class, samples-on-cpu/1000): {('2', '1', '1000'): 18}
+[INFO] free RAM before cells (MB): 1634, 1637, 2715 ...
+[PASS] summary_string_heldout.md: 18 rows x 10 numbers re-derived from the raw CSV with an independent bootstrap implementation; mismatches 0 []
+[PASS] low-H* cells recomputed from the CSV's H*: ['STRHELD_few16_n17', 'STRHELD_few16_n19', 'STRHELD_few256_n17', 'STRHELD_few256_n19', 'STRHELD_few2_n17', 'STRHELD_few2_n19', 'STRHELD_zipf1024_n17', 'STRHELD_zipf1024_n19'] (plan predicted exactly few2, few16, few256, zipf1024 x 2 sizes)
+[INFO] SAG-C (primary): P2 wins 6/8 (need 6); non-wins among low cells: ['STRHELD_few2_n17', 'STRHELD_few2_n19']; P3 severe cells ['STRHELD_runs64_n17']; P4 excess none -> GAIN WITHOUT SAFETY
+[INFO] SAG (secondary): P2 wins 6/8 (need 6); non-wins among low cells: ['STRHELD_few2_n17', 'STRHELD_few2_n19']; P3 severe cells none; P4 excess none -> SUCCESS
+[PASS] independently re-derived verdicts {'SAG-C (primary)': 'GAIN WITHOUT SAFETY', 'SAG (secondary)': 'SUCCESS'} vs stored 'GAIN WITHOUT SAFETY (guard failed)' / 'SUCCESS'
+[INFO] sensitivity: win/severe classification under the exact sign-interval CI instead of the bootstrap differs in 0 cell-variant pairs: []
+[INFO] SAG-C: low-H* cells that did NOT reach the 10 % target: [('STRHELD_few2_n17', 0.979, 0.998), ('STRHELD_few2_n19', 0.921, 0.951)]
+[INFO] SAG: low-H* cells that did NOT reach the 10 % target: [('STRHELD_few2_n17', 0.907, 0.958), ('STRHELD_few2_n19', 0.935, 0.952)]
+[INFO] A/A control largest |median-1| = 0.034; any cell where identical code would be flagged win/severe by the frozen rule: []
+[INFO] SAG-C calibration: measured c / (base wall-ns per comparison) ranges 3.7x - 9.1x over cells (median 5.5x): the calibration over-estimates the in-sort comparison cost
+[PASS] string_dev.csv: 1024 records, all ok == 1
+
+SUMMARY: PASS 19  FAIL 0  DISCREPANCY 0  INFO 9

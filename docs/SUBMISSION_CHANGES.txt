@@ -1,5 +1,5 @@
 # Differences between the submission package and the original project folder (the original folder was not changed)
-# byte-identical copies of original files: 224
+# byte-identical copies of original files: 223 (224 in the first two packages; docs/DEMO_COMMANDS.md was edited for v3)
 
 # MODIFIED in the package (the original versions stay in the original folder and in checkpoints):
 README.md                      rewritten for submission; the original Stage 1-2 README is kept as docs/README_STAGE1_2_HISTORICAL.md
@@ -7,7 +7,11 @@ stage3/tools/final_pass3.sh    gate script: no absolute machine paths, redirecta
                                pristine-header audit uses the ORIGINAL header from stage3/artifacts/orig_src, restores stage3 audit output, explicit GATE line and exit status,
                                log/artifact directories may be relative or absolute (fixed after the first ZIP-extraction test)
 
+docs/DEMO_COMMANDS.md          (v3) banner added: historical Stage 1 record; two superseded statements (old machine, "0 FAIL" of final_audit.py on the final source) pointed to the final commands
+
 # NEW in the package (not in the original folder):
+docs/RELEASE_AUDIT_V3.md            (v3) release audit record: what changed since the previous ZIP, tests, security scan, deck status
+docs/presentation_source/           (v3) local copy of the review deck source (13 slides + deck.json + README)
 docs/FINAL_PROJECT_REPORT.md
 docs/KNOWN_LIMITATIONS.md
 docs/VIVA_PREP.md
