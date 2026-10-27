@@ -1,0 +1,41 @@
+v3 files 345 v4 files 390 identical 330
+changed (15):
+   README.md
+   SUBMISSION_MANIFEST.sha256
+   docs/BASE_PAPER_IMPLEMENTATION.md
+   docs/FINAL_DEMO_CHECKLIST.md
+   docs/FINAL_PROJECT_REPORT.md
+   docs/KNOWN_LIMITATIONS.md
+   docs/SUBMISSION_CHANGES.txt
+   docs/SUBMISSION_HANDOVER.md
+   docs/SYLLABUS_COMPLIANCE.md
+   docs/VIVA_PREP.md
+   scripts/build.sh
+   scripts/run_all_tests.sh
+   src/natural_merge_sort.hpp
+   stage3/tools/final_pass3.sh
+   validation/README.md
+removed (0):
+added (45):
+   bench/nms_tool.cpp
+   docs/RELEASE_V4.md
+   docs/TERMINAL_DEMO.md
+   results/outputs/v4_compare_few3.txt
+   results/outputs/v4_compare_nearly.txt
+   results/outputs/v4_compare_strings_zipf.txt
+   results/outputs/v4_profile_few3.txt
+   results/outputs/v4_trace_base_small.txt
+   results/outputs/v4_trace_default.txt
+   scripts/v4_demo_outputs.sh
+   src/diag.hpp
+   tests/test_cli.sh
+   tests/test_diag.cpp
+   validation/v4/asm_check/asm_check.sh
+   validation/v4/asm_check/asm_check_output.txt
+   validation/v4/asm_check/asm_compare.py
+   validation/v4/asm_check/asm_instances.cpp
+   validation/v4/asm_check/orig_hdr/natural_merge_sort.hpp
+   validation/v4/asm_check/orig_hdr/sag_policy.hpp
+   validation/v4/run_all_tests.txt
+added under validation/v4/gate_*: 25
+raw-data/frozen-evidence/historical-report files byte-identical to v3: 36 | changed or removed among them: []

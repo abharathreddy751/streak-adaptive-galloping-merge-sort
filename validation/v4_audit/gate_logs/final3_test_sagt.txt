@@ -1,0 +1,9 @@
+== test_sagt (time-aware extensions SAG-T v1, SAG-B, SAG-C) ==
+  sag_credit_sort / sag_be_sort: 180 arrays each
+  per-merge (4/3) bound, SAG-C: 79434 merges
+  calibration: plain comparison 1.28 ns, heavy comparison 20.62 ns
+  sag_time_sort: 180 arrays x 2 configs
+  per-merge (4/3) bound, c=22 m=4 MinStreak 16: 26479 merges
+  per-merge (4/3) bound, c=0.5 m=4 MinStreak 16: 26479 merges
+  per-merge (4/3) bound, c=3 m=16 MinStreak 64: 26479 merges
+test_sagt: 760686 checks passed, 0 failed

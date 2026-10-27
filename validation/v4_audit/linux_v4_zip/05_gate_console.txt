@@ -1,0 +1,51 @@
+== environment
+date: Tue Oct 27 11:25:51 UTC 2026
+root: /tmp/nms_v4_linux/new dsa project_SUBMISSION_V4
+compiler: g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0  target: x86_64-linux-gnu
+python: Python 3.14.4
+Linux LAPTOP-4M0TB1LG 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 GNU/Linux
+== clean build + all tests + demo (live tree, patched header)
+build exit=0 warnings: 0
+test_base exit=127 missing build/test_base.exe
+GATE-CHECK FAILED: test_base
+test_all exit=127 missing build/test_all.exe
+GATE-CHECK FAILED: test_all
+test_sag exit=127 missing build/test_sag.exe
+GATE-CHECK FAILED: test_sag
+test_sagt exit=127 missing build/test_sagt.exe
+GATE-CHECK FAILED: test_sagt
+test_exception exit=127 missing build/test_exception.exe
+GATE-CHECK FAILED: test_exception
+test_diag exit=127 missing build/test_diag.exe
+GATE-CHECK FAILED: test_diag
+test_cli exit=0 test_cli: 45 checks passed, 0 failed
+demo exit=127 stage3/tools/final_pass3.sh: line 51: ./build/demo_sort.exe: No such file or directory
+GATE-CHECK FAILED: demo exit
+GATE-CHECK FAILED: demo output differs from the stored output
+== original audit script on the LIVE tree (expected: exactly one FAIL, check G for natural_merge_sort.hpp)
+final_audit.py live exit=1
+[FAIL] D  results/raw/heldout.csv re-derives results/outputs/summary_heldout.md identically (deterministic bootstrap)
+[FAIL] D  results/raw/heldout2.csv re-derives results/outputs/summary_heldout2.md identically (deterministic bootstrap)
+[FAIL] G  src/natural_merge_sort.hpp unchanged since the round-1 freeze
+SUMMARY: 3 FAIL
+GATE-CHECK FAILED: live-tree final_audit.py did not show exactly the expected single FAIL
+== original audit script on a pristine-header tree (state before the Stage-3 header change)
+(using a temporary copy of this project with the ORIGINAL header from stage3/artifacts/orig_src and without the v4-only files)
+final_audit.py on pristine-header tree exit=0
+SUMMARY: 0 FAIL
+audit_stage3 on v3-header tree exit=0
+SUMMARY: PASS 25  FAIL 0  DISCREPANCY 0  INFO 5
+== Stage-2 audits on the LIVE tree (expected: failures only on natural_merge_sort.hpp hash checks)
+stage2 independent_audit exit=1 SUMMARY: PASS 61  FAIL 2  DISCREPANCY 3  INFO 11
+[FAIL] round 1: the library code under test (base, SAG, generators, entropy, textbook) is byte-identical to the round-1 freeze
+[FAIL] round 2: SAG-C code (sag_time_policy.hpp) and the base are byte-identical to the round-2 freeze
+stage2 string audit exit=1 SUMMARY: PASS 17  FAIL 2  DISCREPANCY 0  INFO 9
+[FAIL] freeze record: every hashed file (frozen src/*.hpp, bench_string.cpp/.exe, runner, analyzer, plan) is byte-identical now (changed: ['src/natural_merge_sort.hpp'])
+[FAIL] the library code used by the string experiment equals the round-2 frozen code byte for byte (no source change was needed)
+== Stage-3 independent audit
+audit_stage3 exit=1 SUMMARY: PASS 24  FAIL 1  DISCREPANCY 0  INFO 5
+[FAIL] freeze record: every hashed file (library sources, bench source+binary, runner, analyzer, dataset, plan, structure CSV) is byte-identical now (changed: ['src/natural_merge_sort.hpp'])
+== restored historical audit outputs
+results/outputs/final_audit.txt restored
+GATE: FAIL
+gate exit=1

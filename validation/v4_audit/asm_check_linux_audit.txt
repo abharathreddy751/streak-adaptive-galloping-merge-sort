@@ -1,0 +1,6 @@
+﻿g++ g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+functions/sections: v3 111, v4 111; only in v3: 0; only in v4: 0; different body: 0
+asm identical (function by function) at -O2
+ASM CHECK: PASS
+asm_check exit=0
+

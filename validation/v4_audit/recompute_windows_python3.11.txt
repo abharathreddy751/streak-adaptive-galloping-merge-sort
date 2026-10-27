@@ -1,0 +1,97 @@
+=== STAGE 3 (stage3/results/s3_heldout.csv) ===
+OK   | S3 rows in raw CSV | claimed 5888 | recomputed 5888
+OK   | S3 cells | claimed 50 | recomputed 50
+OK   | S3 every row ok=1 | claimed 1 | recomputed 1
+OK   | S3 completeness: 8 variants x protocol repetitions (15 / 11 / 31) x count pass in every cell | claimed 0 | recomputed 0
+OK   | S3 order_pos is a permutation of 0..7 in every (cell, repetition) | claimed 1 | recomputed 1
+OK   | S3 base variant occupies every position 0..7 over the repetitions (mean position about 3.5) | claimed 1 | recomputed 1
+     (info) mean order position of base 3.573; of sag 3.481; repetition groups 686
+OK   | S3 gain-set size (H* <= 0.5 log2 n AND cost_B >= 32) | claimed 16 | recomputed 16
+OK   | S3 gain set equals the pre-freeze structural pass classification | claimed 1 | recomputed 1
+OK   | S3 structure (H*, cost_B) identical in the structural pass and the timed run | claimed 1 | recomputed 1
+OK   | S3 P2: gain cells with ratio <= 0.90 and CI upper < 1 (bootstrap) | claimed 12 | recomputed 12
+OK   | S3 P2: required (ceil(2/3 x 16)) | claimed 11 | recomputed 11
+OK   | S3 non-wins are L_few2_n19, M_few2_n17, M_few2_n19, M_zipf1024_n17 | claimed 1 | recomputed 1
+OK   | S3 P3: cells with severe regression (ratio >= 1.10 and CI lower > 1) | claimed 0 | recomputed 0
+OK   | S3 largest SAG/base median time ratio over all 50 cells | claimed 1.076 | recomputed 1.076
+OK   | S3 P4: maximum SAG/base comparison ratio | claimed 1.0 | recomputed 1.0
+OK   | S3 P4: cells with comparison ratio > 1.03 | claimed 0 | recomputed 0
+OK   | S3 A/A: largest |median(base_b/base) - 1| | claimed 0.021 | recomputed 0.021
+OK   | S3 gain-set comparison ratio min | claimed 0.755 | recomputed 0.755
+OK   | S3 gain-set comparison ratio max | claimed 0.852 | recomputed 0.852
+OK   | S3 classifications that change under the exact sign-interval CI | claimed 0 | recomputed 0
+OK   | report gain table rows found | claimed 16 | recomputed 16
+OK   | report gain-table rows that differ from the recomputation (cmp, time+CI, A/A+CI, base ns, win) | claimed 0 | recomputed 0
+OK   | report: cheap-key low-entropy cells (S) count | claimed 8 | recomputed 8
+OK   | report: cheap-key low-entropy time ratio min | claimed 0.938 | recomputed 0.938
+OK   | report: cheap-key low-entropy time ratio max | claimed 1.076 | recomputed 1.076
+OK   | report: cheap-key low-entropy comparison ratio min | claimed 0.755 | recomputed 0.755
+OK   | report: cheap-key low-entropy comparison ratio max | claimed 0.853 | recomputed 0.853
+OK   | report: nearly sorted L cells | claimed 2 | recomputed 2
+OK   | report: nearly sorted L time ratio min | claimed 0.602 | recomputed 0.602
+OK   | report: nearly sorted L time ratio max | claimed 0.626 | recomputed 0.626
+OK   | report: nearly sorted M cells | claimed 2 | recomputed 2
+OK   | report: nearly sorted M time ratio min | claimed 0.788 | recomputed 0.788
+OK   | report: nearly sorted M time ratio max | claimed 0.799 | recomputed 0.799
+OK   | report: nearly sorted S cells | claimed 2 | recomputed 2
+OK   | report: nearly sorted S time ratio min | claimed 0.832 | recomputed 0.832
+OK   | report: nearly sorted S time ratio max | claimed 0.838 | recomputed 0.838
+OK   | report: nearly sorted comparison ratio min | claimed 0.517 | recomputed 0.517
+OK   | report: nearly sorted comparison ratio max | claimed 0.547 | recomputed 0.547
+OK   | report: permutation / 8 runs / mixture cells | claimed 18 | recomputed 18
+OK   | report: perm/runs/mixture time ratio min | claimed 0.871 | recomputed 0.871
+OK   | report: perm/runs/mixture time ratio max | claimed 1.044 | recomputed 1.044
+OK   | report: perm/runs/mixture comparison ratio min | claimed 0.891 | recomputed 0.891
+OK   | report: perm/runs/mixture comparison ratio max | claimed 1.0 | recomputed 1.0
+OK   | report: S3H_S_zipf1024_n17 time ratio | claimed 1.076 | recomputed 1.076
+OK   | report: S3H_S_zipf1024_n19 time ratio | claimed 1.056 | recomputed 1.056
+OK   | report: FILE natural time ratio | claimed 0.957 | recomputed 0.957
+OK   | report: FILE natural CI low | claimed 0.944 | recomputed 0.944
+OK   | report: FILE natural CI high | claimed 0.966 | recomputed 0.966
+OK   | report: FILE natural comparison ratio | claimed 0.845 | recomputed 0.845
+OK   | report: FILE shuffled time ratio | claimed 1.007 | recomputed 1.007
+OK   | report: FILE shuffled comparison ratio | claimed 1.0 | recomputed 1.0
+OK   | report: ns per comparison style L min (rounded) | claimed 17 | recomputed 16
+OK   | report: ns per comparison style L max (rounded) | claimed 71 | recomputed 71
+OK   | report: ns per comparison style M min (rounded) | claimed 11 | recomputed 11
+OK   | report: ns per comparison style M max (rounded) | claimed 28 | recomputed 28
+OK   | report: ns per comparison style S min (rounded) | claimed 7 | recomputed 7
+OK   | report: ns per comparison style S max (rounded) | claimed 17 | recomputed 17
+OK   | report: SAG-C diagnostic gain-set wins | claimed 12 | recomputed 12
+OK   | report: SAG-C FILE natural ratio | claimed 1.276 | recomputed 1.276
+OK   | report: SAG-C severe cells == [FILE natural] | claimed 1 | recomputed 1
+=== STAGE 2 (stage2/results/string_heldout.csv, SAG-C = 'sagc') ===
+OK   | S2 cells | claimed 18 | recomputed 18
+OK   | S2 low-entropy cells | claimed 8 | recomputed 8
+OK   | S2 SAG-C gain: low-entropy cells <= 0.90 with CI upper < 1 | claimed 6 | recomputed 6
+OK   | S2 SAG round-1 gain: low-entropy cells <= 0.90 with CI upper < 1 | claimed 6 | recomputed 6
+OK   | S2 SAG-C severe cells == [STRHELD_runs64_n17] | claimed 1 | recomputed 1
+OK   | S2 SAG-C runs(64) n17 ratio | claimed 1.114 | recomputed 1.114
+OK   | S2 SAG-C runs(64) n17 CI low | claimed 1.104 | recomputed 1.104
+OK   | S2 SAG-C runs(64) n17 CI high | claimed 1.15 | recomputed 1.15
+OK   | S2 SAG round-1: severe cells | claimed 0 | recomputed 0
+=== STAGE 1 round 1 (results/raw/heldout.csv) ===
+OK   | R1 held-out cells | claimed 72 | recomputed 72
+OK   | R1 sweep cells (BEVEN_) | claimed 18 | recomputed 18
+OK   | R1 low-entropy heavy cells | claimed 8 | recomputed 8
+OK   | R1 cheap cells (plain + indirect) | claimed 54 | recomputed 54
+OK   | R1 heavy low-entropy time ratio min | claimed 0.794 | recomputed 0.794
+OK   | R1 heavy low-entropy time ratio max | claimed 0.887 | recomputed 0.887
+OK   | R1 heavy low-entropy cells with <= 0.90 and CI upper < 1 | claimed 8 | recomputed 8
+OK   | R1 worst heavy cell (all 18 heavy held-out) | claimed 1.022 | recomputed 1.022
+OK   | R1 cheap time ratio min | claimed 1.005 | recomputed 1.005
+OK   | R1 cheap time ratio max | claimed 1.24 | recomputed 1.24
+OK   | R1 cheap cells slower than base (median ratio > 1) | claimed 54 | recomputed 54
+OK   | R1 cheap severe cells | claimed 12 | recomputed 12
+OK   | R1 low-entropy cell shapes (plain regime, one per family/size) | claimed 12 | recomputed 12
+OK   | R1 max comparison ratio SAG/base (all held-out cells) | claimed 1.0 | recomputed 1.0
+=== STAGE 1 round 2 (results/raw/heldout2.csv, SAG-C = 'sagt') ===
+OK   | R2 cells | claimed 54 | recomputed 54
+OK   | R2 heavy low-entropy cells | claimed 8 | recomputed 8
+OK   | R2 heavy low-entropy ratio min | claimed 0.725 | recomputed 0.725
+OK   | R2 heavy low-entropy ratio max | claimed 0.863 | recomputed 0.863
+OK   | R2 cheap cells | claimed 36 | recomputed 36
+OK   | R2 cheap cells with ratio >= 1.10 | claimed 2 | recomputed 2
+OK   | R2 cheap ratios >= 1.10 are 1.103 and 1.120 | claimed 1 | recomputed 1
+
+RECOMPUTE SUMMARY: ALL MATCH

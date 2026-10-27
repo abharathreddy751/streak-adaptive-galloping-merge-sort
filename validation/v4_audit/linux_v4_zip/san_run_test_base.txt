@@ -1,0 +1,19 @@
+== test_sort (BASE only) ==
+configs under test: 8
+  two-run pairs: 44100 pairs x 8 configs
+  alphabet-3 arrays (len<=9): 29524 arrays x 3 minrun x 8 configs
+  permutations (len<=7): 5914 perms x 2 minrun x 8 configs
+  random arrays: 2445 arrays x 2 minrun x 8 configs (+ textbook oracle)
+  max (V_polylog - U_naive)/n over the sweep = 0.000   (Prop. 49 promises O(n); sanity bound 3)
+    sigma=2     n=65536    H*=1.000  cmp/n=7.085  (n H*+2n log2(H*+1))/n=3.000  C_obs=4.085
+    sigma=2     n=524288   H*=1.000  cmp/n=7.097  (n H*+2n log2(H*+1))/n=3.000  C_obs=4.097
+    sigma=3     n=65536    H*=1.585  cmp/n=8.253  (n H*+2n log2(H*+1))/n=4.325  C_obs=3.928
+    sigma=3     n=524288   H*=1.585  cmp/n=8.272  (n H*+2n log2(H*+1))/n=4.325  C_obs=3.946
+    sigma=8     n=65536    H*=3.000  cmp/n=10.620  (n H*+2n log2(H*+1))/n=7.000  C_obs=3.620
+    sigma=8     n=524288   H*=3.000  cmp/n=10.681  (n H*+2n log2(H*+1))/n=7.000  C_obs=3.681
+    sigma=64    n=65536    H*=5.999  cmp/n=14.110  (n H*+2n log2(H*+1))/n=11.614  C_obs=2.496
+    sigma=64    n=524288   H*=6.000  cmp/n=14.670  (n H*+2n log2(H*+1))/n=11.615  C_obs=3.055
+    sigma=1024  n=65536    H*=9.989  cmp/n=14.718  (n H*+2n log2(H*+1))/n=16.904  C_obs=-2.187
+    sigma=1024  n=524288   H*=9.999  cmp/n=17.717  (n H*+2n log2(H*+1))/n=16.917  C_obs=0.800
+  max C_obs (Theorem 51 constant, empirical) = 4.097
+test_sort: 1502829 checks passed, 0 failed

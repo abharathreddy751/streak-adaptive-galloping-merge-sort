@@ -48,3 +48,6 @@ Checked against the saved evidence: the paper is identified as Ghasemi, Jugé, K
 
 ## 8. Still open (unchanged by v4)
 Sanitizer runtimes unavailable; Linux and MinGW untested; article-level Scopus unverified; the review deck could not be inspected on the real artifact without a sign-in and its sharing has not been changed; mostly synthetic data and one machine for the confirmation experiment; the Windows-only tool runs were not repeated on another platform.
+
+## 9. Superseded for submission by v4.1
+A later code audit (`docs/AUDIT_V4_CODE.md`) corrected one number in the consolidated report, tightened the gate, re-ran the tests on Linux and under sanitizers, and added audit scripts and evidence. Sections 6 and 8 of this record are updated by it: the sanitizer and Linux statements are superseded by `docs/KNOWN_LIMITATIONS.md` section 13. The v4 ZIP remains unchanged as a historical release.

@@ -1,0 +1,5 @@
+zip sha256: 99cd44d5d15b38f9525018c78a231dbc3b5e5dd6a0e21db8600a9749e46367b0
+g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+Python 3.14.4
+Linux LAPTOP-4M0TB1LG 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 GNU/Linux
+extracted to: /tmp/nms_v4_linux/new dsa project_SUBMISSION_V4

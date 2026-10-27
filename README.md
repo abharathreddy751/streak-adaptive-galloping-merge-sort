@@ -37,7 +37,7 @@ Details: `docs/BASE_PAPER_IMPLEMENTATION.md`, `docs/PROPOSED_METHOD.md`, `docs/F
 | `validation/` | logs of the clean-build and test runs performed on this submission package |
 
 ## Requirements
-`g++` with C++17 (tested: GCC 15.3.0, MSYS2, target x86_64-pc-cygwin, Windows 11), Bash (Git-Bash or MSYS2), Python 3 standard library (tested 3.11.9). No other dependency, no network, no database. The project folder may contain spaces. Other compilers and Linux are expected to work but were **not tested** for this package.
+`g++` with C++17 (tested: GCC 15.3.0, MSYS2, target x86_64-pc-cygwin, Windows 11), Bash (Git-Bash or MSYS2), Python 3 standard library (tested 3.11.9). No other dependency, no network, no database. The project folder may contain spaces. Linux (WSL Ubuntu, g++ 15.2.0, Python 3.14.4) was tested in the v4 code audit for the build, `scripts/run_all_tests.sh` and sanitizer builds, but not for the Stage 3 gate; MinGW and other compilers were **not tested**.
 
 ## Build, test, demo (commands that were run on this package)
 ```bash
@@ -69,7 +69,7 @@ On Windows with the MSYS2 compiler put `/c/msys64/usr/bin` on `PATH` first. Comm
 * **Exception safety (Stage 3):** a comparator that throws could lose or duplicate items (32,069 of 84,623 reproduced cases). The fix gives the **basic guarantee** (the array stays a permutation; order and stability are not guaranteed after the exception); 0 of 84,623 after the fix.
 
 ## Limitations
-See `docs/KNOWN_LIMITATIONS.md`. Main points: conditional result, narrow margin (12 against 11), mostly synthetic data, one machine and compiler for Stage 3, comparison counts are not time, the audits are internal, sanitizer runtimes were not available, article-level Scopus indexing is unverified.
+See `docs/KNOWN_LIMITATIONS.md`. Main points: conditional result, narrow margin (12 against 11), mostly synthetic data, one machine and compiler for Stage 3, comparison counts are not time, the audits are internal, sanitizer runtimes were not available on the Windows toolchain (they passed in WSL Ubuntu in the v4 code audit), the Stage 3 gate is Windows-only, article-level Scopus indexing is unverified.
 
 ## Reading order
 `docs/FINAL_PROJECT_REPORT.md`, `docs/KNOWN_LIMITATIONS.md`, `docs/TERMINAL_DEMO.md`, `docs/VIVA_PREP.md`, `docs/FINAL_DEMO_CHECKLIST.md`, `docs/SUBMISSION_HANDOVER.md`. The historical stage reports are kept unchanged: `docs/FINAL_REPORT.md`, `docs/STAGE2_*.md`, `docs/STAGE3_*.md`; the original Stage 1-2 README is `docs/README_STAGE1_2_HISTORICAL.md`.

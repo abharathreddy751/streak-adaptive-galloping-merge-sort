@@ -22,7 +22,7 @@ Order of the live demonstration (about 10 minutes). Run all commands from the pr
    - Exception fix: show `GapGuard` in `src/natural_merge_sort.hpp` and the test `tests/test_exception.cpp` (84,623 throw-at-every-call cases, 0 lost items; before the fix 32,069 of them lost items); basic guarantee only.
 7. **End with the conclusion.** "SAG is a conditional improvement for expensive-key, low-entropy string workloads, confirmed under a frozen rule on one machine. It is not a faster sort in general. SAG-C is not recommended."
 
-Not run in the demo environment: builds on Linux or with MinGW or other compilers; AddressSanitizer/UBSan runtimes; any re-run of the Stage 1-3 timing experiments (their raw data are included).
+Not run in the demo environment: builds with MinGW or other compilers; the Stage 3 gate on Linux (the Linux build, `run_all_tests.sh` and ASan/UBSan runs are in the v4 code audit, `docs/AUDIT_V4_CODE.md`); any re-run of the Stage 1-3 timing experiments (their raw data are included).
 
 ## v4 terminal demonstration (about 5 minutes; commands and output legend: `docs/TERMINAL_DEMO.md`)
 1. `bash scripts/build.sh` (or `bash scripts/run_all_tests.sh`). On Windows with the MSYS2 compiler: `export PATH="/c/msys64/usr/bin:$PATH"`.

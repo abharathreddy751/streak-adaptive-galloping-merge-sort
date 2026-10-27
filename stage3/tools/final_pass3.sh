@@ -88,6 +88,10 @@ python -I stage2/audit/audit_string_experiment.py > "$L/final3_stage2_string_aud
 grep -F "[FAIL]" "$L/final3_stage2_string_audit_live.txt" | cut -c1-200
 a=$(grep -c -F "[FAIL]" "$L/final3_stage2_independent_audit_live.txt"); b=$(grep -c -F "[FAIL]" "$L/final3_stage2_string_audit_live.txt")
 [ "$a" -eq 2 ] && [ "$b" -eq 2 ] || bad "stage2 audits: expected exactly 2 + 2 header-hash FAILs, got $a + $b"
+# v4 audit: the failing checks must be failing because of exactly the expected changed files (not just in the expected number)
+s2i=$(grep -c -F "changed since freeze: ['src/natural_merge_sort.hpp', 'docs/EXPERIMENT_PLAN.md']" "$L/final3_stage2_independent_audit_live.txt")
+s2s=$(grep -c -F "(changed: ['src/natural_merge_sort.hpp'])" "$L/final3_stage2_string_audit_live.txt")
+[ "$s2i" -ge 1 ] && [ "$s2s" -ge 1 ] || bad "stage2 audits: the lists of files changed since the freeze are not exactly the expected ones (independent: $s2i, string: $s2s)"
 cp "$ART/backup_audit_outputs/independent_audit_output.txt" "$ART/backup_audit_outputs/independent_audit_output.json" "$ART/backup_audit_outputs/string_audit_output.txt" stage2/audit/
 
 echo "== Stage-3 independent audit"

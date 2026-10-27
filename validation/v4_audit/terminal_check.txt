@@ -1,0 +1,63 @@
+== commands of docs/TERMINAL_DEMO.md section 3
+OK        exit=0 want=0 | nms_tool trace
+OK        exit=0 want=0 | nms_tool trace --keys 3,1,2,9,8,7,4,5,6 --policy base --minrun 2
+OK        exit=0 want=0 | nms_tool profile --family few --param 3 --n 262144
+OK        exit=0 want=0 | nms_tool compare --family few --param 3 --n 262144
+OK        exit=0 want=0 | nms_tool compare --family nearly --param 0.01 --n 100000 --reps 5
+OK        exit=0 want=0 | nms_tool strings
+OK        exit=0 want=0 | nms_tool compare --key str --keylen 63 --family zipf --param 1024 --n 100000
+OK        exit=0 want=0 | nms_tool help
+== boundary and special inputs
+OK        exit=0 want=0 | nms_tool trace --keys 5
+OK        exit=0 want=0 | nms_tool trace --keys 5,5
+OK        exit=0 want=0 | nms_tool trace --keys 2,1
+OK        exit=0 want=0 | nms_tool trace --keys 7,7,7,7,7,7,7
+OK        exit=0 want=0 | nms_tool trace --keys 1,2,3,4,5,6,7,8,9 --minrun 2
+OK        exit=0 want=0 | nms_tool trace --keys 9,8,7,6,5,4,3,2,1 --minrun 1
+OK        exit=0 want=0 | nms_tool trace --keys 4,4,1,1,3,3,2,2,5 --minrun 1
+OK        exit=0 want=0 | nms_tool compare --n 1
+OK        exit=0 want=0 | nms_tool compare --n 2
+OK        exit=0 want=0 | nms_tool compare --n 3 --family reversed
+OK        exit=0 want=0 | nms_tool compare --n 997 --family perm
+OK        exit=0 want=0 | nms_tool compare --n 1001 --family few --param 2
+OK        exit=0 want=0 | nms_tool compare --family sorted --n 1000
+OK        exit=0 want=0 | nms_tool compare --family reversed --n 1000
+OK        exit=0 want=0 | nms_tool compare --family pipe --n 1001
+OK        exit=0 want=0 | nms_tool compare --family mixture --n 5000
+OK        exit=0 want=0 | nms_tool compare --family runs --param 7 --n 5003
+OK        exit=0 want=0 | nms_tool compare --key str --keys 5,5,5,1,1,9,9,9,9
+OK        exit=0 want=0 | nms_tool compare --keys 4294967295,0,4294967295,0 --minrun 1
+OK        exit=0 want=0 | nms_tool profile --keys 3,3,3,3
+OK        exit=0 want=0 | nms_tool profile --keys 9,7,7,1
+OK        exit=0 want=0 | nms_tool profile --keys 6,6,6
+OK        exit=0 want=0 | nms_tool profile --keys 42
+OK        exit=0 want=0 | nms_tool trace --n 128 --family perm
+OK        exit=2 want=2 | nms_tool trace --n 129
+== invalid input (exit 2, message on stderr)
+OK        exit=2 want=2 | nms_tool 
+OK        exit=2 want=2 | nms_tool nonsense
+OK        exit=2 want=2 | nms_tool compare --bogus
+OK        exit=2 want=2 | nms_tool compare --n
+OK        exit=2 want=2 | nms_tool compare --n 0
+OK        exit=2 want=2 | nms_tool compare --n -1
+OK        exit=2 want=2 | nms_tool compare --n 20000001
+OK        exit=2 want=2 | nms_tool compare --n 1e3
+OK        exit=2 want=2 | nms_tool compare --family x
+OK        exit=2 want=2 | nms_tool compare --param abc
+OK        exit=2 want=2 | nms_tool compare --seed -4
+OK        exit=2 want=2 | nms_tool trace --keys 
+OK        exit=2 want=2 | nms_tool trace --keys 1,2,
+OK        exit=2 want=2 | nms_tool trace --keys 1,a
+OK        exit=2 want=2 | nms_tool trace --keys 1,2 --family perm
+OK        exit=2 want=2 | nms_tool compare --key str --keylen 64
+OK        exit=2 want=2 | nms_tool compare --key float
+OK        exit=2 want=2 | nms_tool trace --policy x
+OK        exit=2 want=2 | nms_tool compare --minrun 1025
+OK        exit=2 want=2 | nms_tool compare --reps 1001
+OK        exit=2 want=2 | nms_tool strings --key int
+== determinism and seeds
+OK        compare output is byte-identical on repeat
+OK        trace output is byte-identical on repeat
+== stdout/stderr split for a usage error
+stdout bytes=0 stderr: nms_tool: error: --n must be an integer in [1, 20000000]
+TERMINAL AUDIT: ALL OK

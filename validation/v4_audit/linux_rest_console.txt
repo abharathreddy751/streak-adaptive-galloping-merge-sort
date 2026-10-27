@@ -1,0 +1,36 @@
+﻿build exit=0 warnings: 0
+== asm check on Linux (g++ 15, -O2)
+asm_check exit=1
+functions/sections: v3 111, v4 111; only in v3: 0; only in v4: 0; different body: 2
+  different: .text._ZN3nms18natural_merge_sortILNS_5OrderE0ENS_5SagTTILj64ELb1EEELb0E6IntRec7IntLessEEvPT2_mT3_PNS_5StatsEm
+  different: .text._ZN3nms18natural_merge_sortILNS_5OrderE1ENS_6NaiveTELb0E6StrRec7StrLessEEvPT2_mT3_PNS_5StatsEm
+asm DIFFERS at -O2
+== CLI cross-check against the Python model (Linux binary, 300 random inputs each)
+cli check exit=0
+trace: 300 random inputs compared with the Python model; mismatches so far 0
+profile: 300 random inputs compared with independent recomputation
+CLI AUDIT: ALL AGREE
+== saved v4 demo outputs reproduced on Linux?
+same   v4_trace_default.txt
+same   v4_trace_base_small.txt
+DIFFER v4_profile_few3.txt (4 lines)
+2c2
+< environment: compiler 15.3.0 | flags -std=c++17 -O2 -DNDEBUG | pointer 64 bit | timing clock steady_clock
+---
+> environment: compiler 15.2.0 | flags -std=c++17 -O2 -DNDEBUG | pointer 64 bit | timing clock steady_clock
+DIFFER v4_compare_few3.txt (4 lines)
+2c2
+< environment: compiler 15.3.0 | flags -std=c++17 -O2 -DNDEBUG | pointer 64 bit | timing clock steady_clock
+---
+> environment: compiler 15.2.0 | flags -std=c++17 -O2 -DNDEBUG | pointer 64 bit | timing clock steady_clock
+DIFFER v4_compare_nearly.txt (4 lines)
+2c2
+< environment: compiler 15.3.0 | flags -std=c++17 -O2 -DNDEBUG | pointer 64 bit | timing clock steady_clock
+---
+> environment: compiler 15.2.0 | flags -std=c++17 -O2 -DNDEBUG | pointer 64 bit | timing clock steady_clock
+DIFFER v4_compare_strings_zipf.txt (4 lines)
+2c2
+< environment: compiler 15.3.0 | flags -std=c++17 -O2 -DNDEBUG | pointer 64 bit | timing clock steady_clock
+---
+> environment: compiler 15.2.0 | flags -std=c++17 -O2 -DNDEBUG | pointer 64 bit | timing clock steady_clock
+

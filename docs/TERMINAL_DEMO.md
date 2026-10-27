@@ -59,7 +59,7 @@ Every line is one event emitted by the sorter while it ran (the hook is describe
 | `[merge done] ... c comparisons, k block(s)` | comparisons of this merge = 1 (already in order?) + 1 (who owns the first block?) + the block discoveries |
 | `[verify]` | the output is identical (keys and ids) to the reference stable order **and** passes an independent sorted-and-stable test **and** the sorter's own comparison counter equals an external counter |
 
-Notes. The last block of a merge has no `SAG adapted` line because no further discovery follows it. In a backward merge (right run buffered) the roles are mirrored internally; the printout always says left/right in array terms.
+Notes. The streak at the end where a merge finishes (the last one in a forward merge, the first one in a backward merge) is the part that is already in place or is flushed; it is **not searched**, so it is not reported as a block and the printed blocks do not add up to the merge size. For the same reason the last printed block of a merge has no `SAG adapted` line. In a backward merge (right run buffered) the roles are mirrored internally; the printout always says left/right in array terms.
 
 Example (real output of `trace`, SAG policy; the blocks are short, so SAG does not change `t` here and equals the base):
 ```

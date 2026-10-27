@@ -1,10 +1,10 @@
 """Compare two g++ -S outputs function by function.  Functions are matched by section/symbol name, so the ORDER in which the
 compiler emitted them does not matter; local labels (.L123, .LLSDA45 ...) are renumbered per function by first appearance, because
-their global numbers depend on how many labels were generated earlier in the translation unit.  The '.def' symbol declarations are
+their global numbers depend on how many labels were generated earlier in the translation unit.  The file-level symbol directives ('.def' on Windows; '.hidden'/'.weak' on Linux) are
 compared as one set for the whole file (where g++ places them between functions is arbitrary).  Anything else must be identical."""
 import re, sys
 
-DEF = re.compile(r"\s*\.def\b")
+DEF = re.compile(r"\s*\.(def|hidden|weak)\b")
 
 
 def defs(path):
@@ -33,7 +33,7 @@ a, b = chunks(sys.argv[1]), chunks(sys.argv[2])
 only_a, only_b = sorted(set(a) - set(b)), sorted(set(b) - set(a))
 diff = [k for k in a if k in b and sorted(a[k]) != sorted(b[k])]
 if defs(sys.argv[1]) != defs(sys.argv[2]):
-    diff.append("(.def symbol declarations differ)")
+    diff.append("(file-level symbol directives differ)")
 print("functions/sections: v3 %d, v4 %d; only in v3: %d; only in v4: %d; different body: %d" % (len(a), len(b), len(only_a), len(only_b), len(diff)))
 for k in only_a[:5]:
     print("  only in v3:", k)

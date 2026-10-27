@@ -1,0 +1,4 @@
+functions/sections: v3 111, v4 111; only in v3: 0; only in v4: 0; different body: 2
+  different: .text._ZN3nms18natural_merge_sortILNS_5OrderE0ENS_5SagTTILj64ELb1EEELb0E6IntRec7IntLessEEvPT2_mT3_PNS_5StatsEm
+  different: .text._ZN3nms18natural_merge_sortILNS_5OrderE1ENS_6NaiveTELb0E6StrRec7StrLessEEvPT2_mT3_PNS_5StatsEm
+asm DIFFERS at -O2

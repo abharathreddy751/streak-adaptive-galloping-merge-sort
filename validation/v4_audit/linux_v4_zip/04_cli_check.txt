@@ -1,0 +1,3 @@
+trace: 300 random inputs compared with the Python model; mismatches so far 0
+profile: 300 random inputs compared with independent recomputation
+CLI AUDIT: ALL AGREE

@@ -1,0 +1,32 @@
+[FAIL] freeze record: every hashed file (library sources, bench source+binary, runner, analyzer, dataset, plan, structure CSV) is byte-identical now (changed: ['src/natural_merge_sort.hpp'])
+[PASS] SAG / SAG-C / generators / entropy / textbook sources equal the round-2 frozen code byte for byte
+[INFO] src/natural_merge_sort.hpp equals its round-2 freeze hash: False (expected False: Stage-3 exception guard; the ORIGINAL is kept in stage3/artifacts/orig_src with hash e44f1d6710ebd72f...)
+[PASS] the preserved ORIGINAL natural_merge_sort.hpp equals the round-2 freeze hash
+[PASS] design transcribed from the plan (50 cells) digest aecefbd7b2482a66.. == frozen aecefbd7b2482a66..
+[PASS] header = the 31 documented columns
+[PASS] physical lines minus header (5888) == records (5888); all records have 31 fields
+[PASS] 50/50 expected cells present; missing/unexpected: none
+[PASS] no duplicate (kind, cell, variant, rep) keys (0 duplicates)
+[PASS] count rows 400 (expected 400), time rows 5488 (expected 5488), other kinds: none
+[PASS] per-cell design (8 variants x R repetitions exactly once, order_pos permutations, constant structural columns): 0 problems []
+[PASS] rows with ok != 1: 0 of 5888
+[PASS] timing units (ns_total == ns_per_elem*n, > 0) and comparison-count sanity (n-1 <= cmp <= 3 n log2 n; run+merge == total): violations 0 []
+[PASS] base and base_b (identical code) have identical comparison counts in all 50 cells
+[PASS] SAG-C count rows record 16,384 calibration calls and a positive measured c in every cell
+[PASS] 1 run segment(s); first start 2026-10-20 23:23:27 is after the freeze record (2026-10-20 23:23:13) and logged the frozen digest
+[PASS] run log: 50 invocations equal the design; process exit status == 0 exactly for the cells whose rows all have ok == 1 (True); 'failures=0'; problems none
+[INFO] pinning records (cpu, class, samples/1000): {('2', '1', '1000'): 50}
+[PASS] gain set G recomputed from the CSV (low-entropy AND cost_B >= 32) has 16 cells and equals the pre-declared list of 16 (M and L styles x few2/few16/few256/zipf1024 x both sizes)
+[PASS] the un-timed structural pass (frozen before the run) and the timed run report identical H*, cost_B and total_bytes for every cell (the input data are the pre-declared inputs)
+[PASS] summary_s3_heldout.md: 50 rows x 10 numbers (comparison ratio, SAG ratio+CI, A/A+CI, naive, tim, std, topdown, SAG-C comparison + ratio+CI, base ns/elem) re-derived from raw rows with an independent bootstrap; mismatches 0 []
+[INFO] P1 True; P2 wins 12/16 (need 11) non-wins ['S3H_L_few2_n19', 'S3H_M_few2_n17', 'S3H_M_few2_n19', 'S3H_M_zipf1024_n17']; P3 severe cells none; P4 comparison excess none -> independent verdict: SUCCESS
+[PASS] stored verdict text 'CONFIRMATION SUCCESS (candidate criteria P1-P4 met; independent verification pending)' is consistent with the independently derived verdict 'SUCCESS'
+[INFO] sensitivity: win/severe classification under the exact sign-interval CI differs in 0 of 50 cells: []
+[INFO] A/A control: largest |median-1| cells [(0.021, 'S3H_S_few256_n17'), (0.018, 'S3H_M_runs8_n19'), (0.017, 'S3H_S_nearly0p01_n19')]; cells where identical code is flagged win/severe by the frozen rule: none
+[PASS] s3_dev.csv: 2278 records, all 31 fields, all ok == 1
+[PASS] README.md exists and mentions 'Stage 3'
+[PASS] docs/FINAL_REPORT.md exists and mentions 'Stage-3'
+[PASS] docs/STAGE3_CONFIRMATION_RESULTS.md exists and mentions 'CONFIRMATION SUCCESS'
+[PASS] docs/STAGE3_AUDIT_REPORT.md exists and mentions 'Stage 3'
+
+SUMMARY: PASS 24  FAIL 1  DISCREPANCY 0  INFO 5

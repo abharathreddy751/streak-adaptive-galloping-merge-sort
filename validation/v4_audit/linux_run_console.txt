@@ -1,0 +1,74 @@
+﻿zip sha256: 99cd44d5d15b38f9525018c78a231dbc3b5e5dd6a0e21db8600a9749e46367b0
+g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+Python 3.14.4
+Linux LAPTOP-4M0TB1LG 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 GNU/Linux
+extracted to: /tmp/nms_v4_linux/new dsa project_SUBMISSION_V4
+== run_all_tests.sh (Linux)
+run_all_tests exit=0
+[build] demo_sort
+[build] nms_tool (v4 terminal tool)
+[build] done
+test_base exit=0 :: test_sort: 1502829 checks passed, 0 failed
+test_all exit=0 :: test_sort: 2100389 checks passed, 0 failed
+test_sag exit=0 :: test_sag: 265609 checks passed, 0 failed
+test_sagt exit=0 :: test_sagt: 760686 checks passed, 0 failed
+test_exception exit=0 :: test_exception: 84624 checks passed, 0 failed
+test_diag exit=0 :: test_diag: 1686861 checks passed, 0 failed
+demo_sort exit=0 :: all outputs equal the reference stable sort: YES
+demo output identical to results/outputs/demo_output.txt
+test_cli exit=0 :: test_cli: 45 checks passed, 0 failed
+RESULT: PASS
+run_all_tests exit=0
+== sanitizer builds (ASan + UBSan, -O1 -g, trap on UB)
+san test_base exit=0 :: test_sort: 1502829 checks passed, 0 failed
+san test_all exit=0 :: test_sort: 2100389 checks passed, 0 failed
+san test_sag exit=0 :: test_sag: 265609 checks passed, 0 failed
+san test_sagt exit=0 :: test_sagt: 760686 checks passed, 0 failed
+san test_exception exit=0 :: test_exception: 84624 checks passed, 0 failed
+san test_diag exit=0 :: test_diag: 1686861 checks passed, 0 failed
+san nms_tool trace  exit=0
+san nms_tool trace --keys 3,1,2,9,8,7,4,5,6 --policy base --minrun 2  exit=0
+san nms_tool profile --family few --param 3 --n 20000  exit=0
+san nms_tool compare --family few --param 3 --n 20000  exit=0
+san nms_tool compare --family nearly --param 0.01 --n 20000  exit=0
+san nms_tool compare --key str --family zipf --param 100 --n 5000  exit=0
+san nms_tool strings --n 5000 --reps 1  exit=0
+san nms_tool compare --n 1  exit=0
+san nms_tool compare --keys 7,7,7,7,7  exit=0
+SANITIZER SUMMARY: ALL PASS
+== asm check on Linux (v3 vs v4 header, -O2)
+asm_check exit=1
+validation/v4/asm_check/asm_check.sh: line 12: python: command not found
+asm DIFFERS at -O2
+== CLI cross-check against the Python model on Linux
+cli check exit=2
+python3: can't open file '/tmp/nms_v4_linux/new dsa project_SUBMISSION_V4/scripts/audit_cli_check.py': [Errno 2] No such file or directory
+== Stage 3 gate on Linux (python shim in a temp dir)
+gate exit=1
+build exit=0 warnings: 0
+test_base exit=127 missing build/test_base.exe
+GATE-CHECK FAILED: test_base
+test_all exit=127 missing build/test_all.exe
+GATE-CHECK FAILED: test_all
+test_sag exit=127 missing build/test_sag.exe
+GATE-CHECK FAILED: test_sag
+test_sagt exit=127 missing build/test_sagt.exe
+GATE-CHECK FAILED: test_sagt
+test_exception exit=127 missing build/test_exception.exe
+GATE-CHECK FAILED: test_exception
+test_diag exit=127 missing build/test_diag.exe
+GATE-CHECK FAILED: test_diag
+test_cli exit=0 test_cli: 45 checks passed, 0 failed
+demo exit=127 stage3/tools/final_pass3.sh: line 51: ./build/demo_sort.exe: No such file or directory
+GATE-CHECK FAILED: demo exit
+GATE-CHECK FAILED: demo output differs from the stored output
+final_audit.py live exit=1
+GATE-CHECK FAILED: live-tree final_audit.py did not show exactly the expected single FAIL
+final_audit.py on pristine-header tree exit=0
+audit_stage3 on v3-header tree exit=0
+stage2 independent_audit exit=1 SUMMARY: PASS 61  FAIL 2  DISCREPANCY 3  INFO 11
+stage2 string audit exit=1 SUMMARY: PASS 17  FAIL 2  DISCREPANCY 0  INFO 9
+audit_stage3 exit=1 SUMMARY: PASS 24  FAIL 1  DISCREPANCY 0  INFO 5
+GATE: FAIL
+gate exit=1
+LINUX RUN FINISHED

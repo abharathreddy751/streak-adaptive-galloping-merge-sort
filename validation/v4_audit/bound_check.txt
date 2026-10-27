@@ -1,0 +1,1 @@
+cases 925911; worst cost/streak-length = 1.3333 at (t,k,tail,tests) = (0, 2, 4, 4); bound 4/3 = 1.3333; holds = True

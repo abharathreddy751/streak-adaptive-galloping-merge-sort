@@ -35,3 +35,10 @@ SUBMISSION_MANIFEST.sha256          SHA-256 of every other file in the package
 # NEW:      src/diag.hpp, bench/nms_tool.cpp, tests/test_diag.cpp, tests/test_cli.sh, scripts/v4_demo_outputs.sh, docs/TERMINAL_DEMO.md, docs/RELEASE_V4.md,
 #           results/outputs/v4_*.txt, validation/v4/ (final-source run logs, asm_check/)
 # UNCHANGED (byte-identical to v3): every other source, test, raw CSV, frozen plan, freeze record, manifest, summary, figure and historical report.
+
+# ===== v4.1 (relative to the v4 package; the v3 and v4 ZIPs are unchanged historical releases) =====
+# MODIFIED: README.md, docs/FINAL_PROJECT_REPORT.md (nearly sorted comparison range 0.517-0.547), docs/STAGE3_CONFIRMATION_RESULTS.md (appended addendum), docs/KNOWN_LIMITATIONS.md (section 13),
+#           docs/SUBMISSION_HANDOVER.md, docs/FINAL_DEMO_CHECKLIST.md, docs/TERMINAL_DEMO.md, docs/SUBMISSION_CHANGES.txt, validation/README.md,
+#           stage3/tools/final_pass3.sh (Stage 2 expectations name the exact changed files), validation/v4/asm_check/asm_compare.py (file-level directives compared as a set)
+# NEW:      docs/AUDIT_V4_CODE.md, scripts/audit_recompute.py, scripts/audit_cli_check.py, scripts/audit_bound_check.py, scripts/audit_terminal_check.sh, validation/v4_audit/
+# UNCHANGED: sources in src/ and bench/, tests/, scripts/build.sh, scripts/run_all_tests.sh, every raw CSV, frozen plan, freeze record, summary and historical report.
